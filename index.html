@@ -3,149 +3,194 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Data Structure Motion Lab</title>
-    <link rel="stylesheet" href="./styles.css?v=20260403-20" />
+    <title>Headline Positioning Engine</title>
+    <link rel="stylesheet" href="./styles.css?v=20260414-01" />
   </head>
   <body>
-    <main class="app-shell">
+    <main class="page-shell">
       <section class="hero">
         <div class="hero-copy">
-          <p class="eyebrow">Interactive Visualizer</p>
-          <h1>See data structures move in real time.</h1>
+          <p class="creator-tag">Created by <span>@jameelcodes</span></p>
+          <p class="eyebrow">Positioning Engine</p>
+          <h1>Turn weak student headlines into hireable candidate positioning in 5 minutes.</h1>
           <p class="lede">
-            Switch between structures and algorithms, run presets, step through
-            operations, and watch each value move into place frame by frame.
+            This builder forces clarity, proof, and measurable credibility so junior
+            developers stop sounding generic and start sounding interview-ready.
           </p>
-          <div class="hero-meta" aria-label="Highlights">
-            <span>Playback timeline</span>
-            <span>Step-by-step lessons</span>
-            <span>Live state changes</span>
+
+          <div class="formula-card">
+            <p class="mini-label">Plug and Play Formula</p>
+            <div class="formula-row">
+              <span>[ROLE]</span>
+              <span>[WHAT YOU BUILT]</span>
+              <span>[PROOF]</span>
+              <span>[DIRECTION]</span>
+            </div>
           </div>
         </div>
 
-        <div class="hero-card">
-          <p class="mini-label">What this project shows</p>
+        <aside class="hero-panel">
+          <p class="mini-label">What This Builds</p>
           <ul class="hero-points">
-            <li>How insert, remove, and sort operations change structure</li>
-            <li>Where values travel during each step</li>
-            <li>How the same values look in different layouts</li>
+            <li>A clear target role instead of vague student branding</li>
+            <li>A proof-first headline using real projects and tech</li>
+            <li>A credibility signal recruiters can scan instantly</li>
+            <li>A CTA-ready result you can paste into LinkedIn today</li>
           </ul>
-        </div>
+        </aside>
       </section>
 
-      <section class="workspace">
-        <aside class="control-panel">
-          <p class="panel-note">
-            Pick a mode, load a preset, then watch the same data behave
-            differently across each visualization.
-          </p>
-
-          <div class="panel-block">
-            <label for="mode-select">Mode</label>
-            <select id="mode-select">
-              <option value="structure">Data structures</option>
-              <option value="algorithm">Algorithms</option>
-            </select>
+      <section class="builder-layout">
+        <section class="builder-panel">
+          <div class="section-head">
+            <p class="mini-label">Step 1</p>
+            <h2>Pick One Target Role</h2>
+            <p>Force clarity. One role only.</p>
           </div>
 
-          <div class="panel-block">
-            <label for="visualization-select">Visualization</label>
-            <select id="visualization-select">
-              <option value="array">Array</option>
-              <option value="stack">Stack</option>
-              <option value="queue">Queue</option>
-              <option value="linked-list">Linked List</option>
-              <option value="tree">Binary Search Tree</option>
-              <option value="bubble-sort">Bubble Sort</option>
-              <option value="selection-sort">Selection Sort</option>
-              <option value="binary-search">Binary Search</option>
-            </select>
+          <div id="role-options" class="choice-grid" aria-label="Target roles"></div>
+
+          <div class="section-head">
+            <p class="mini-label">Step 2</p>
+            <h2>Add Proof</h2>
+            <p>Use what you built, the stack you used, and the problem you solved.</p>
           </div>
 
-          <div class="panel-block">
-            <label for="preset-select">Preset sequence</label>
-            <select id="preset-select"></select>
-            <div id="preset-gallery" class="preset-gallery" aria-label="Preset examples"></div>
-            <button id="play-recommended-btn" class="secondary">Play Recommended Demo</button>
+          <div class="field-grid">
+            <label>
+              Project count
+              <input id="project-count" type="number" min="1" max="99" value="3" />
+            </label>
+            <label>
+              Build type
+              <input id="build-type" type="text" value="full stack apps" placeholder="full stack apps" />
+            </label>
+            <label class="field-span">
+              Tech stack
+              <input id="tech-stack" type="text" value="React, Node.js, MongoDB" placeholder="React, Node.js, MongoDB" />
+            </label>
+            <label class="field-span">
+              Real feature built
+              <input id="feature" type="text" value="authentication, dashboards, and REST APIs" placeholder="authentication, dashboards, and REST APIs" />
+            </label>
+            <label class="field-span">
+              Problem solved
+              <input id="problem" type="text" value="real user workflows from login to data management" placeholder="real user workflows from login to data management" />
+            </label>
           </div>
 
-          <div class="panel-block">
-            <label for="value-input">Custom value</label>
-            <div class="inline-controls">
-              <input id="value-input" type="number" min="0" max="99" value="34" />
-              <button id="apply-value-btn">Apply</button>
+          <div class="section-head">
+            <p class="mini-label">Step 3</p>
+            <h2>Choose Your Credibility Type</h2>
+            <p>Don’t have numbers? Use complexity instead.</p>
+          </div>
+
+          <div class="field-grid">
+            <label>
+              Credibility category
+              <select id="credibility-category">
+                <option value="results">Results</option>
+                <option value="complexity">Technical complexity</option>
+                <option value="features">Features built</option>
+                <option value="system">System design</option>
+              </select>
+            </label>
+            <label>
+              Credibility type
+              <select id="credibility-type"></select>
+            </label>
+            <label class="field-span">
+              Proof detail
+              <input id="credibility-detail" type="text" value="1200 active users" placeholder="1200 active users / WebSockets and event handling / Stripe checkout / modular backend services" />
+            </label>
+          </div>
+
+          <div id="credibility-hint" class="inline-tip"></div>
+
+          <div class="section-head">
+            <p class="mini-label">Step 4</p>
+            <h2>Add Direction</h2>
+            <p>Optional, but strong when you want to guide recruiters.</p>
+          </div>
+
+          <div class="field-grid">
+            <label>
+              Direction
+              <select id="direction-select">
+                <option value="Open to SWE roles">Open to SWE roles</option>
+                <option value="Actively seeking backend roles">Actively seeking backend roles</option>
+                <option value="Interested in AI-driven products">Interested in AI-driven products</option>
+                <option value="Seeking full-time roles">Seeking full-time roles</option>
+                <option value="custom">Custom direction</option>
+              </select>
+            </label>
+            <label class="field-span">
+              Custom direction
+              <input id="direction-custom" type="text" placeholder="Open to frontend internships" />
+            </label>
+          </div>
+        </section>
+
+        <aside class="results-panel">
+          <div class="results-card spotlight">
+            <p class="mini-label">Live Headline</p>
+            <p id="headline-output" class="headline-output"></p>
+            <div class="headline-actions">
+              <button id="copy-headline-btn" type="button">Copy Headline</button>
+              <button id="shuffle-example-btn" type="button" class="secondary">Load Example</button>
+            </div>
+            <div class="meter-row">
+              <span id="char-count">0 / 220 characters</span>
+              <span id="constraint-status" class="status-pill">Needs work</span>
             </div>
           </div>
 
-          <div class="panel-block">
-            <label for="speed-input">Animation speed</label>
-            <div class="slider-row">
-              <input id="speed-input" type="range" min="220" max="1500" step="20" value="650" />
-              <span id="speed-label">650ms</span>
-            </div>
+          <div class="results-card">
+            <p class="mini-label">Quality Guardrails</p>
+            <ul id="checklist" class="checklist"></ul>
           </div>
 
-          <div class="panel-block action-grid">
-            <button id="play-btn">Play</button>
-            <button id="pause-btn" class="secondary">Pause</button>
-            <button id="step-back-btn" class="secondary">Step Back</button>
-            <button id="step-btn" class="secondary">Step Forward</button>
-            <button id="reset-btn" class="ghost">Reset</button>
-          </div>
-
-          <div class="panel-block explanation-block">
-            <p class="mini-label">Current lesson</p>
-            <h2 id="visualization-title">Array</h2>
-            <p id="structure-description" class="structure-description"></p>
-          </div>
-        </aside>
-
-        <section class="stage-panel">
-          <div class="stage-intro">
-            <p class="mini-label">Live canvas</p>
-            <p class="stage-note">
-              The canvas updates as the playback engine advances each step.
+          <div class="results-card">
+            <p class="mini-label">Why This Converts</p>
+            <p class="support-copy">
+              Max 220 characters. No fluff words like “passionate” or “motivated.”
+              At least one measurable result. Built to make recruiters understand
+              your value in one scan.
             </p>
           </div>
 
-          <div class="status-row">
-            <p id="status-text">Choose a structure and press Play Preset.</p>
-            <span id="op-counter" class="op-counter">0 operations</span>
+          <div class="results-card cta-card">
+            <p class="mini-label">Need Help?</p>
+            <p class="cta-copy">
+              If you struggled to fill this out, that’s exactly why you’re not
+              getting interviews.
+            </p>
+            <p class="cta-line">
+              I help devs fix their positioning and land interviews. DM
+              <strong>“HEADLINE”</strong>
+            </p>
+            <p id="cta-variant" class="cta-variant"></p>
+            <p class="brand-signoff">Built by <strong>@jameelcodes</strong></p>
           </div>
-
-          <div class="viz-frame">
-            <svg id="viz-svg" viewBox="0 0 1080 620" role="img" aria-label="Data structure and algorithm visualization">
-              <defs>
-                <linearGradient id="barGradient" x1="0%" x2="0%" y1="0%" y2="100%">
-                  <stop offset="0%" stop-color="#ffb36b" />
-                  <stop offset="100%" stop-color="#ef6c2f" />
-                </linearGradient>
-              </defs>
-              <g id="viz-backdrop"></g>
-              <g id="edges-layer"></g>
-              <g id="nodes-layer"></g>
-              <g id="labels-layer"></g>
-            </svg>
-          </div>
-
-          <div class="footer-grid">
-            <div class="legend">
-              <span><i class="swatch neutral"></i>Stored values</span>
-              <span><i class="swatch active"></i>Active values</span>
-              <span><i class="swatch accent"></i>New or moved values</span>
-            </div>
-
-            <div class="explanation-card">
-              <p class="mini-label">Explanation</p>
-              <p id="step-explanation" class="step-explanation">
-                The selected visualization will explain each step as it runs.
-              </p>
-            </div>
-          </div>
-        </section>
+        </aside>
       </section>
+
+      <section class="examples">
+        <div class="section-head">
+          <p class="mini-label">Example Transformations</p>
+          <h2>Show the before and after</h2>
+          <p>These make the outcome feel obvious and winnable.</p>
+        </div>
+
+        <div id="example-cards" class="example-grid"></div>
+      </section>
+
+      <footer class="site-footer">
+        <p>Positioning engine by <strong>@jameelcodes</strong> for devs who want stronger signals, better branding, and more interviews.</p>
+      </footer>
+
     </main>
 
-    <script type="module" src="./src/app.js?v=20260403-20"></script>
+    <script type="module" src="./src/app.js?v=20260414-01"></script>
   </body>
 </html>

@@ -1,24 +1,19 @@
-# Visau Data Structures
+# Headline Positioning Engine
 
-An animation-first data structure visualizer built with plain HTML, CSS, and JavaScript.
+A static web app that helps junior developers turn weak LinkedIn headlines into proof-driven positioning.
 
-The goal of this project is simple: let someone click a demo and actually watch values move through arrays, stacks, queues, linked lists, trees, and common algorithms instead of only reading static diagrams.
+The experience is built around a simple system:
 
-## What It Shows
+- Choose one target role
+- Add real proof from projects and tech stack
+- Add a credibility signal with measurable impact
+- Add an optional direction statement
 
-- Arrays with visible index movement
-- Stacks with push and pop motion
-- Queues with front and back flow
-- Linked lists with node and pointer motion
-- Binary search trees with branching insertion paths
-- Bubble sort and selection sort animations
-- Binary search range narrowing
+The builder generates a headline live, checks it against quality constraints, and includes example transformations plus a CTA block for monetization.
 
 ## Running Locally
 
-Because the app uses ES modules, serve it through a local web server instead of opening `index.html` directly.
-
-Example:
+Serve the project through a local web server:
 
 ```bash
 python3 -m http.server 4180
@@ -30,38 +25,8 @@ Then open:
 http://127.0.0.1:4180/index.html
 ```
 
-## Project Structure
+## Files
 
-```text
-.
-├── .github/
-│   └── workflows/
-│       └── deploy-pages.yml
-├── index.html
-├── styles.css
-├── src/
-│   ├── app.js
-│   ├── core/
-│   ├── modules/
-│   └── renderers/
-└── README.md
-```
-
-## Main Files
-
-- `index.html`: app shell and UI controls
-- `styles.css`: visual design and animation styling
-- `src/app.js`: animation-first demo player and scene generation
-- `src/modules/`: earlier reusable data-structure logic and helpers
-- `src/renderers/`: rendering utilities used during the project evolution
-
-## GitHub Pages
-
-This repo includes a GitHub Actions workflow for GitHub Pages deployment.
-
-Once Pages is enabled in the repository settings, pushes to `main` can deploy the static site automatically.
-
-## Notes
-
-- The current focus is visual learning, not production packaging.
-- The app is intentionally framework-free so it stays easy to inspect and share.
+- `index.html`: page structure and content sections
+- `styles.css`: visual system and responsive layout
+- `src/app.js`: interactive builder logic and headline generation
