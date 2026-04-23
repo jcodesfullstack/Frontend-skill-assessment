@@ -1,528 +1,284 @@
-const ROLE_OPTIONS = [
-  "Frontend Developer",
-  "Backend Developer",
-  "Full Stack Developer",
-  "Software Engineer",
-  "AI/ML Developer"
-];
-
-const EXAMPLES = [
+const QUESTIONS = [
   {
-    role: "Full Stack Developer",
-    projectCount: "4",
-    buildType: "MERN apps",
-    techStack: "MongoDB, Express, React, Node.js",
-    feature: "authentication and real-time collaboration",
-    problem: "product workflows from signup to live updates",
-    credibilityCategory: "results",
-    credibilityType: "users",
-    credibilityDetail: "1000+ users",
-    direction: "Open to SWE roles",
-    before: "CS Student"
+    id: "role",
+    category: "Resume / Positioning",
+    shortLabel: "Specific target role",
+    text:
+      "Do you clearly state a specific role on your resume and LinkedIn, like Backend Developer instead of CS Student?"
   },
   {
-    role: "Backend Developer",
-    projectCount: "3",
-    buildType: "API-driven services",
-    techStack: "Node.js, PostgreSQL, Redis",
-    feature: "REST APIs and background jobs",
-    problem: "slow data access and heavy query loads",
-    credibilityCategory: "results",
-    credibilityType: "performance",
-    credibilityDetail: "35% faster queries",
-    direction: "Actively seeking backend roles",
-    before: "Aspiring Software Engineer"
+    id: "impact",
+    category: "Resume / Positioning",
+    shortLabel: "Measured resume impact",
+    text:
+      "Do your resume bullet points include measurable impact, such as users, performance, revenue, time saved, or results?"
   },
   {
-    role: "Full Stack Developer",
-    projectCount: "3",
-    buildType: "apps",
-    techStack: "React and Node.js",
-    feature: "authentication, dashboards, and REST APIs",
-    problem: "real product workflows",
-    credibilityCategory: "complexity",
-    credibilityType: "realtime",
-    credibilityDetail: "real-time features and API integrations",
-    direction: "Open to SWE roles",
-    before: "I don't have users..."
+    id: "realFeatures",
+    category: "Project Quality",
+    shortLabel: "Real-world features",
+    text:
+      "Do you have at least 2 to 3 projects that include real-world features like auth, APIs, databases, payments, dashboards, or background jobs?"
+  },
+  {
+    id: "realProblem",
+    category: "Project Quality",
+    shortLabel: "Real problem solved",
+    text:
+      "Does at least one of your projects solve a real problem instead of being only a tutorial clone?"
+  },
+  {
+    id: "proof",
+    category: "Credibility Signals",
+    shortLabel: "Proof or usage",
+    text:
+      "Do any of your projects have measurable proof, such as users, metrics, usage, performance improvements, or deployment data?"
+  },
+  {
+    id: "explainEndToEnd",
+    category: "Credibility Signals",
+    shortLabel: "End-to-end clarity",
+    text:
+      "Can you confidently explain your strongest project end-to-end without struggling?"
+  },
+  {
+    id: "applicationVolume",
+    category: "Outreach / Strategy",
+    shortLabel: "Enough applications",
+    text:
+      "Have you applied to at least 20 to 30 relevant jobs in the past 2 weeks?"
+  },
+  {
+    id: "directOutreach",
+    category: "Outreach / Strategy",
+    shortLabel: "Referral outreach",
+    text:
+      "Have you reached out directly to engineers, alumni, recruiters, or hiring managers for referrals?"
+  },
+  {
+    id: "projectPitch",
+    category: "Interview Readiness",
+    shortLabel: "2-minute project pitch",
+    text: "Can you clearly explain your projects in under 2 minutes?"
+  },
+  {
+    id: "practice",
+    category: "Interview Readiness",
+    shortLabel: "Recent practice",
+    text: "Have you practiced common technical and behavioral interview questions recently?"
   }
 ];
 
-const FLUFF_WORDS = [
-  "passionate",
-  "motivated",
-  "hardworking",
-  "enthusiastic",
-  "aspiring",
-  "dedicated"
-];
-
-const state = {
-  role: ROLE_OPTIONS[2],
-  projectCount: "3",
-  buildType: "full stack apps",
-  techStack: "React, Node.js, MongoDB",
-  feature: "authentication, dashboards, and REST APIs",
-  problem: "real user workflows from login to data management",
-  credibilityCategory: "results",
-  credibilityType: "users",
-  credibilityDetail: "1200 active users",
-  direction: "Open to SWE roles"
-};
-
-const CREDIBILITY_OPTIONS = {
-  results: {
-    hint: "Outcome-based proof for stronger candidates.",
-    cta: "",
-    options: [
-      {
-        value: "users",
-        label: "Users",
-        placeholder: "1200 active users"
-      },
-      {
-        value: "performance",
-        label: "Performance improvement",
-        placeholder: "40% faster load time"
-      },
-      {
-        value: "usage",
-        label: "Revenue / usage",
-        placeholder: "2K+ API requests per day"
-      }
-    ]
+const CATEGORY_DETAILS = {
+  "Resume / Positioning": {
+    label: "Priority area: Positioning",
+    issue: "Your resume and LinkedIn are not making your value obvious fast."
   },
-  complexity: {
-    hint: "Use technical depth when you do not have metrics yet.",
-    cta: "That’s exactly why recruiters skip your profile. You need projects that create real signals. DM “PROJECT”.",
-    options: [
-      {
-        value: "auth",
-        label: "Authentication system",
-        placeholder: "implemented authentication and authorization"
-      },
-      {
-        value: "api",
-        label: "API design",
-        placeholder: "designed REST APIs with CRUD and validation"
-      },
-      {
-        value: "realtime",
-        label: "Real-time features",
-        placeholder: "implemented real-time features with WebSockets"
-      },
-      {
-        value: "ai",
-        label: "AI integration",
-        placeholder: "integrated OpenAI APIs into product workflows"
-      }
-    ]
+  "Project Quality": {
+    label: "Priority area: Project depth",
+    issue: "Your projects may not look like real engineering work yet."
   },
-  features: {
-    hint: "Feature-based credibility is easy for recruiters to scan.",
-    cta: "",
-    options: [
-      {
-        value: "dashboard",
-        label: "Dashboard",
-        placeholder: "built analytics dashboards with filters and charts"
-      },
-      {
-        value: "payments",
-        label: "Payments",
-        placeholder: "shipped payment integration with Stripe checkout"
-      },
-      {
-        value: "chat",
-        label: "Chat system",
-        placeholder: "built a real-time chat system"
-      },
-      {
-        value: "uploads",
-        label: "File uploads",
-        placeholder: "implemented file uploads and cloud storage"
-      }
-    ]
+  "Credibility Signals": {
+    label: "Priority area: Proof",
+    issue: "You are not showing enough evidence that your work matters or that you can explain it."
   },
-  system: {
-    hint: "System-level thinking creates stronger positioning fast.",
-    cta: "",
-    options: [
-      {
-        value: "backend",
-        label: "Scalable backend",
-        placeholder: "designed scalable backend architecture"
-      },
-      {
-        value: "architecture",
-        label: "Clean architecture",
-        placeholder: "structured modular frontend and backend components"
-      },
-      {
-        value: "errors",
-        label: "Error handling",
-        placeholder: "implemented error handling and logging"
-      },
-      {
-        value: "state",
-        label: "State management",
-        placeholder: "handled state management and caching cleanly"
-      }
-    ]
+  "Outreach / Strategy": {
+    label: "Priority area: Opportunity creation",
+    issue: "You are not getting in front of enough people or enough relevant openings."
+  },
+  "Interview Readiness": {
+    label: "Priority area: Interview conversion",
+    issue: "You may be close, but your answers need more structure and confidence."
   }
 };
+
+const DIAGNOSES = [
+  {
+    min: 0,
+    max: 3,
+    title: "Foundation Problem",
+    copy:
+      "You are probably not getting interviews because the fundamentals are not strong enough yet. The market cannot see a clear role, strong projects, or credible proof.",
+    actions: [
+      "Pick one target role and make your resume, LinkedIn headline, and project descriptions point toward it.",
+      "Upgrade one project with real-world features like authentication, APIs, a database, and deployment.",
+      "Add proof to your resume: users, performance, time saved, test coverage, usage, or before-and-after results."
+    ]
+  },
+  {
+    min: 4,
+    max: 6,
+    title: "Positioning Problem",
+    copy:
+      "You likely have enough skill to be taken seriously, but it is not being communicated clearly. Your resume may sound vague, academic, or too much like a task list.",
+    actions: [
+      "Rewrite 3 resume bullets using action, tech, feature, and impact.",
+      "Add one measurable result to your strongest project, even if it is usage, speed, reliability, or scope.",
+      "Fix your LinkedIn headline so it says the role you want and the stack you can contribute with."
+    ]
+  },
+  {
+    min: 7,
+    max: 8,
+    title: "Strategy Problem",
+    copy:
+      "You are doing many things right, but you are probably not creating enough quality opportunities. More proof will not help if the right people never see it.",
+    actions: [
+      "Apply to 20 to 30 relevant roles in the next 2 weeks with a focused target role.",
+      "Send 10 direct messages to engineers, alumni, recruiters, or hiring managers asking for advice or referrals.",
+      "Track applications, replies, referrals, and interview requests so you can see what needs attention first."
+    ]
+  },
+  {
+    min: 9,
+    max: 10,
+    title: "Interview Problem",
+    copy:
+      "You are close. Your profile has many of the right pieces, so the next challenge is likely converting conversations into offers with clearer answers.",
+    actions: [
+      "Practice a 2-minute project walkthrough using problem, technical decision, tradeoff, result, and lesson learned.",
+      "Prepare answers for common questions about conflicts, debugging, ownership, and why you chose your stack.",
+      "Record one mock answer and tighten it until it sounds specific, calm, and structured."
+    ]
+  }
+];
+
+const state = new Map();
 
 const elements = {
-  roleOptions: document.getElementById("role-options"),
-  projectCount: document.getElementById("project-count"),
-  buildType: document.getElementById("build-type"),
-  techStack: document.getElementById("tech-stack"),
-  feature: document.getElementById("feature"),
-  problem: document.getElementById("problem"),
-  credibilityCategory: document.getElementById("credibility-category"),
-  credibilityType: document.getElementById("credibility-type"),
-  credibilityDetail: document.getElementById("credibility-detail"),
-  credibilityHint: document.getElementById("credibility-hint"),
-  directionSelect: document.getElementById("direction-select"),
-  directionCustom: document.getElementById("direction-custom"),
-  headlineOutput: document.getElementById("headline-output"),
-  charCount: document.getElementById("char-count"),
-  constraintStatus: document.getElementById("constraint-status"),
-  checklist: document.getElementById("checklist"),
-  copyButton: document.getElementById("copy-headline-btn"),
-  shuffleButton: document.getElementById("shuffle-example-btn"),
-  exampleCards: document.getElementById("example-cards"),
-  ctaVariant: document.getElementById("cta-variant")
+  questionList: document.getElementById("question-list"),
+  progressText: document.getElementById("progress-text"),
+  progressBar: document.getElementById("progress-bar"),
+  scoreValue: document.getElementById("score-value"),
+  answeredValue: document.getElementById("answered-value"),
+  scoreNote: document.getElementById("score-note"),
+  diagnosisCard: document.getElementById("diagnosis-card"),
+  diagnosisTitle: document.getElementById("diagnosis-title"),
+  diagnosisCopy: document.getElementById("diagnosis-copy"),
+  primaryFocus: document.getElementById("primary-focus"),
+  actionList: document.getElementById("action-list")
 };
 
-function createRoleOptions() {
-  ROLE_OPTIONS.forEach((role) => {
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "choice-pill";
-    button.textContent = role;
-    button.dataset.role = role;
-    button.addEventListener("click", () => {
-      state.role = role;
-      render();
-    });
-    elements.roleOptions.appendChild(button);
-  });
+function getScore() {
+  return Array.from(state.values()).filter(Boolean).length;
 }
 
-function credibilityText() {
-  const detail = state.credibilityDetail.trim();
-  const category = state.credibilityCategory;
-
-  if (!detail) {
-    return "";
-  }
-
-  if (category === "results") {
-    return detail;
-  }
-
-  return capitalize(detail);
+function getAnsweredCount() {
+  return state.size;
 }
 
-function proofText() {
-  const count = state.projectCount.trim();
-  const buildType = state.buildType.trim();
-  const stack = state.techStack.trim();
-  const feature = state.feature.trim();
-  const problem = state.problem.trim();
-
-  const proofVariants = [
-    `Built ${count} ${buildType} using ${stack} with ${feature}${problem ? ` solving ${problem}` : ""}`,
-    `Built ${count} ${buildType} with ${stack}${feature ? `; ${feature}` : ""}`,
-    `Built ${count} ${buildType}${feature ? `; ${feature}` : ""}`,
-    `Built ${count} ${buildType}`
-  ];
-
-  return proofVariants.find((variant) => variant.length > 0) || "";
+function getDiagnosis(score) {
+  return DIAGNOSES.find((diagnosis) => score >= diagnosis.min && score <= diagnosis.max);
 }
 
-function directionText() {
-  if (elements.directionSelect.value === "custom") {
-    return elements.directionCustom.value.trim();
-  }
-  return elements.directionSelect.value.trim();
+function getMissedQuestions() {
+  return QUESTIONS.filter((question) => state.get(question.id) === false);
 }
 
-function headlineText() {
-  const role = state.role.trim();
-  const credibility = credibilityText();
-  const direction = directionText();
-  const count = state.projectCount.trim();
-  const buildType = state.buildType.trim();
-  const stack = state.techStack.trim();
-  const feature = state.feature.trim();
-  const problem = state.problem.trim();
+function getPrimaryFocus() {
+  const counts = getMissedQuestions().reduce((totals, question) => {
+    totals[question.category] = (totals[question.category] || 0) + 1;
+    return totals;
+  }, {});
 
-  const proofVariants = [
-    `Built ${count} ${buildType} using ${stack} with ${feature}${problem ? ` solving ${problem}` : ""}`,
-    `Built ${count} ${buildType} with ${stack}${feature ? `; ${feature}` : ""}`,
-    `Built ${count} ${buildType}; ${feature || stack}`,
-    `Built ${count} ${buildType}`
-  ].filter(Boolean);
-
-  const options = proofVariants.map((proof) => [role, proof, credibility, direction].filter(Boolean).join(" | "));
-  return options.find((option) => option.length <= 220) || options[0] || role;
+  const sortedFocusAreas = Object.entries(counts).sort((a, b) => b[1] - a[1]);
+  return sortedFocusAreas[0]?.[0] || null;
 }
 
-function headlineChecks(headline) {
-  const normalized = headline.toLowerCase();
-  const hasMetric = /\d/.test(headline);
-  const hasFluff = FLUFF_WORDS.some((word) => normalized.includes(word));
-  const withinLimit = headline.length <= 220;
-  const hasRole = Boolean(state.role.trim());
-  const hasProof = proofText().split(" ").length > 5;
-  const hasCredibility = Boolean(credibilityText().trim());
-  const credibilityLabel = state.credibilityCategory === "results"
-    ? "Measurable impact?"
-    : "Technical credibility?";
+function renderQuestions() {
+  elements.questionList.innerHTML = "";
 
-  return [
-    { label: "Clear role?", pass: hasRole },
-    { label: "Real proof?", pass: hasProof },
-    {
-      label: credibilityLabel,
-      pass: state.credibilityCategory === "results" ? hasMetric : hasCredibility
-    },
-    { label: "No fluff?", pass: !hasFluff },
-    { label: "Within 220 characters?", pass: withinLimit }
-  ];
-}
-
-function renderChecklist(headline) {
-  const checks = headlineChecks(headline);
-  elements.checklist.innerHTML = "";
-
-  checks.forEach((item) => {
-    const li = document.createElement("li");
-    li.className = item.pass ? "is-pass" : "is-fail";
-    li.textContent = `${item.pass ? "✓" : "•"} ${item.label}`;
-    elements.checklist.appendChild(li);
-  });
-
-  const allGood = checks.every((item) => item.pass);
-  elements.constraintStatus.textContent = allGood ? "Ready to post" : "Needs work";
-  elements.constraintStatus.classList.toggle("is-good", allGood);
-}
-
-function renderRoles() {
-  const roleButtons = elements.roleOptions.querySelectorAll(".choice-pill");
-  roleButtons.forEach((button) => {
-    button.classList.toggle("is-selected", button.dataset.role === state.role);
-  });
-}
-
-function renderExamples() {
-  elements.exampleCards.innerHTML = "";
-
-  EXAMPLES.forEach((example, index) => {
+  QUESTIONS.forEach((question, index) => {
     const article = document.createElement("article");
-    article.className = "example-card";
-
-    const headline = buildExampleHeadline(example);
+    article.className = "question-card";
 
     article.innerHTML = `
-      <p class="mini-label">Example ${index + 1}</p>
-      <p class="before-label">Before</p>
-      <p class="before-text">${example.before}</p>
-      <p class="after-label">After</p>
-      <p class="after-text">${headline}</p>
-      <button type="button" class="text-button" data-example-index="${index}">Use this example</button>
+      <div class="question-meta">
+        <span>${String(index + 1).padStart(2, "0")}</span>
+        <strong>${question.category}</strong>
+      </div>
+      <h3>${question.text}</h3>
+      <div class="answer-row" role="group" aria-label="${question.shortLabel}">
+        <button type="button" data-question="${question.id}" data-answer="yes">Yes</button>
+        <button type="button" data-question="${question.id}" data-answer="no">No</button>
+      </div>
     `;
 
-    elements.exampleCards.appendChild(article);
-  });
-
-  elements.exampleCards.querySelectorAll("[data-example-index]").forEach((button) => {
-    button.addEventListener("click", () => {
-      loadExample(Number(button.dataset.exampleIndex));
-    });
+    elements.questionList.appendChild(article);
   });
 }
 
-function buildExampleHeadline(example) {
-  const current = { ...state };
-  Object.assign(state, {
-    role: example.role,
-    projectCount: example.projectCount,
-    buildType: example.buildType,
-    techStack: example.techStack,
-    feature: example.feature,
-    problem: example.problem,
-    credibilityCategory: example.credibilityCategory,
-    credibilityType: example.credibilityType,
-    credibilityDetail: example.credibilityDetail
+function renderButtonStates() {
+  document.querySelectorAll("[data-question]").forEach((button) => {
+    const value = state.get(button.dataset.question);
+    const isSelected =
+      (button.dataset.answer === "yes" && value === true) ||
+      (button.dataset.answer === "no" && value === false);
+
+    button.classList.toggle("is-selected", isSelected);
   });
-
-  const previousCategory = elements.credibilityCategory.value;
-  const previousDirection = elements.directionSelect.value;
-  const previousCustom = elements.directionCustom.value;
-
-  elements.credibilityCategory.value = example.credibilityCategory;
-  renderCredibilityOptions();
-  elements.credibilityType.value = example.credibilityType;
-  elements.credibilityDetail.value = example.credibilityDetail;
-  elements.directionSelect.value = EXAMPLES.some((item) => item.direction === example.direction)
-    ? example.direction
-    : "custom";
-  elements.directionCustom.value = elements.directionSelect.value === "custom" ? example.direction : "";
-
-  const headline = headlineText();
-
-  Object.assign(state, current);
-  elements.credibilityCategory.value = previousCategory;
-  renderCredibilityOptions();
-  elements.directionSelect.value = previousDirection;
-  elements.directionCustom.value = previousCustom;
-
-  return headline;
 }
 
-function capitalize(value) {
-  return value.charAt(0).toUpperCase() + value.slice(1);
-}
+function renderResult() {
+  const score = getScore();
+  const answered = getAnsweredCount();
+  const progress = (answered / QUESTIONS.length) * 100;
+  const isComplete = answered === QUESTIONS.length;
 
-function renderCredibilityOptions() {
-  const category = elements.credibilityCategory.value;
-  const config = CREDIBILITY_OPTIONS[category];
+  elements.progressText.textContent = `${answered} of ${QUESTIONS.length} answered`;
+  elements.progressBar.style.width = `${progress}%`;
+  elements.scoreValue.textContent = `${score}/10`;
+  elements.answeredValue.textContent = isComplete ? "Diagnosis complete" : "Answer every question";
+  elements.scoreNote.textContent = isComplete
+    ? "Your result is based on both total score and the pattern of missing answers."
+    : "Your diagnosis will sharpen as you answer each question.";
 
-  elements.credibilityType.innerHTML = "";
-
-  config.options.forEach((option) => {
-    const item = document.createElement("option");
-    item.value = option.value;
-    item.textContent = option.label;
-    elements.credibilityType.appendChild(item);
-  });
-
-  elements.credibilityType.value = config.options[0].value;
-  elements.credibilityDetail.placeholder = config.options[0].placeholder;
-  if (!elements.credibilityDetail.value || elements.credibilityCategory.dataset.reset === "true") {
-    elements.credibilityDetail.value = config.options[0].placeholder;
-  }
-  elements.credibilityHint.textContent = `Tip: ${config.hint}`;
-  elements.credibilityCategory.dataset.reset = "false";
-}
-
-function syncStateFromInputs() {
-  state.projectCount = elements.projectCount.value;
-  state.buildType = elements.buildType.value;
-  state.techStack = elements.techStack.value;
-  state.feature = elements.feature.value;
-  state.problem = elements.problem.value;
-  state.credibilityCategory = elements.credibilityCategory.value;
-  state.credibilityType = elements.credibilityType.value;
-  state.credibilityDetail = elements.credibilityDetail.value;
-}
-
-function render() {
-  syncStateFromInputs();
-  renderRoles();
-
-  const headline = headlineText();
-  elements.headlineOutput.textContent = headline;
-  elements.charCount.textContent = `${headline.length} / 220 characters`;
-  elements.charCount.classList.toggle("is-over", headline.length > 220);
-  renderChecklist(headline);
-  elements.ctaVariant.textContent = CREDIBILITY_OPTIONS[state.credibilityCategory].cta;
-}
-
-function loadExample(index) {
-  const example = EXAMPLES[index];
-  state.role = example.role;
-  elements.projectCount.value = example.projectCount;
-  elements.buildType.value = example.buildType;
-  elements.techStack.value = example.techStack;
-  elements.feature.value = example.feature;
-  elements.problem.value = example.problem;
-  elements.credibilityCategory.dataset.reset = "true";
-  elements.credibilityCategory.value = example.credibilityCategory;
-  renderCredibilityOptions();
-  elements.credibilityType.value = example.credibilityType;
-  elements.credibilityDetail.value = example.credibilityDetail;
-
-  if ([...elements.directionSelect.options].some((option) => option.value === example.direction)) {
-    elements.directionSelect.value = example.direction;
-    elements.directionCustom.value = "";
-  } else {
-    elements.directionSelect.value = "custom";
-    elements.directionCustom.value = example.direction;
+  if (!isComplete) {
+    elements.diagnosisCard.classList.add("is-muted");
+    elements.diagnosisTitle.textContent = "Waiting for inputs";
+    elements.diagnosisCopy.textContent =
+      "Once all 10 answers are complete, you will see the likely reason you are not getting interviews and what to fix first.";
+    elements.primaryFocus.textContent = "No priority area yet";
+    elements.actionList.innerHTML = "<li>Answer all 10 questions to unlock your quick-win plan.</li>";
+    renderButtonStates();
+    return;
   }
 
-  render();
+  const diagnosis = getDiagnosis(score);
+  const primaryFocus = getPrimaryFocus();
+  const focusDetails = primaryFocus ? CATEGORY_DETAILS[primaryFocus] : null;
+  const missedQuestions = getMissedQuestions();
+
+  elements.diagnosisCard.classList.remove("is-muted");
+  elements.diagnosisTitle.textContent = diagnosis.title;
+  elements.diagnosisCopy.textContent = diagnosis.copy;
+  elements.primaryFocus.textContent = focusDetails
+    ? `${focusDetails.label}: ${focusDetails.issue}`
+    : "No obvious weak area: focus on interview conversion and consistency.";
+
+  const missedItems = missedQuestions
+    .slice(0, 3)
+    .map((question) => `<li>Missed check: ${question.shortLabel}</li>`)
+    .join("");
+  const actionItems = diagnosis.actions.map((action) => `<li>${action}</li>`).join("");
+
+  elements.actionList.innerHTML = `${missedItems}${actionItems}`;
+  renderButtonStates();
 }
 
-async function copyHeadline() {
-  const headline = headlineText();
+function bindAnswers() {
+  elements.questionList.addEventListener("click", (event) => {
+    const button = event.target.closest("[data-question]");
 
-  try {
-    await navigator.clipboard.writeText(headline);
-    elements.copyButton.textContent = "Copied";
-    window.setTimeout(() => {
-      elements.copyButton.textContent = "Copy Headline";
-    }, 1400);
-  } catch {
-    elements.copyButton.textContent = "Copy failed";
-    window.setTimeout(() => {
-      elements.copyButton.textContent = "Copy Headline";
-    }, 1400);
-  }
-}
-
-function bindInputs() {
-  [
-    elements.projectCount,
-    elements.buildType,
-    elements.techStack,
-    elements.feature,
-    elements.problem,
-    elements.credibilityCategory,
-    elements.credibilityType,
-    elements.credibilityDetail,
-    elements.directionSelect,
-    elements.directionCustom
-  ].forEach((input) => {
-    input.addEventListener("input", render);
-    input.addEventListener("change", render);
-  });
-
-  elements.credibilityCategory.addEventListener("change", () => {
-    elements.credibilityCategory.dataset.reset = "true";
-    renderCredibilityOptions();
-    render();
-  });
-
-  elements.credibilityType.addEventListener("change", () => {
-    const category = elements.credibilityCategory.value;
-    const selected = CREDIBILITY_OPTIONS[category].options.find((option) => option.value === elements.credibilityType.value);
-    if (selected) {
-      elements.credibilityDetail.placeholder = selected.placeholder;
-      if (!elements.credibilityDetail.value || elements.credibilityDetail.dataset.autofill === "true") {
-        elements.credibilityDetail.value = selected.placeholder;
-      }
-      elements.credibilityDetail.dataset.autofill = "true";
+    if (!button) {
+      return;
     }
-    render();
-  });
 
-  elements.credibilityDetail.addEventListener("input", () => {
-    elements.credibilityDetail.dataset.autofill = "false";
-  });
-
-  elements.copyButton.addEventListener("click", copyHeadline);
-  elements.shuffleButton.addEventListener("click", () => {
-    const index = Math.floor(Math.random() * EXAMPLES.length);
-    loadExample(index);
+    state.set(button.dataset.question, button.dataset.answer === "yes");
+    renderResult();
   });
 }
 
-createRoleOptions();
-renderCredibilityOptions();
-renderExamples();
-bindInputs();
-render();
+renderQuestions();
+bindAnswers();
+renderResult();

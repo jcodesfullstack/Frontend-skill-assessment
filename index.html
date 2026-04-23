@@ -3,194 +3,142 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Headline Positioning Engine</title>
-    <link rel="stylesheet" href="./styles.css?v=20260414-01" />
+    <title>Why You Are Not Getting Interviews Diagnostic</title>
+    <link rel="stylesheet" href="./styles.css?v=20260422-01" />
   </head>
   <body>
     <main class="page-shell">
       <section class="hero">
         <div class="hero-copy">
-          <p class="creator-tag">Created by <span>@jameelcodes</span></p>
-          <p class="eyebrow">Positioning Engine</p>
-          <h1>Turn weak student headlines into hireable candidate positioning in 5 minutes.</h1>
+          <p class="creator-tag">By <span>@jameelcodes</span> for CS grads trying to land interviews</p>
+          <p class="eyebrow">2-minute job readiness diagnosis</p>
+          <h1>I will tell you exactly why you are not getting interviews.</h1>
           <p class="lede">
-            This builder forces clarity, proof, and measurable credibility so junior
-            developers stop sounding generic and start sounding interview-ready.
+            Answer 10 yes/no questions across your resume, projects, proof, outreach,
+            and interview readiness. The tool returns your root problem, what is
+            costing you interviews, and the first fixes to make today.
           </p>
 
-          <div class="formula-card">
-            <p class="mini-label">Plug and Play Formula</p>
-            <div class="formula-row">
-              <span>[ROLE]</span>
-              <span>[WHAT YOU BUILT]</span>
-              <span>[PROOF]</span>
-              <span>[DIRECTION]</span>
-            </div>
+          <div class="diagnosis-promise" aria-label="Diagnostic steps">
+            <span>10 questions</span>
+            <span>Score</span>
+            <span>Root problem</span>
+            <span>Action plan</span>
           </div>
         </div>
 
         <aside class="hero-panel">
-          <p class="mini-label">What This Builds</p>
-          <ul class="hero-points">
-            <li>A clear target role instead of vague student branding</li>
-            <li>A proof-first headline using real projects and tech</li>
-            <li>A credibility signal recruiters can scan instantly</li>
-            <li>A CTA-ready result you can paste into LinkedIn today</li>
-          </ul>
+          <p class="mini-label">More useful than a quiz</p>
+          <h2>It is a readiness check.</h2>
+          <p>
+            Most CS grads blame bad luck. Usually the real issue is something more
+            specific: unclear positioning, weak proof, not enough outreach, or
+            unstructured interview answers.
+          </p>
         </aside>
       </section>
 
-      <section class="builder-layout">
-        <section class="builder-panel">
+      <section class="diagnostic-layout">
+        <section class="question-panel" aria-labelledby="diagnostic-heading">
           <div class="section-head">
             <p class="mini-label">Step 1</p>
-            <h2>Pick One Target Role</h2>
-            <p>Force clarity. One role only.</p>
+            <h2 id="diagnostic-heading">Run the diagnosis</h2>
+            <p>Be honest. A "no" is not a failure; it is a clear area we can improve.</p>
           </div>
 
-          <div id="role-options" class="choice-grid" aria-label="Target roles"></div>
-
-          <div class="section-head">
-            <p class="mini-label">Step 2</p>
-            <h2>Add Proof</h2>
-            <p>Use what you built, the stack you used, and the problem you solved.</p>
+          <div class="progress-card">
+            <div>
+              <p class="mini-label">Progress</p>
+              <strong id="progress-text">0 of 10 answered</strong>
+            </div>
+            <div class="progress-track" aria-hidden="true">
+              <span id="progress-bar"></span>
+            </div>
           </div>
 
-          <div class="field-grid">
-            <label>
-              Project count
-              <input id="project-count" type="number" min="1" max="99" value="3" />
-            </label>
-            <label>
-              Build type
-              <input id="build-type" type="text" value="full stack apps" placeholder="full stack apps" />
-            </label>
-            <label class="field-span">
-              Tech stack
-              <input id="tech-stack" type="text" value="React, Node.js, MongoDB" placeholder="React, Node.js, MongoDB" />
-            </label>
-            <label class="field-span">
-              Real feature built
-              <input id="feature" type="text" value="authentication, dashboards, and REST APIs" placeholder="authentication, dashboards, and REST APIs" />
-            </label>
-            <label class="field-span">
-              Problem solved
-              <input id="problem" type="text" value="real user workflows from login to data management" placeholder="real user workflows from login to data management" />
-            </label>
-          </div>
-
-          <div class="section-head">
-            <p class="mini-label">Step 3</p>
-            <h2>Choose Your Credibility Type</h2>
-            <p>Don’t have numbers? Use complexity instead.</p>
-          </div>
-
-          <div class="field-grid">
-            <label>
-              Credibility category
-              <select id="credibility-category">
-                <option value="results">Results</option>
-                <option value="complexity">Technical complexity</option>
-                <option value="features">Features built</option>
-                <option value="system">System design</option>
-              </select>
-            </label>
-            <label>
-              Credibility type
-              <select id="credibility-type"></select>
-            </label>
-            <label class="field-span">
-              Proof detail
-              <input id="credibility-detail" type="text" value="1200 active users" placeholder="1200 active users / WebSockets and event handling / Stripe checkout / modular backend services" />
-            </label>
-          </div>
-
-          <div id="credibility-hint" class="inline-tip"></div>
-
-          <div class="section-head">
-            <p class="mini-label">Step 4</p>
-            <h2>Add Direction</h2>
-            <p>Optional, but strong when you want to guide recruiters.</p>
-          </div>
-
-          <div class="field-grid">
-            <label>
-              Direction
-              <select id="direction-select">
-                <option value="Open to SWE roles">Open to SWE roles</option>
-                <option value="Actively seeking backend roles">Actively seeking backend roles</option>
-                <option value="Interested in AI-driven products">Interested in AI-driven products</option>
-                <option value="Seeking full-time roles">Seeking full-time roles</option>
-                <option value="custom">Custom direction</option>
-              </select>
-            </label>
-            <label class="field-span">
-              Custom direction
-              <input id="direction-custom" type="text" placeholder="Open to frontend internships" />
-            </label>
-          </div>
+          <div id="question-list" class="question-list"></div>
         </section>
 
-        <aside class="results-panel">
-          <div class="results-card spotlight">
-            <p class="mini-label">Live Headline</p>
-            <p id="headline-output" class="headline-output"></p>
-            <div class="headline-actions">
-              <button id="copy-headline-btn" type="button">Copy Headline</button>
-              <button id="shuffle-example-btn" type="button" class="secondary">Load Example</button>
+        <aside class="results-panel" aria-live="polite">
+          <div class="result-card score-card">
+            <p class="mini-label">Your score</p>
+            <div class="score-row">
+              <strong id="score-value">0/10</strong>
+              <span id="answered-value">Answer every question</span>
             </div>
-            <div class="meter-row">
-              <span id="char-count">0 / 220 characters</span>
-              <span id="constraint-status" class="status-pill">Needs work</span>
-            </div>
-          </div>
-
-          <div class="results-card">
-            <p class="mini-label">Quality Guardrails</p>
-            <ul id="checklist" class="checklist"></ul>
-          </div>
-
-          <div class="results-card">
-            <p class="mini-label">Why This Converts</p>
-            <p class="support-copy">
-              Max 220 characters. No fluff words like “passionate” or “motivated.”
-              At least one measurable result. Built to make recruiters understand
-              your value in one scan.
+            <p id="score-note">
+              Your diagnosis will update as you answer each question.
             </p>
           </div>
 
-          <div class="results-card cta-card">
-            <p class="mini-label">Need Help?</p>
-            <p class="cta-copy">
-              If you struggled to fill this out, that’s exactly why you’re not
-              getting interviews.
+          <div id="diagnosis-card" class="result-card diagnosis-card is-muted">
+            <p class="mini-label">Root problem</p>
+            <h2 id="diagnosis-title">Waiting for inputs</h2>
+            <p id="diagnosis-copy">
+              Once all 10 answers are complete, you will see the likely reason you are
+              not getting interviews and what to fix first.
+            </p>
+            <div id="primary-focus" class="focus-pill">No priority area yet</div>
+          </div>
+
+          <div id="action-card" class="result-card action-card">
+            <p class="mini-label">Immediate action plan</p>
+            <ul id="action-list" class="action-list">
+              <li>Answer all 10 questions to unlock your quick-win plan.</li>
+            </ul>
+          </div>
+
+          <div class="result-card cta-card">
+            <p class="mini-label">Reality check</p>
+            <p>
+              Most CS grads stay stuck here for months because they do not know what
+              to fix first.
             </p>
             <p class="cta-line">
-              I help devs fix their positioning and land interviews. DM
-              <strong>“HEADLINE”</strong>
+              I help CS grads fix this and start getting interviews fast.
+              DM <strong>@jameelcodes</strong> with <strong>DIAGNOSIS</strong>.
             </p>
-            <p id="cta-variant" class="cta-variant"></p>
-            <p class="brand-signoff">Built by <strong>@jameelcodes</strong></p>
           </div>
         </aside>
       </section>
 
-      <section class="examples">
+      <section class="insights-section">
         <div class="section-head">
-          <p class="mini-label">Example Transformations</p>
-          <h2>Show the before and after</h2>
-          <p>These make the outcome feel obvious and winnable.</p>
+          <p class="mini-label">What most people get wrong</p>
+          <h2>It usually is not luck.</h2>
+          <p>
+            When a CS grad is not hearing back, the problem usually appears before the
+            interview ever happens.
+          </p>
         </div>
 
-        <div id="example-cards" class="example-grid"></div>
+        <div class="insight-grid">
+          <article class="insight-card">
+            <strong>70%</strong>
+            <span>Positioning problem</span>
+            <p>The resume, LinkedIn, or project story does not make the candidate look hireable fast.</p>
+          </article>
+          <article class="insight-card">
+            <strong>20%</strong>
+            <span>Strategy problem</span>
+            <p>The candidate is not creating enough quality shots through applications, referrals, and outreach.</p>
+          </article>
+          <article class="insight-card">
+            <strong>10%</strong>
+            <span>Actual skill gap</span>
+            <p>The projects or technical fundamentals need more depth before the market will respond.</p>
+          </article>
+        </div>
       </section>
 
       <footer class="site-footer">
-        <p>Positioning engine by <strong>@jameelcodes</strong> for devs who want stronger signals, better branding, and more interviews.</p>
+        <p>
+          Interview Diagnosis Tool by <strong>@jameelcodes</strong>, built for CS grads
+          who want a specific reason they are not getting interviews and a clear next step.
+        </p>
       </footer>
-
     </main>
 
-    <script type="module" src="./src/app.js?v=20260414-01"></script>
+    <script type="module" src="./src/app.js?v=20260422-01"></script>
   </body>
 </html>
