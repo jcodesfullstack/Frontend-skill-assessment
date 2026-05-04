@@ -1,14 +1,16 @@
-# Interview Diagnosis Tool
+# Instagram Content Conversion Diagnostic
 
-A static lead-magnet web app for CS grads who are not getting interviews.
+A static landing-page tool that reframes Instagram content performance around
+conversion metrics instead of vanity metrics.
 
-The tool asks 10 yes/no questions across job readiness, then returns:
+The page includes:
 
-- A score out of 10
-- A root diagnosis: Foundation, Positioning, Strategy, or Interview Problem
-- The primary area to improve based on missed answers
-- Missed readiness checks and a quick action plan
-- A subtle CTA to DM `DIAGNOSIS`
+- A bold hero with the "wrong metrics" hook
+- A false-belief section for followers, likes, and views
+- The Content Conversion Stack: saves, shares, comments, and profile clicks
+- An interactive bottleneck diagnosis engine
+- A next-action layer for each problem
+- A soft conversion section with call, DM, and review CTAs
 
 ## Running Locally
 
@@ -26,6 +28,6 @@ http://127.0.0.1:4180/index.html
 
 ## Files
 
-- `index.html`: main diagnostic layout and content sections
-- `styles.css`: visual system, responsive layout, and interaction states
-- `src/app.js`: question data, scoring, pattern matching, and diagnosis rendering
+- `index.html`: landing-page sections and audit form
+- `styles.css`: dark and white visual system, responsive layout, metric cards
+- `src/app.js`: bottleneck diagnosis logic and live result rendering

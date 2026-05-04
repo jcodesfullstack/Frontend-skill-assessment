@@ -1,284 +1,139 @@
-const QUESTIONS = [
-  {
-    id: "role",
-    category: "Resume / Positioning",
-    shortLabel: "Specific target role",
-    text:
-      "Do you clearly state a specific role on your resume and LinkedIn, like Backend Developer instead of CS Student?"
-  },
-  {
-    id: "impact",
-    category: "Resume / Positioning",
-    shortLabel: "Measured resume impact",
-    text:
-      "Do your resume bullet points include measurable impact, such as users, performance, revenue, time saved, or results?"
-  },
-  {
-    id: "realFeatures",
-    category: "Project Quality",
-    shortLabel: "Real-world features",
-    text:
-      "Do you have at least 2 to 3 projects that include real-world features like auth, APIs, databases, payments, dashboards, or background jobs?"
-  },
-  {
-    id: "realProblem",
-    category: "Project Quality",
-    shortLabel: "Real problem solved",
-    text:
-      "Does at least one of your projects solve a real problem instead of being only a tutorial clone?"
-  },
-  {
-    id: "proof",
-    category: "Credibility Signals",
-    shortLabel: "Proof or usage",
-    text:
-      "Do any of your projects have measurable proof, such as users, metrics, usage, performance improvements, or deployment data?"
-  },
-  {
-    id: "explainEndToEnd",
-    category: "Credibility Signals",
-    shortLabel: "End-to-end clarity",
-    text:
-      "Can you confidently explain your strongest project end-to-end without struggling?"
-  },
-  {
-    id: "applicationVolume",
-    category: "Outreach / Strategy",
-    shortLabel: "Enough applications",
-    text:
-      "Have you applied to at least 20 to 30 relevant jobs in the past 2 weeks?"
-  },
-  {
-    id: "directOutreach",
-    category: "Outreach / Strategy",
-    shortLabel: "Referral outreach",
-    text:
-      "Have you reached out directly to engineers, alumni, recruiters, or hiring managers for referrals?"
-  },
-  {
-    id: "projectPitch",
-    category: "Interview Readiness",
-    shortLabel: "2-minute project pitch",
-    text: "Can you clearly explain your projects in under 2 minutes?"
-  },
-  {
-    id: "practice",
-    category: "Interview Readiness",
-    shortLabel: "Recent practice",
-    text: "Have you practiced common technical and behavioral interview questions recently?"
-  }
-];
+const form = document.getElementById("audit-form");
+const resultCard = document.getElementById("diagnosis-result");
 
-const CATEGORY_DETAILS = {
-  "Resume / Positioning": {
-    label: "Priority area: Positioning",
-    issue: "Your resume and LinkedIn are not making your value obvious fast."
+const BOTTLENECKS = {
+  value: {
+    label: "Value problem",
+    headline: "Your content has a value problem.",
+    reason: "High views with low saves means people saw the post, but did not find it useful enough to keep.",
+    fix: "Make your next post a step-by-step system with a clear framework, checklist, or repeatable process."
   },
-  "Project Quality": {
-    label: "Priority area: Project depth",
-    issue: "Your projects may not look like real engineering work yet."
+  impact: {
+    label: "Emotional impact problem",
+    headline: "Your content is useful, but it is not hitting hard enough.",
+    reason: "Saves without shares usually means the post is practical, but not sharp, relatable, or bold enough to pass along.",
+    fix: "Add a stronger opinion, call out the painful mistake, or name the private frustration your reader already feels."
   },
-  "Credibility Signals": {
-    label: "Priority area: Proof",
-    issue: "You are not showing enough evidence that your work matters or that you can explain it."
+  cta: {
+    label: "CTA problem",
+    headline: "Your content has a CTA problem.",
+    reason: "High saves with low comments means people value the post, but you are not giving them a reason to raise their hand.",
+    fix: "End with a keyword CTA such as 'comment SYSTEM' or ask a specific question that forces a real response."
   },
-  "Outreach / Strategy": {
-    label: "Priority area: Opportunity creation",
-    issue: "You are not getting in front of enough people or enough relevant openings."
+  positioning: {
+    label: "Positioning problem",
+    headline: "Your content has a positioning problem.",
+    reason: "Comments without profile clicks means people engaged, but the post did not make your authority or offer obvious.",
+    fix: "Rewrite the hook and post angle so the reader knows who you help, what problem you solve, and why they should click."
   },
-  "Interview Readiness": {
-    label: "Priority area: Interview conversion",
-    issue: "You may be close, but your answers need more structure and confidence."
+  offer: {
+    label: "Offer problem",
+    headline: "Your content has an offer problem.",
+    reason: "Profile clicks without DMs means people are interested, but your offer or next step is not clear enough.",
+    fix: "Make the promise sharper, add a direct next step, and make your profile explain the result you help people get."
+  },
+  healthy: {
+    label: "Conversion path working",
+    headline: "Your content is converting better than most.",
+    reason: "Your metrics show attention, value, intent, and buying interest moving in the same direction.",
+    fix: "Double down on this post format and create three variations with a stronger CTA."
   }
 };
 
-const DIAGNOSES = [
-  {
-    min: 0,
-    max: 3,
-    title: "Foundation Problem",
-    copy:
-      "You are probably not getting interviews because the fundamentals are not strong enough yet. The market cannot see a clear role, strong projects, or credible proof.",
-    actions: [
-      "Pick one target role and make your resume, LinkedIn headline, and project descriptions point toward it.",
-      "Upgrade one project with real-world features like authentication, APIs, a database, and deployment.",
-      "Add proof to your resume: users, performance, time saved, test coverage, usage, or before-and-after results."
-    ]
-  },
-  {
-    min: 4,
-    max: 6,
-    title: "Positioning Problem",
-    copy:
-      "You likely have enough skill to be taken seriously, but it is not being communicated clearly. Your resume may sound vague, academic, or too much like a task list.",
-    actions: [
-      "Rewrite 3 resume bullets using action, tech, feature, and impact.",
-      "Add one measurable result to your strongest project, even if it is usage, speed, reliability, or scope.",
-      "Fix your LinkedIn headline so it says the role you want and the stack you can contribute with."
-    ]
-  },
-  {
-    min: 7,
-    max: 8,
-    title: "Strategy Problem",
-    copy:
-      "You are doing many things right, but you are probably not creating enough quality opportunities. More proof will not help if the right people never see it.",
-    actions: [
-      "Apply to 20 to 30 relevant roles in the next 2 weeks with a focused target role.",
-      "Send 10 direct messages to engineers, alumni, recruiters, or hiring managers asking for advice or referrals.",
-      "Track applications, replies, referrals, and interview requests so you can see what needs attention first."
-    ]
-  },
-  {
-    min: 9,
-    max: 10,
-    title: "Interview Problem",
-    copy:
-      "You are close. Your profile has many of the right pieces, so the next challenge is likely converting conversations into offers with clearer answers.",
-    actions: [
-      "Practice a 2-minute project walkthrough using problem, technical decision, tradeoff, result, and lesson learned.",
-      "Prepare answers for common questions about conflicts, debugging, ownership, and why you chose your stack.",
-      "Record one mock answer and tighten it until it sounds specific, calm, and structured."
-    ]
-  }
-];
-
-const state = new Map();
-
-const elements = {
-  questionList: document.getElementById("question-list"),
-  progressText: document.getElementById("progress-text"),
-  progressBar: document.getElementById("progress-bar"),
-  scoreValue: document.getElementById("score-value"),
-  answeredValue: document.getElementById("answered-value"),
-  scoreNote: document.getElementById("score-note"),
-  diagnosisCard: document.getElementById("diagnosis-card"),
-  diagnosisTitle: document.getElementById("diagnosis-title"),
-  diagnosisCopy: document.getElementById("diagnosis-copy"),
-  primaryFocus: document.getElementById("primary-focus"),
-  actionList: document.getElementById("action-list")
-};
-
-function getScore() {
-  return Array.from(state.values()).filter(Boolean).length;
+function getNumber(name) {
+  const value = Number(new FormData(form).get(name));
+  return Number.isFinite(value) && value > 0 ? value : 0;
 }
 
-function getAnsweredCount() {
-  return state.size;
-}
-
-function getDiagnosis(score) {
-  return DIAGNOSES.find((diagnosis) => score >= diagnosis.min && score <= diagnosis.max);
-}
-
-function getMissedQuestions() {
-  return QUESTIONS.filter((question) => state.get(question.id) === false);
-}
-
-function getPrimaryFocus() {
-  const counts = getMissedQuestions().reduce((totals, question) => {
-    totals[question.category] = (totals[question.category] || 0) + 1;
-    return totals;
-  }, {});
-
-  const sortedFocusAreas = Object.entries(counts).sort((a, b) => b[1] - a[1]);
-  return sortedFocusAreas[0]?.[0] || null;
-}
-
-function renderQuestions() {
-  elements.questionList.innerHTML = "";
-
-  QUESTIONS.forEach((question, index) => {
-    const article = document.createElement("article");
-    article.className = "question-card";
-
-    article.innerHTML = `
-      <div class="question-meta">
-        <span>${String(index + 1).padStart(2, "0")}</span>
-        <strong>${question.category}</strong>
-      </div>
-      <h3>${question.text}</h3>
-      <div class="answer-row" role="group" aria-label="${question.shortLabel}">
-        <button type="button" data-question="${question.id}" data-answer="yes">Yes</button>
-        <button type="button" data-question="${question.id}" data-answer="no">No</button>
-      </div>
-    `;
-
-    elements.questionList.appendChild(article);
-  });
-}
-
-function renderButtonStates() {
-  document.querySelectorAll("[data-question]").forEach((button) => {
-    const value = state.get(button.dataset.question);
-    const isSelected =
-      (button.dataset.answer === "yes" && value === true) ||
-      (button.dataset.answer === "no" && value === false);
-
-    button.classList.toggle("is-selected", isSelected);
-  });
-}
-
-function renderResult() {
-  const score = getScore();
-  const answered = getAnsweredCount();
-  const progress = (answered / QUESTIONS.length) * 100;
-  const isComplete = answered === QUESTIONS.length;
-
-  elements.progressText.textContent = `${answered} of ${QUESTIONS.length} answered`;
-  elements.progressBar.style.width = `${progress}%`;
-  elements.scoreValue.textContent = `${score}/10`;
-  elements.answeredValue.textContent = isComplete ? "Diagnosis complete" : "Answer every question";
-  elements.scoreNote.textContent = isComplete
-    ? "Your result is based on both total score and the pattern of missing answers."
-    : "Your diagnosis will sharpen as you answer each question.";
-
-  if (!isComplete) {
-    elements.diagnosisCard.classList.add("is-muted");
-    elements.diagnosisTitle.textContent = "Waiting for inputs";
-    elements.diagnosisCopy.textContent =
-      "Once all 10 answers are complete, you will see the likely reason you are not getting interviews and what to fix first.";
-    elements.primaryFocus.textContent = "No priority area yet";
-    elements.actionList.innerHTML = "<li>Answer all 10 questions to unlock your quick-win plan.</li>";
-    renderButtonStates();
-    return;
+function percent(part, total) {
+  if (!total) {
+    return 0;
   }
 
-  const diagnosis = getDiagnosis(score);
-  const primaryFocus = getPrimaryFocus();
-  const focusDetails = primaryFocus ? CATEGORY_DETAILS[primaryFocus] : null;
-  const missedQuestions = getMissedQuestions();
-
-  elements.diagnosisCard.classList.remove("is-muted");
-  elements.diagnosisTitle.textContent = diagnosis.title;
-  elements.diagnosisCopy.textContent = diagnosis.copy;
-  elements.primaryFocus.textContent = focusDetails
-    ? `${focusDetails.label}: ${focusDetails.issue}`
-    : "No obvious weak area: focus on interview conversion and consistency.";
-
-  const missedItems = missedQuestions
-    .slice(0, 3)
-    .map((question) => `<li>Missed check: ${question.shortLabel}</li>`)
-    .join("");
-  const actionItems = diagnosis.actions.map((action) => `<li>${action}</li>`).join("");
-
-  elements.actionList.innerHTML = `${missedItems}${actionItems}`;
-  renderButtonStates();
+  return (part / total) * 100;
 }
 
-function bindAnswers() {
-  elements.questionList.addEventListener("click", (event) => {
-    const button = event.target.closest("[data-question]");
+function diagnose(metrics) {
+  const saveRate = percent(metrics.saves, metrics.views);
+  const shareRate = percent(metrics.shares, metrics.views);
+  const commentRate = percent(metrics.comments, metrics.views);
+  const clickRate = percent(metrics.clicks, metrics.views);
 
-    if (!button) {
-      return;
-    }
+  if (metrics.views >= 1000 && saveRate < 2) {
+    return { ...BOTTLENECKS.value, saveRate, shareRate, commentRate, clickRate };
+  }
 
-    state.set(button.dataset.question, button.dataset.answer === "yes");
-    renderResult();
-  });
+  if (saveRate >= 2 && shareRate < 0.75) {
+    return { ...BOTTLENECKS.impact, saveRate, shareRate, commentRate, clickRate };
+  }
+
+  if (saveRate >= 2 && commentRate < 0.25) {
+    return { ...BOTTLENECKS.cta, saveRate, shareRate, commentRate, clickRate };
+  }
+
+  if (metrics.comments >= 5 && clickRate < 0.7) {
+    return { ...BOTTLENECKS.positioning, saveRate, shareRate, commentRate, clickRate };
+  }
+
+  if (metrics.clicks >= 8 && metrics.dms === 0) {
+    return { ...BOTTLENECKS.offer, saveRate, shareRate, commentRate, clickRate };
+  }
+
+  return { ...BOTTLENECKS.healthy, saveRate, shareRate, commentRate, clickRate };
 }
 
-renderQuestions();
-bindAnswers();
-renderResult();
+function renderDiagnosis(event) {
+  event?.preventDefault();
+
+  const metrics = {
+    views: getNumber("views"),
+    saves: getNumber("saves"),
+    shares: getNumber("shares"),
+    comments: getNumber("comments"),
+    clicks: getNumber("clicks"),
+    dms: getNumber("dms")
+  };
+  const diagnosis = diagnose(metrics);
+
+  resultCard.innerHTML = `
+    <p class="mini-label">Your diagnosis</p>
+    <span class="result-pill">${escapeHtml(diagnosis.label)}</span>
+    <h3>${escapeHtml(diagnosis.headline)}</h3>
+    <p>${escapeHtml(diagnosis.reason)}</p>
+    <dl class="rate-grid">
+      <div>
+        <dt>Save rate</dt>
+        <dd>${diagnosis.saveRate.toFixed(1)}%</dd>
+      </div>
+      <div>
+        <dt>Share rate</dt>
+        <dd>${diagnosis.shareRate.toFixed(1)}%</dd>
+      </div>
+      <div>
+        <dt>Comment rate</dt>
+        <dd>${diagnosis.commentRate.toFixed(1)}%</dd>
+      </div>
+      <div>
+        <dt>Click rate</dt>
+        <dd>${diagnosis.clickRate.toFixed(1)}%</dd>
+      </div>
+    </dl>
+    <div class="fix-card">
+      <strong>Fix your next post</strong>
+      <p>${escapeHtml(diagnosis.fix)}</p>
+    </div>
+  `;
+}
+
+function escapeHtml(value) {
+  return String(value)
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+form.addEventListener("submit", renderDiagnosis);
+form.addEventListener("input", renderDiagnosis);
+renderDiagnosis();
