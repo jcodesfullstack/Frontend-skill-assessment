@@ -3,207 +3,166 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Instagram Content Conversion Diagnostic</title>
-    <link rel="stylesheet" href="./styles.css?v=20260501-07" />
+    <title>Full-Stack Internship Assessment Quiz</title>
+    <link rel="stylesheet" href="./styles.css?v=20260512-01" />
   </head>
   <body>
-    <main class="page-shell">
-      <section class="hero">
-        <div class="hero-copy">
-          <a class="creator-handle" href="https://www.instagram.com/ayindeleconte/" target="_blank" rel="noreferrer">@ayindeleconte</a>
-          <p class="eyebrow">Content conversion audit</p>
-          <h1>Your Instagram Is Not Broken. You Are Just Tracking the Wrong Metrics.</h1>
+    <main class="app-shell">
+      <header class="topbar">
+        <div>
+          <p class="eyebrow">Aptitude & Skills Assessment</p>
+          <h1>Full-Stack Developer Internship Quiz</h1>
+        </div>
+        <button id="print-results" class="icon-button" type="button" title="Print or save results">
+          <span aria-hidden="true">v</span>
+          <span>Save</span>
+        </button>
+      </header>
+
+      <section class="intro-panel" aria-labelledby="intro-title">
+        <div>
+          <h2 id="intro-title">45 questions. Automatic scoring where it's fair.</h2>
           <p>
-            A simple system to diagnose why your content is not converting into
-            clients, and exactly what to fix in your next post.
+            Multiple-choice answers are graded instantly. Written answers are captured
+            for review, then can be marked full, half, or no credit on the results page.
           </p>
-          <a class="hero-link" href="#diagnosis">Find your bottleneck</a>
         </div>
-        <div class="hero-example" aria-label="Example content post">
-          <p class="mini-label">Real post angle</p>
-          <strong>If your post got views but no DMs, the hook worked. The conversion path did not.</strong>
-          <span>Use the audit below to find the exact break.</span>
-        </div>
-      </section>
-
-      <section class="belief-section">
-        <div class="section-head">
-          <p class="mini-label">Section 1</p>
-          <h2>Stop Tracking These Metrics</h2>
-          <p>These metrics make you feel productive, but they do not tell you if you are making money.</p>
-        </div>
-        <div class="false-metric-grid">
-          <article>
-            <span class="metric-icon">F</span>
-            <h3>Followers</h3>
-            <p>A bigger audience does not matter if the right people never raise their hand.</p>
-          </article>
-          <article>
-            <span class="metric-icon">L</span>
-            <h3>Likes</h3>
-            <p>Likes can mean agreement, entertainment, or habit. They do not prove buying intent.</p>
-          </article>
-          <article>
-            <span class="metric-icon">V</span>
-            <h3>Views</h3>
-            <p>Views show reach. They do not show whether your content moved anyone closer to becoming a client.</p>
-          </article>
+        <div class="quick-stats" aria-label="Assessment summary">
+          <span><strong>45</strong> scored</span>
+          <span><strong>7</strong> sections</span>
+          <span><strong>35-45</strong> minutes</span>
         </div>
       </section>
 
-      <section class="stack-section">
-        <div class="section-head">
-          <p class="mini-label">Section 2</p>
-          <h2>The Content Conversion Stack</h2>
-          <p>The only four metrics that show whether your content is moving people from attention to buying interest.</p>
-        </div>
-        <div class="stack-grid">
-          <article class="stack-card">
-            <span class="stack-number">1</span>
-            <div>
-              <h3>Saves</h3>
-              <p class="signal">Signal: Value</p>
-              <p>If people are not saving your content, it is not valuable enough.</p>
-              <ul>
-                <li>Add frameworks</li>
-                <li>Add step-by-step breakdowns</li>
-                <li>Add come-back-to-this content</li>
-              </ul>
-            </div>
-          </article>
-          <article class="stack-card">
-            <span class="stack-number">2</span>
-            <div>
-              <h3>Shares</h3>
-              <p class="signal">Signal: Emotional impact</p>
-              <p>If people are not sharing, your content is not hitting hard enough.</p>
-              <ul>
-                <li>Use stronger opinions</li>
-                <li>Use callouts like "you are behind"</li>
-                <li>Name relatable pain</li>
-              </ul>
-            </div>
-          </article>
-          <article class="stack-card">
-            <span class="stack-number">3</span>
-            <div>
-              <h3>Comments</h3>
-              <p class="signal">Signal: Intent</p>
-              <p>Comments are people raising their hand.</p>
-              <ul>
-                <li>Use a clear keyword CTA</li>
-                <li>Use polarizing statements</li>
-                <li>Ask questions that force a response</li>
-              </ul>
-            </div>
-          </article>
-          <article class="stack-card">
-            <span class="stack-number">4</span>
-            <div>
-              <h3>Profile Clicks</h3>
-              <p class="signal">Signal: Buying interest</p>
-              <p>This is the closest metric to money before a DM or booked call.</p>
-              <ul>
-                <li>Write a stronger hook</li>
-                <li>Create a curiosity gap</li>
-                <li>Make your positioning obvious</li>
-              </ul>
-            </div>
-          </article>
+      <section class="student-card" aria-labelledby="student-title">
+        <h2 id="student-title">Student Info</h2>
+        <div class="student-grid">
+          <label>
+            Name
+            <input id="student-name" autocomplete="name" type="text" placeholder="Student name" />
+          </label>
+          <label>
+            Date
+            <input id="student-date" type="date" />
+          </label>
+          <label>
+            School
+            <input id="student-school" type="text" placeholder="School" />
+          </label>
+          <label>
+            Target Role
+            <input id="student-role" type="text" value="Full-Stack Internship" />
+          </label>
         </div>
       </section>
 
-      <section id="diagnosis" class="diagnosis-section">
-        <div class="diagnosis-copy">
-          <p class="mini-label">Section 3</p>
-          <h2>Find Your Bottleneck in 10 Seconds</h2>
-          <p>
-            Enter the average numbers from a recent post. The tool will show the
-            conversion problem hiding behind the vanity metrics.
-          </p>
-          <div class="post-example">
-            <p class="mini-label">Real post example</p>
-            <strong>Post: "You do not need more content. You need a conversion path."</strong>
-            <span>Strong views plus weak profile clicks usually means the post entertained, but did not position.</span>
+      <section class="progress-panel" aria-label="Quiz progress">
+        <div class="progress-copy">
+          <span id="answered-count">0 of 45 scored questions completed</span>
+          <strong id="completion-status">Results locked until finished</strong>
+        </div>
+        <div class="progress-track" aria-hidden="true">
+          <span id="progress-fill"></span>
+        </div>
+      </section>
+
+      <form id="quiz-form" class="quiz-form">
+        <div id="sections"></div>
+
+        <section class="section-card reflection-card">
+          <div class="section-heading">
+            <p class="eyebrow">Not Scored</p>
+            <h2>Learning Reflection</h2>
+            <p>These answers help shape the learning plan after the assessment.</p>
+          </div>
+          <label class="written-question">
+            Which topic felt most familiar? Which felt most challenging?
+            <textarea name="reflection-familiar" rows="4"></textarea>
+          </label>
+          <label class="written-question">
+            What is one thing you want to learn in the next 30 days, and why?
+            <textarea name="reflection-learn" rows="4"></textarea>
+          </label>
+          <label class="written-question">
+            How do you prefer to learn new technical skills?
+            <textarea name="reflection-style" rows="4" placeholder="Videos, docs, projects, pair programming, etc."></textarea>
+          </label>
+          <label class="written-question">
+            What kind of project would excite you most to build for your portfolio?
+            <textarea name="reflection-project" rows="4"></textarea>
+          </label>
+        </section>
+
+        <div class="submit-panel">
+          <div>
+            <strong>Ready to score?</strong>
+            <p>Complete all scored questions to unlock the assessment score. Written questions can be graded after submission.</p>
+          </div>
+          <button id="score-assessment" class="primary-button" type="submit" disabled>Score Assessment</button>
+        </div>
+      </form>
+
+      <section id="results" class="results-section" aria-live="polite" aria-labelledby="results-title">
+        <div class="score-sheet">
+          <div class="score-main">
+            <p class="eyebrow">Screenshot Result</p>
+            <h2 id="results-title">Assessment Score</h2>
+            <p id="student-summary"></p>
+          </div>
+          <div class="score-number">
+            <strong id="total-score">0/45</strong>
+            <span id="score-band">Building</span>
           </div>
         </div>
 
-        <form id="audit-form" class="audit-card">
-          <div class="audit-brand">
-            <span>Audit by</span>
-            <a href="https://www.instagram.com/ayindeleconte/" target="_blank" rel="noreferrer">@ayindeleconte</a>
+        <div class="score-meter" aria-hidden="true">
+          <span id="score-meter-fill"></span>
+        </div>
+
+        <div class="result-grid">
+          <article>
+            <span class="panel-label">Objective Score</span>
+            <strong id="objective-score">0/30</strong>
+            <p>Multiple-choice questions graded automatically.</p>
+          </article>
+          <article>
+            <span class="panel-label">Written Score</span>
+            <strong id="written-score">0/15</strong>
+            <p id="written-status">Review written answers to finalize the score.</p>
+          </article>
+          <article>
+            <span class="panel-label">Learning Plan</span>
+            <strong id="plan-title">Start with fundamentals</strong>
+            <p id="plan-copy"></p>
+          </article>
+        </div>
+
+        <div class="breakdown-card">
+          <div>
+            <span class="panel-label">Section Breakdown</span>
+            <h3>Scores by topic</h3>
           </div>
-          <label>
-            Average views
-            <input id="views" name="views" type="number" min="0" value="4200" />
-          </label>
-          <label>
-            Saves
-            <input id="saves" name="saves" type="number" min="0" value="42" />
-          </label>
-          <label>
-            Shares
-            <input id="shares" name="shares" type="number" min="0" value="18" />
-          </label>
-          <label>
-            Comments
-            <input id="comments" name="comments" type="number" min="0" value="3" />
-          </label>
-          <label>
-            Profile clicks
-            <input id="clicks" name="clicks" type="number" min="0" value="9" />
-          </label>
-          <label>
-            DMs or calls
-            <input id="dms" name="dms" type="number" min="0" value="0" />
-          </label>
-          <button type="submit">Diagnose my content</button>
-        </form>
-
-        <article id="diagnosis-result" class="result-card" aria-live="polite"></article>
-      </section>
-
-      <section class="action-section">
-        <div class="section-head">
-          <p class="mini-label">Section 4</p>
-          <h2>What To Do Next</h2>
-          <p>One specific move for each bottleneck, so the audit turns into your next post.</p>
+          <div id="section-breakdown" class="breakdown-list"></div>
         </div>
-        <div class="action-grid">
-          <article>
-            <h3>Low saves</h3>
-            <p>Make your next post a step-by-step system people want to reference later.</p>
-          </article>
-          <article>
-            <h3>Low comments</h3>
-            <p>End with a keyword CTA, like "comment SYSTEM and I will send you the framework."</p>
-          </article>
-          <article>
-            <h3>Low clicks</h3>
-            <p>Rewrite the hook to create curiosity and make your positioning impossible to miss.</p>
-          </article>
-          <article>
-            <h3>No DMs</h3>
-            <p>Tighten the offer so the reader knows exactly what problem you solve and what to do next.</p>
-          </article>
-        </div>
-      </section>
 
-      <section class="conversion-section">
-        <p class="mini-label">Section 5</p>
-        <h2>Most business owners do not have a content problem. They have a conversion system problem.</h2>
-        <p>
-          If you want help fixing your content so it actually brings in clients,
-          I will break it down for you personally. DM <strong>@ayindeleconte</strong>
-          with <strong>AUDIT</strong>.
-        </p>
-        <div class="cta-row">
-          <a href="https://calendly.com/ayindealeconte/introductory-call" target="_blank" rel="noreferrer">Book a free call</a>
-          <a href="https://www.instagram.com/ayindeleconte/" target="_blank" rel="noreferrer">DM AUDIT</a>
+        <div class="written-review-card">
+          <div class="review-head">
+            <div>
+              <span class="panel-label">Written Review</span>
+              <h3>Mark free-response credit</h3>
+            </div>
+            <button id="toggle-written-review" class="secondary-button" type="button">Show Written Answers</button>
+          </div>
+          <div id="written-review" class="written-review" hidden></div>
+        </div>
+
+        <div class="reflection-output-card">
+          <span class="panel-label">Learning Reflection</span>
+          <div id="reflection-output" class="reflection-output"></div>
         </div>
       </section>
     </main>
 
-    <script type="module" src="./src/app.js?v=20260501-07"></script>
+    <script type="module" src="./src/app.js?v=20260512-01"></script>
   </body>
 </html>
