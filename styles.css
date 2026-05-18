@@ -9,6 +9,7 @@
   --amber: #d97706;
   --coral: #e85d4f;
   --blue: #2563eb;
+  --violet: #6d28d9;
   --soft-teal: #e7f6f3;
   --soft-amber: #fff3d6;
   --shadow: 0 22px 70px rgba(22, 32, 51, 0.12);
@@ -26,7 +27,7 @@ body {
   margin: 0;
   color: var(--ink);
   background:
-    linear-gradient(180deg, rgba(15, 118, 110, 0.12), rgba(245, 247, 251, 0) 380px),
+    linear-gradient(180deg, rgba(15, 118, 110, 0.12), rgba(37, 99, 235, 0.06) 380px, rgba(245, 247, 251, 0) 640px),
     var(--wash);
   font-family: Inter, "Avenir Next", "Segoe UI", sans-serif;
 }
@@ -131,7 +132,7 @@ button:focus {
   padding: clamp(22px, 4vw, 40px);
   color: #ffffff;
   background:
-    linear-gradient(120deg, rgba(22, 32, 51, 0.94), rgba(15, 118, 110, 0.82)),
+    linear-gradient(120deg, rgba(22, 32, 51, 0.94), rgba(15, 118, 110, 0.72), rgba(109, 40, 217, 0.52)),
     url("https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=1600&q=80") center/cover;
 }
 
@@ -202,7 +203,7 @@ button:focus {
 
 .student-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 12px;
 }
 
@@ -327,6 +328,15 @@ button:focus {
   background: var(--soft-teal);
 }
 
+.idk-option {
+  border-style: dashed;
+}
+
+.idk-option:has(input:checked) {
+  border-color: rgba(217, 119, 6, 0.55);
+  background: var(--soft-amber);
+}
+
 .code-block {
   overflow-x: auto;
   border-radius: 8px;
@@ -432,15 +442,14 @@ button:focus {
 
 .result-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 12px;
   margin-top: 14px;
 }
 
 .result-grid article,
 .breakdown-card,
-.written-review-card,
-.reflection-output-card {
+.answer-review-card {
   border: 1px solid var(--line);
   border-radius: 8px;
   padding: 18px;
@@ -452,6 +461,7 @@ button:focus {
   margin-bottom: 8px;
   color: var(--ink);
   font-size: 1.6rem;
+  overflow-wrap: anywhere;
 }
 
 .result-grid p,
@@ -460,8 +470,7 @@ button:focus {
 }
 
 .breakdown-card,
-.written-review-card,
-.reflection-output-card {
+.answer-review-card {
   margin-top: 14px;
 }
 
@@ -496,7 +505,7 @@ button:focus {
   background: var(--teal);
 }
 
-.written-review {
+.answer-review {
   display: grid;
   gap: 12px;
   margin-top: 14px;
@@ -514,11 +523,40 @@ button:focus {
   line-height: 1.35;
 }
 
+.review-topline {
+  display: flex;
+  gap: 12px;
+  align-items: start;
+  justify-content: space-between;
+}
+
+.review-topline span {
+  flex: 0 0 auto;
+  border-radius: 999px;
+  padding: 6px 10px;
+  color: var(--teal-dark);
+  background: var(--soft-teal);
+  font-size: 0.75rem;
+  font-weight: 900;
+}
+
 .review-answer,
-.review-guide {
+.review-guide,
+.answer-result {
   border-radius: 8px;
   padding: 12px;
   background: #ffffff;
+}
+
+.answer-result {
+  margin: 8px 0;
+  color: var(--ink);
+  line-height: 1.45;
+}
+
+.correct-answer {
+  border: 1px solid rgba(15, 118, 110, 0.22);
+  background: var(--soft-teal);
 }
 
 .review-answer {
@@ -570,6 +608,11 @@ button:focus {
   border-color: rgba(232, 93, 79, 0.58);
 }
 
+.is-incorrect .review-topline span {
+  color: #9f2f26;
+  background: #ffe9e6;
+}
+
 @media (max-width: 900px) {
   .intro-panel,
   .student-grid,
@@ -618,7 +661,7 @@ button:focus {
   .student-card,
   .progress-panel,
   .topbar .icon-button,
-  .written-review-card {
+  .answer-review-card {
     display: none;
   }
 

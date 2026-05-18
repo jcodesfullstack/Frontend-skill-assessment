@@ -1,97 +1,25 @@
 const SECTIONS = [
   {
-    id: "html-css",
-    title: "HTML & CSS",
-    subtitle: "Foundational web structure and styling",
+    id: "web",
+    title: "HTML / CSS / JavaScript",
+    level: "Proficient",
     questions: [
       {
-        id: "q1",
-        number: 1,
-        type: "choice",
-        prompt: "What does HTML stand for?",
-        answer: "A",
-        options: {
-          A: "HyperText Markup Language",
-          B: "High Transfer Markup Layout",
-          C: "HyperText Managing Links",
-          D: "Hosted Text Markup Language"
-        }
-      },
-      {
-        id: "q2",
-        number: 2,
-        type: "choice",
-        prompt: "Which HTML tag is used to link an external CSS stylesheet to a webpage?",
-        answer: "C",
-        options: {
-          A: "<style>",
-          B: "<css>",
-          C: "<link>",
-          D: "<script>"
-        }
-      },
-      {
-        id: "q3",
-        number: 3,
-        type: "written",
-        prompt:
-          "Describe the CSS Box Model. Name the four layers from the inside out and briefly explain what each does.",
-        guide:
-          "Full credit: Content -> Padding -> Border -> Margin. Content is the actual text or element. Padding is space inside the element. Border wraps the padding. Margin is outside the border and separates the element from others."
-      },
-      {
-        id: "q4",
-        number: 4,
-        type: "choice",
-        prompt: "What does the CSS property display: flex do to a container element?",
+        prompt: "What is the difference between == and === in JavaScript?",
         answer: "B",
+        explanation: "=== checks both value and type. == compares with type coercion.",
         options: {
-          A: "Makes the element invisible",
-          B: "Turns the container into a flexbox layout where children become flex items",
-          C: "Adds equal space between all child elements automatically",
-          D: "Centers all text inside the element"
+          A: "== is faster than ===",
+          B: "=== checks both value and type; == only checks value with type coercion",
+          C: "They are identical",
+          D: "=== is only used in TypeScript"
         }
       },
       {
-        id: "q5",
-        number: 5,
-        type: "choice",
-        prompt: "What is the difference between an id and a class in HTML/CSS?",
-        answer: "B",
-        options: {
-          A: "No difference - both work the same way",
-          B: "id targets one unique element per page; class can be reused on many elements",
-          C: "class is more specific than id in the cascade",
-          D: "id is used in CSS files only; class is used in HTML files only"
-        }
-      },
-      {
-        id: "q6",
-        number: 6,
-        type: "choice",
-        prompt:
-          "Which CSS property controls the space inside an element, between the content and its border?",
-        answer: "D",
-        options: {
-          A: "margin",
-          B: "spacing",
-          C: "gap",
-          D: "padding"
-        }
-      }
-    ]
-  },
-  {
-    id: "javascript",
-    title: "JavaScript Fundamentals",
-    subtitle: "Core language concepts and behavior",
-    questions: [
-      {
-        id: "q7",
-        number: 7,
-        type: "choice",
-        prompt: "What will typeof null return in JavaScript?",
+        prompt: "What will this code output?",
+        code: "console.log(typeof null);",
         answer: "C",
+        explanation: 'typeof null returns "object", a famous JavaScript quirk.',
         options: {
           A: '"null"',
           B: '"undefined"',
@@ -100,509 +28,403 @@ const SECTIONS = [
         }
       },
       {
-        id: "q8",
-        number: 8,
-        type: "written",
-        prompt:
-          "What is the difference between let, const, and var? Explain scope and reassignability for each.",
-        guide:
-          "Full credit: var is function-scoped, hoisted, and can be reassigned. let is block-scoped and can be reassigned. const is block-scoped and cannot be reassigned. Prefer const by default, then let."
-      },
-      {
-        id: "q9",
-        number: 9,
-        type: "choice",
-        prompt: "What does the following code output? Explain why.",
-        code: "console.log(1 + '2')",
+        prompt: "Which CSS property is used to create a flex container?",
         answer: "B",
+        explanation: "display: flex turns an element into a flex container.",
         options: {
-          A: "3 - because 1 + 2 = 3",
-          B: '"12" - JavaScript converts the number to a string and concatenates',
-          C: "TypeError - cannot add a number and a string",
-          D: "NaN - not a valid operation"
+          A: "display: flexbox",
+          B: "display: flex",
+          C: "flex: container",
+          D: "position: flex"
         }
       },
       {
-        id: "q10",
-        number: 10,
-        type: "written",
-        prompt:
-          "In your own words, what is a function in programming, and why are functions useful?",
-        guide:
-          "Full credit: A function is a reusable, often named block of code that performs a task. Functions reduce repetition, make code easier to read, and allow logic to be tested in isolation."
-      },
-      {
-        id: "q11",
-        number: 11,
-        type: "choice",
-        prompt: "Which of the following correctly creates an array in JavaScript?",
-        answer: "C",
+        prompt: "What is event delegation in JavaScript?",
+        answer: "B",
+        explanation: "Event delegation uses one parent listener to handle child events through bubbling.",
         options: {
-          A: "let x = (1, 2, 3)",
-          B: "let x = {1, 2, 3}",
-          C: "let x = [1, 2, 3]",
-          D: "let x = <1, 2, 3>"
+          A: "Assigning events to multiple elements individually",
+          B: "Attaching a single event listener to a parent element to handle events on its children via event bubbling",
+          C: "Removing event listeners after use",
+          D: "Delegating events to a web worker"
         }
       },
       {
-        id: "q12",
-        number: 12,
-        type: "choice",
-        prompt: "What is the difference between == and === in JavaScript?",
-        answer: "C",
+        prompt: "What does Promise.all([p1, p2, p3]) do if p2 rejects?",
+        answer: "B",
+        explanation: "Promise.all rejects as soon as one input promise rejects. Use Promise.allSettled when you need every result.",
         options: {
-          A: "No difference - they both check equality the same way",
-          B: "== checks type only; === checks value only",
-          C: "== checks value with type coercion; === checks value and type strictly",
-          D: "=== is used for comparing strings only"
+          A: "Returns results from p1 and p3 only",
+          B: "The entire promise rejects immediately",
+          C: "Waits for all to complete regardless",
+          D: "Returns undefined"
+        }
+      }
+    ]
+  },
+  {
+    id: "react",
+    title: "React",
+    level: "Intermediate",
+    questions: [
+      {
+        prompt: "What is the purpose of the useEffect dependency array?",
+        answer: "B",
+        explanation: "The dependency array tells React when the effect should re-run.",
+        options: {
+          A: "To pass props to the component",
+          B: "To control when the effect re-runs based on changes to listed values",
+          C: "To cache the component",
+          D: "It's optional and has no real effect"
         }
       },
       {
-        id: "q13",
-        number: 13,
-        type: "choice",
-        prompt: "What does array.push(item) do?",
-        answer: "C",
+        prompt: "Which statement about React keys is correct?",
+        answer: "B",
+        explanation: "Keys help React match list items between renders and should be unique among siblings.",
         options: {
-          A: "Removes the last item from the array and returns it",
-          B: "Adds an item to the beginning of the array",
-          C: "Adds an item to the end of the array",
-          D: "Returns the total length of the array without modifying it"
+          A: "Keys should always be array indexes",
+          B: "Keys help React identify which items have changed and should be unique among siblings",
+          C: "Keys are required on every JSX element",
+          D: "Keys improve CSS rendering"
         }
       },
       {
-        id: "q14",
-        number: 14,
-        type: "written",
-        prompt: "What will this code output? Walk through it step by step.",
-        code: "let nums = [10, 20, 30];\nfor (let i = 0; i < nums.length; i++) {\n  console.log(nums[i] * 2);\n}",
-        guide:
-          "Full credit: Output is 20, 40, 60, one per line. The loop runs with i = 0, 1, 2, accesses 10, 20, 30, and multiplies each by 2."
+        prompt: "What is the difference between useMemo and useCallback?",
+        answer: "B",
+        explanation: "useMemo caches a calculated value. useCallback caches a function reference.",
+        options: {
+          A: "They are identical",
+          B: "useMemo memoizes a value; useCallback memoizes a function",
+          C: "useCallback is deprecated",
+          D: "useMemo is only for arrays"
+        }
+      },
+      {
+        prompt: "What causes prop drilling and what's a common solution?",
+        answer: "B",
+        explanation: "Prop drilling happens when props pass through many layers. Context or a state library can reduce it.",
+        options: {
+          A: "Too many state variables; solved by useState",
+          B: "Passing props through many intermediate components; solved by Context API or state management libraries",
+          C: "Using too many components; solved by removing them",
+          D: "A CSS issue; solved by Tailwind"
+        }
+      }
+    ]
+  },
+  {
+    id: "vue",
+    title: "Vue.js",
+    level: "Beginner",
+    questions: [
+      {
+        prompt: "In Vue 3, what is the Composition API primarily used for?",
+        answer: "B",
+        explanation: "The Composition API organizes reusable component logic with functions such as ref, reactive, and computed.",
+        options: {
+          A: "Replacing HTML",
+          B: "Organizing component logic using functions like ref, reactive, and computed",
+          C: "Styling components",
+          D: "Routing"
+        }
+      },
+      {
+        prompt: "What does v-model do in Vue?",
+        answer: "B",
+        explanation: "v-model creates two-way binding, commonly between form inputs and component state.",
+        options: {
+          A: "Creates a new component",
+          B: "Provides two-way data binding between form inputs and component data",
+          C: "Defines a route",
+          D: "Imports a module"
+        }
+      }
+    ]
+  },
+  {
+    id: "next",
+    title: "Next.js",
+    level: "Intermediate",
+    questions: [
+      {
+        prompt: "What is the difference between getServerSideProps and getStaticProps in Next.js Pages Router?",
+        answer: "B",
+        explanation: "getServerSideProps runs on every request. getStaticProps runs at build time.",
+        options: {
+          A: "They are the same",
+          B: "getServerSideProps runs on every request; getStaticProps runs at build time",
+          C: "getStaticProps runs on the client",
+          D: "Both run only in development"
+        }
+      },
+      {
+        prompt: "In the Next.js App Router, what makes a component a Server Component by default?",
+        answer: "B",
+        explanation: 'Components in app/ are Server Components by default unless they include "use client".',
+        options: {
+          A: 'Adding "use server" at the top',
+          B: 'Components in the app/ directory are Server Components unless marked with "use client"',
+          C: "Importing from next/server",
+          D: "Using TypeScript"
+        }
+      },
+      {
+        prompt: "What is the purpose of the next/image component?",
+        answer: "B",
+        explanation: "next/image helps with optimization, responsive sizing, and lazy loading.",
+        options: {
+          A: "Generates AI images",
+          B: "Provides automatic image optimization, lazy loading, and responsive sizing",
+          C: "Only works with SVGs",
+          D: "Replaces CSS background images"
+        }
+      }
+    ]
+  },
+  {
+    id: "node",
+    title: "Node.js / Express",
+    level: "Intermediate",
+    questions: [
+      {
+        prompt: "What is middleware in Express?",
+        answer: "B",
+        explanation: "Express middleware can inspect or change req/res and decide whether to call next().",
+        options: {
+          A: "A database driver",
+          B: "Functions that have access to the request, response objects, and the next() function in the request-response cycle",
+          C: "A frontend library",
+          D: "A type of route"
+        }
+      },
+      {
+        prompt: "Which is a security best practice in an Express API?",
+        answer: "B",
+        explanation: "Production APIs should validate input, limit abuse, set secure headers, and keep secrets out of code.",
+        options: {
+          A: "Storing passwords in plain text",
+          B: "Using helmet, validating input, rate limiting, and never exposing secrets in code",
+          C: "Allowing all CORS origins in production",
+          D: "Logging passwords for debugging"
+        }
+      },
+      {
+        prompt: "What does app.use(express.json()) do?",
+        answer: "B",
+        explanation: "express.json() parses JSON request bodies so the data is available on req.body.",
+        options: {
+          A: "Converts the app to JSON",
+          B: "Parses incoming JSON payloads and makes them available on req.body",
+          C: "Sends JSON responses",
+          D: "Validates JSON schemas"
+        }
+      }
+    ]
+  },
+  {
+    id: "typescript",
+    title: "TypeScript",
+    level: "Beginner / Comfortable",
+    questions: [
+      {
+        prompt: "What is the difference between interface and type in TypeScript?",
+        answer: "B",
+        explanation: "Both define shapes. Interfaces can merge declarations, while type aliases are more flexible with unions and intersections.",
+        options: {
+          A: "They are completely different",
+          B: "Both define shapes; interface is extendable via declaration merging, type can use unions and intersections more flexibly",
+          C: "type is deprecated",
+          D: "interface only works with classes"
+        }
+      },
+      {
+        prompt: "What does the ? do in function greet(name?: string)?",
+        answer: "B",
+        explanation: "The question mark makes the parameter optional.",
+        options: {
+          A: "Makes the parameter required",
+          B: "Makes the parameter optional",
+          C: "Throws an error",
+          D: "Converts it to a number"
+        }
+      },
+      {
+        prompt: "What is a generic in TypeScript?",
+        answer: "B",
+        explanation: "Generics let code work across multiple types while keeping type information.",
+        options: {
+          A: "A default type",
+          B: "A way to create reusable components that work with multiple types while preserving type safety",
+          C: "A keyword for global variables",
+          D: "A type of class"
+        }
       }
     ]
   },
   {
     id: "python",
-    title: "Python Fundamentals",
-    subtitle: "Syntax, data types, and core concepts",
+    title: "Python",
+    level: "Beginner / Intermediate",
     questions: [
       {
-        id: "q15",
-        number: 15,
-        type: "choice",
-        prompt: "What is the output of print(type([])) in Python?",
+        prompt: "What is the output of print([1, 2, 3] * 2)?",
         answer: "B",
+        explanation: "Multiplying a list by 2 repeats the list.",
         options: {
-          A: "<class 'tuple'>",
-          B: "<class 'list'>",
-          C: "<class 'array'>",
-          D: "<class 'dict'>"
+          A: "[2, 4, 6]",
+          B: "[1, 2, 3, 1, 2, 3]",
+          C: "Error",
+          D: "[1, 2, 3, 2]"
         }
       },
       {
-        id: "q16",
-        number: 16,
-        type: "choice",
-        prompt: "How do you write a single-line comment in Python?",
-        answer: "C",
-        options: {
-          A: "// This is a comment",
-          B: "/* This is a comment */",
-          C: "# This is a comment",
-          D: "-- This is a comment"
-        }
-      },
-      {
-        id: "q17",
-        number: 17,
-        type: "written",
-        prompt:
-          "What is a Python list comprehension? Write an example that doubles each number in range(5).",
-        guide:
-          "Full credit: A list comprehension is a concise way to build a list. Example: [x * 2 for x in range(5)] returns [0, 2, 4, 6, 8]."
-      },
-      {
-        id: "q18",
-        number: 18,
-        type: "choice",
-        prompt: "What is the main difference between a Python list and a tuple?",
-        answer: "C",
-        options: {
-          A: "No difference - they behave exactly the same",
-          B: "Lists use () and tuples use []",
-          C: "Lists are mutable; tuples are immutable",
-          D: "Tuples can only store numbers, not strings"
-        }
-      },
-      {
-        id: "q19",
-        number: 19,
-        type: "choice",
-        prompt: "What does len('hello') return?",
+        prompt: "What is a list comprehension in Python?",
         answer: "B",
+        explanation: "A list comprehension is compact syntax for building a list from an expression and iterable.",
         options: {
-          A: "4",
-          B: "5",
-          C: "6",
-          D: "Error - len() only works on lists"
+          A: "A way to write a class",
+          B: "A concise syntax for creating lists, e.g., [x*2 for x in range(5)]",
+          C: "A loop replacement only for dictionaries",
+          D: "A built-in function"
         }
       },
       {
-        id: "q20",
-        number: 20,
-        type: "choice",
-        prompt: "What keyword is used to define a function in Python?",
-        answer: "D",
+        prompt: "What's the difference between a tuple and a list?",
+        answer: "B",
+        explanation: "Tuples are immutable. Lists are mutable.",
         options: {
-          A: "function",
-          B: "define",
-          C: "fun",
-          D: "def"
+          A: "Tuples are mutable, lists are not",
+          B: "Tuples are immutable, lists are mutable",
+          C: "They are identical",
+          D: "Tuples can only hold numbers"
         }
-      },
-      {
-        id: "q21",
-        number: 21,
-        type: "written",
-        prompt: "What will this Python code output? Explain why range(3) starts at 0.",
-        code: "for i in range(3):\n    print(i)",
-        guide:
-          "Full credit: Output is 0, 1, 2, one per line. range(3) starts at 0 by default and stops before 3 because the upper bound is exclusive."
       }
     ]
   },
   {
-    id: "c-cpp",
-    title: "C++ & C Basics",
-    subtitle: "Systems language fundamentals",
+    id: "ai",
+    title: "AI Integration",
+    level: "Intermediate / Beginner",
     questions: [
       {
-        id: "q22",
-        number: 22,
-        type: "choice",
-        prompt: "What is the purpose of #include <iostream> at the top of a C++ program?",
+        prompt: "When integrating an LLM API, why is it important to handle streaming responses?",
         answer: "B",
+        explanation: "Streaming improves perceived speed because users see output as it is generated.",
         options: {
-          A: "It defines the main() function automatically",
-          B: "It imports input/output functionality like cout and cin",
-          C: "It declares all variables used in the program",
-          D: "It links external third-party libraries"
+          A: "Streaming is required by law",
+          B: "It improves perceived performance by showing tokens as they're generated rather than waiting for the full response",
+          C: "Streaming reduces accuracy",
+          D: "It's only useful for images"
         }
       },
       {
-        id: "q23",
-        number: 23,
-        type: "choice",
-        prompt: "What is the difference between int and float data types in C/C++?",
+        prompt: "What is a system prompt when working with an LLM?",
         answer: "B",
+        explanation: "A system prompt sets behavior, role, style, and constraints for the model.",
         options: {
-          A: "There is no practical difference between them",
-          B: "int stores whole numbers; float stores numbers with decimal points",
-          C: "float is always faster to compute than int",
-          D: "int can store more data than float"
+          A: "The user's first question",
+          B: "Instructions that set the model's behavior, role, and constraints for the conversation",
+          C: "An error message",
+          D: "The model's response"
         }
       },
       {
-        id: "q24",
-        number: 24,
-        type: "choice",
-        prompt: "What does this C++ code print?",
-        code: "int x = 5;\ncout << x * 2 << endl;",
-        answer: "C",
-        options: {
-          A: "5",
-          B: "52",
-          C: "10",
-          D: "Compilation error"
-        }
-      },
-      {
-        id: "q25",
-        number: 25,
-        type: "written",
-        prompt:
-          "In your own words, what is a pointer in C? Why are pointers considered both powerful and dangerous?",
-        guide:
-          "Full credit: A pointer stores the memory address of another variable. It is powerful because it enables direct memory work and efficient data structures. It is dangerous because mistakes can cause leaks, crashes, undefined behavior, and security issues."
-      },
-      {
-        id: "q26",
-        number: 26,
-        type: "choice",
-        prompt: "In C++, what is the key default-access difference between a struct and a class?",
+        prompt: "Why should API keys for AI services never be stored in frontend code?",
         answer: "B",
+        explanation: "Frontend code is visible to users, so exposed keys can be stolen and abused.",
         options: {
-          A: "They are completely identical with no differences",
-          B: "struct members are public by default; class members are private by default",
-          C: "Only a class can contain methods/functions - struct cannot",
-          D: "struct is computationally faster than class"
+          A: "They make the bundle slow",
+          B: "They would be exposed to anyone inspecting the client, allowing abuse and theft of the key",
+          C: "Frontend code can't read them",
+          D: "It's a style preference"
         }
-      },
-      {
-        id: "q27",
-        number: 27,
-        type: "written",
-        prompt: "What does this C code print? Trace through each iteration manually.",
-        code: "int i = 0;\nwhile (i < 4) {\n  printf(\"%d\\n\", i);\n  i++;\n}",
-        guide:
-          "Full credit: Output is 0, 1, 2, 3, one per line. The loop starts at i = 0, prints i, increments, and stops when i reaches 4."
       }
     ]
   },
   {
-    id: "git",
-    title: "Git & Version Control",
-    subtitle: "Collaboration and code management",
+    id: "database",
+    title: "MongoDB / SQL",
+    level: "Beginner",
     questions: [
       {
-        id: "q28",
-        number: 28,
-        type: "choice",
-        prompt: "What does git clone [url] do?",
+        prompt: "What is the SQL command to retrieve all columns from a table named users?",
         answer: "B",
+        explanation: "SELECT * FROM users retrieves every column from the users table.",
         options: {
-          A: "Creates a new empty repository on your computer",
-          B: "Downloads a copy of a remote repository to your local machine",
-          C: "Uploads your local code to GitHub",
-          D: "Merges two branches together"
+          A: "GET * FROM users",
+          B: "SELECT * FROM users",
+          C: "FETCH ALL users",
+          D: "RETURN users.*"
         }
       },
       {
-        id: "q29",
-        number: 29,
-        type: "choice",
-        prompt: "What is the correct sequence to save and push your code changes to GitHub?",
-        answer: "C",
-        options: {
-          A: "push -> commit -> add",
-          B: "commit -> add -> push",
-          C: "add -> commit -> push",
-          D: "add -> push -> commit"
-        }
-      },
-      {
-        id: "q30",
-        number: 30,
-        type: "written",
-        prompt:
-          "What is a Git branch, and why would you use one instead of working directly on the main branch?",
-        guide:
-          "Full credit: A branch is a separate line of development that does not affect main until merged. Branches let you work on features or fixes in isolation so main stays stable."
-      },
-      {
-        id: "q31",
-        number: 31,
-        type: "choice",
-        prompt: "What does git status show you?",
+        prompt: "What is a key difference between MongoDB and a SQL database?",
         answer: "B",
+        explanation: "MongoDB stores flexible document data. SQL databases organize data relationally with schemas.",
         options: {
-          A: "Your full commit history in reverse chronological order",
-          B: "Which files have been changed, staged, or are untracked",
-          C: "The name of the current branch only",
-          D: "Your GitHub profile and repo list"
+          A: "MongoDB doesn't store data",
+          B: "MongoDB is document-based (NoSQL) using flexible JSON-like documents; SQL databases are relational with strict schemas",
+          C: "MongoDB only runs on Windows",
+          D: "SQL databases don't support indexes"
         }
-      },
-      {
-        id: "q32",
-        number: 32,
-        type: "choice",
-        prompt: "What is a .gitignore file used for?",
-        answer: "B",
-        options: {
-          A: "Storing API keys and environment variables securely",
-          B: "Listing files and folders that Git should not track or commit",
-          C: "Defining branch names and merge strategies",
-          D: "Automatically merging branches without conflicts"
-        }
-      },
-      {
-        id: "q33",
-        number: 33,
-        type: "written",
-        prompt:
-          "You accidentally committed a file with a password in it. What steps would you take?",
-        guide:
-          "Strong answer: rotate or invalidate the password immediately, remove the file, untrack it with git rm --cached if needed, add it to .gitignore, scrub history with a tool like BFG or git filter-repo, and force-push only with team coordination."
       }
     ]
   },
   {
-    id: "fullstack",
-    title: "Web Dev & Full-Stack Concepts",
-    subtitle: "APIs, databases, and industry essentials",
+    id: "testing",
+    title: "Testing",
+    level: "Minimal Experience",
     questions: [
       {
-        id: "q34",
-        number: 34,
-        type: "written",
-        prompt:
-          "What does API stand for, and what does an API do? Give a real-world analogy if you can.",
-        guide:
-          "Full credit: API stands for Application Programming Interface. It is a set of rules that lets software systems communicate. A waiter taking an order to a kitchen and bringing back a response is a common analogy."
-      },
-      {
-        id: "q35",
-        number: 35,
-        type: "choice",
-        prompt: "What is the difference between frontend and backend development?",
+        prompt: "What is the purpose of a unit test?",
         answer: "B",
+        explanation: "A unit test checks a small piece of code in isolation.",
         options: {
-          A: "They are the same thing - just different names",
-          B: "Frontend is what the user sees; backend runs on servers and handles data and logic",
-          C: "Backend is the design and layout; frontend handles the database",
-          D: "Frontend uses Python; backend uses JavaScript exclusively"
+          A: "To test the entire application end-to-end",
+          B: "To test individual functions or components in isolation to verify they work as expected",
+          C: "To test only the UI",
+          D: "To replace manual testing entirely"
         }
       },
       {
-        id: "q36",
-        number: 36,
-        type: "choice",
-        prompt: "What does SQL stand for and what is it used for?",
+        prompt: "What does mocking mean in testing?",
         answer: "B",
+        explanation: "Mocking replaces real dependencies with controlled fakes so the test can focus on one unit.",
         options: {
-          A: "System Query Layout - used for styling web pages",
-          B: "Structured Query Language - used to interact with relational databases",
-          C: "Simple Quick Language - a subset of Python for data analysis",
-          D: "Server Queue Logic - used in network request management"
-        }
-      },
-      {
-        id: "q37",
-        number: 37,
-        type: "choice",
-        prompt: "What is the purpose of a package.json file in a JavaScript project?",
-        answer: "B",
-        options: {
-          A: "It stores user passwords and authentication tokens",
-          B: "It defines project metadata and tracks dependencies",
-          C: "It is the main HTML entry point of the application",
-          D: "It contains all the CSS styles for the project"
-        }
-      },
-      {
-        id: "q38",
-        number: 38,
-        type: "choice",
-        prompt: "What is the difference between HTTP and HTTPS?",
-        answer: "C",
-        options: {
-          A: "There is no real difference - they function identically",
-          B: "HTTPS is significantly faster than HTTP for all requests",
-          C: "HTTPS encrypts data in transit using TLS/SSL; HTTP sends data in plain text",
-          D: "HTTP is a newer, more secure version of HTTPS"
-        }
-      },
-      {
-        id: "q39",
-        number: 39,
-        type: "choice",
-        prompt: "In web development, what does responsive design mean?",
-        answer: "B",
-        options: {
-          A: "The website loads very quickly on all devices",
-          B: "The site layout adapts to different screen sizes - mobile, tablet, and desktop",
-          C: "The site responds to API calls without page reloads",
-          D: "The site uses animations and transitions to feel interactive"
-        }
-      },
-      {
-        id: "q40",
-        number: 40,
-        type: "written",
-        prompt:
-          "What is React, and have you used it? Describe it in your own words, even if just from what you've heard.",
-        guide:
-          "Credit for general awareness: React is a JavaScript library for building user interfaces with reusable components. Strong answers may mention JSX, state, props, rendering, or the virtual DOM."
-      },
-      {
-        id: "q41",
-        number: 41,
-        type: "written",
-        prompt:
-          "What is a database? Name at least one type you've heard of, and explain what it stores.",
-        guide:
-          "Full credit: A database is an organized collection of persistent data. Accept examples like MySQL, PostgreSQL, SQLite, MongoDB, or others, with understanding that databases store and retrieve data."
-      }
-    ]
-  },
-  {
-    id: "logic",
-    title: "Problem Solving & Logic",
-    subtitle: "Thinking like a developer",
-    questions: [
-      {
-        id: "q42",
-        number: 42,
-        type: "choice",
-        prompt: "What will this Python code output? Why does range(3) not include 3?",
-        code: "for i in range(3):\n    print(i)",
-        answer: "B",
-        options: {
-          A: "1 2 3, one per line",
-          B: "0 1 2, one per line",
-          C: "0 1 2 3, one per line",
-          D: "1 2, one per line"
-        }
-      },
-      {
-        id: "q43",
-        number: 43,
-        type: "written",
-        prompt:
-          "You have a list [5, 2, 8, 1, 9]. Without using a built-in max() function, write pseudocode or real code to find the largest number.",
-        guide:
-          "Full credit: Set largest = first item, loop through remaining items, update largest when the current item is greater, then return or print largest."
-      },
-      {
-        id: "q44",
-        number: 44,
-        type: "written",
-        prompt:
-          "What is an infinite loop? Describe one way it can accidentally happen, and how you would fix it.",
-        guide:
-          "Full credit: An infinite loop never reaches its exit condition. Common cause: a while loop where the counter is never changed. Fix by updating the loop variable, correcting the condition, or adding a break when appropriate."
-      },
-      {
-        id: "q45",
-        number: 45,
-        type: "choice",
-        prompt: "What does DRY stand for in software development, and why does it matter?",
-        answer: "B",
-        options: {
-          A: "Design, Run, Yield - a project management methodology",
-          B: "Don't Repeat Yourself - avoid duplicating code by using functions and abstractions",
-          C: "Deploy, Refactor, Yield - a deployment best practice cycle",
-          D: "Dynamic Rendering Yes - a frontend rendering strategy"
+          A: "Making fun of bad code",
+          B: "Replacing real dependencies (APIs, databases, modules) with fake versions to isolate the code being tested",
+          C: "Writing tests in a mocking tone",
+          D: "A type of integration test"
         }
       }
     ]
   }
 ];
 
-const SCORING_BANDS = [
+const IDK_VALUE = "IDK";
+const IDK_LABEL = "I don't know";
+
+const BANDS = [
   {
-    min: 38,
-    label: "Strong",
-    title: "Solid foundation",
-    copy: "Accelerate into frameworks, portfolio depth, and interview practice."
-  },
-  {
-    min: 28,
-    label: "Good",
-    title: "Core concepts present",
-    copy: "Fill gaps in JavaScript, web concepts, and any sections that dipped below 70%."
+    min: 25,
+    label: "Junior to Mid-Level Competitive",
+    copy: "You are at or above the stated skill profile and can lean into full-stack junior to mid-level opportunities."
   },
   {
     min: 18,
-    label: "Building",
-    title: "Fundamentals need reinforcement",
-    copy: "Review the basics before moving too quickly into frameworks."
+    label: "Solid Foundation",
+    copy: "You are roughly aligned with the stated self-assessment. Focus on missed topics, especially the intermediate areas."
+  },
+  {
+    min: 12,
+    label: "Fundamentals Need Work",
+    copy: "There are gaps in core basics. Prioritize JavaScript behavior, React hooks, SQL syntax, and testing fundamentals."
   },
   {
     min: 0,
-    label: "Early stage",
-    title: "Start with the basics",
-    copy: "Focus first on HTML, CSS, JavaScript syntax, and basic programming logic."
+    label: "Early Fundamentals",
+    copy: "Spend more time on fundamentals before applying. Build two or three portfolio projects covering React, Node, and a database."
   }
 ];
 
@@ -612,46 +434,52 @@ const studentDate = document.getElementById("student-date");
 const answeredCount = document.getElementById("answered-count");
 const completionStatus = document.getElementById("completion-status");
 const progressFill = document.getElementById("progress-fill");
-const scoreAssessmentButton = document.getElementById("score-assessment");
+const scoreButton = document.getElementById("score-assessment");
 const results = document.getElementById("results");
 const studentSummary = document.getElementById("student-summary");
 const totalScoreEl = document.getElementById("total-score");
 const scoreBandEl = document.getElementById("score-band");
-const objectiveScoreEl = document.getElementById("objective-score");
-const writtenScoreEl = document.getElementById("written-score");
-const writtenStatusEl = document.getElementById("written-status");
-const planTitleEl = document.getElementById("plan-title");
-const planCopyEl = document.getElementById("plan-copy");
+const scoreBandCard = document.getElementById("score-band-card");
+const readinessCopy = document.getElementById("readiness-copy");
+const strongestTech = document.getElementById("strongest-tech");
+const focusTech = document.getElementById("focus-tech");
+const idkCountEl = document.getElementById("idk-count");
+const idkCopy = document.getElementById("idk-copy");
 const scoreMeterFill = document.getElementById("score-meter-fill");
 const sectionBreakdown = document.getElementById("section-breakdown");
-const writtenReview = document.getElementById("written-review");
-const toggleWrittenReview = document.getElementById("toggle-written-review");
-const reflectionOutput = document.getElementById("reflection-output");
+const answerReview = document.getElementById("answer-review");
 const printResults = document.getElementById("print-results");
 
-const allQuestions = SECTIONS.flatMap((section) =>
-  section.questions.map((question) => ({ ...question, sectionId: section.id }))
+const questions = SECTIONS.flatMap((section, sectionIndex) =>
+  section.questions.map((question, questionIndex) => ({
+    ...question,
+    id: `q${sectionIndex + 1}-${questionIndex + 1}`,
+    number: SECTIONS.slice(0, sectionIndex).reduce((sum, item) => sum + item.questions.length, 0) + questionIndex + 1,
+    sectionId: section.id,
+    sectionTitle: section.title
+  }))
 );
-const choiceQuestions = allQuestions.filter((question) => question.type === "choice");
-const writtenQuestions = allQuestions.filter((question) => question.type === "written");
-const writtenGrades = Object.fromEntries(writtenQuestions.map((question) => [question.id, null]));
-
-let latestSubmission = null;
 
 studentDate.valueAsDate = new Date();
 
-function renderSections() {
-  sectionsEl.innerHTML = SECTIONS.map((section) => {
-    const questions = section.questions.map(renderQuestion).join("");
+function renderQuiz() {
+  sectionsEl.innerHTML = SECTIONS.map((section, sectionIndex) => {
+    const offset = SECTIONS.slice(0, sectionIndex).reduce((sum, item) => sum + item.questions.length, 0);
+    const sectionQuestions = section.questions.map((question, questionIndex) =>
+      renderQuestion({
+        ...question,
+        id: `q${sectionIndex + 1}-${questionIndex + 1}`,
+        number: offset + questionIndex + 1
+      })
+    ).join("");
 
     return `
       <section class="section-card" aria-labelledby="${section.id}-title">
         <div class="section-heading">
-          <p class="eyebrow">${escapeHtml(section.questions.length)} Questions</p>
+          <p class="eyebrow">${section.questions.length} Questions | Target: ${escapeHtml(section.level)}</p>
           <h2 id="${section.id}-title">${escapeHtml(section.title)}</h2>
-          <p>${escapeHtml(section.subtitle)}</p>
         </div>
-        <div class="question-list">${questions}</div>
+        <div class="question-list">${sectionQuestions}</div>
       </section>
     `;
   }).join("");
@@ -659,28 +487,18 @@ function renderSections() {
 
 function renderQuestion(question) {
   const code = question.code ? `<pre class="code-block"><code>${escapeHtml(question.code)}</code></pre>` : "";
-
-  if (question.type === "written") {
-    return `
-      <label class="written-question" id="${question.id}-card">
-        <span class="question-number">Q${question.number}</span>
-        ${escapeHtml(question.prompt)}
-        ${code}
-        <textarea name="${question.id}" rows="5" placeholder="Type answer here"></textarea>
-      </label>
-    `;
-  }
-
-  const options = Object.entries(question.options).map(([letter, text], optionIndex) => `
+  const options = Object.entries(question.options).map(([letter, text]) => `
     <label class="answer-option">
-      <input
-        type="radio"
-        name="${question.id}"
-        value="${letter}"
-      />
+      <input type="radio" name="${question.id}" value="${letter}" />
       <span><strong>${letter}.</strong> ${escapeHtml(text)}</span>
     </label>
   `).join("");
+  const idkOption = `
+    <label class="answer-option idk-option">
+      <input type="radio" name="${question.id}" value="${IDK_VALUE}" />
+      <span><strong>IDK.</strong> ${escapeHtml(IDK_LABEL)}</span>
+    </label>
+  `;
 
   return `
     <article class="question-card" id="${question.id}-card">
@@ -689,234 +507,166 @@ function renderQuestion(question) {
         <span class="question-number">Q${question.number}</span>
       </div>
       ${code}
-      <div class="answer-list">${options}</div>
+      <div class="answer-list">${options}${idkOption}</div>
     </article>
   `;
 }
 
 function getSubmission() {
   const data = new FormData(form);
-  const answers = {};
-
-  allQuestions.forEach((question) => {
-    answers[question.id] = data.get(question.id) || "";
-  });
+  const answers = Object.fromEntries(questions.map((question) => [question.id, data.get(question.id) || ""]));
 
   return {
     answers,
-    reflections: {
-      familiar: data.get("reflection-familiar") || "",
-      learn: data.get("reflection-learn") || "",
-      style: data.get("reflection-style") || "",
-      project: data.get("reflection-project") || ""
-    },
     student: {
       name: document.getElementById("student-name").value.trim(),
       date: studentDate.value,
-      school: document.getElementById("student-school").value.trim(),
       role: document.getElementById("student-role").value.trim()
     }
   };
 }
 
-function getObjectiveScore(submission = getSubmission()) {
-  return choiceQuestions.reduce((score, question) => {
-    return score + (submission.answers[question.id] === question.answer ? 1 : 0);
-  }, 0);
-}
+function getSectionScores(submission) {
+  return SECTIONS.map((section) => {
+    const sectionQuestions = questions.filter((question) => question.sectionId === section.id);
+    const score = sectionQuestions.filter((question) => submission.answers[question.id] === question.answer).length;
+    const idkCount = sectionQuestions.filter((question) => submission.answers[question.id] === IDK_VALUE).length;
+    const percent = Math.round((score / sectionQuestions.length) * 100);
 
-function getWrittenScore() {
-  return Object.values(writtenGrades).reduce((sum, grade) => sum + (Number(grade) || 0), 0);
-}
-
-function getBand(total) {
-  return SCORING_BANDS.find((band) => total >= band.min);
-}
-
-function getCompletion(submission = getSubmission()) {
-  const completedChoiceCount = choiceQuestions.filter((question) => submission.answers[question.id]).length;
-  const completedWrittenCount = writtenQuestions.filter((question) => {
-    return submission.answers[question.id].trim().length > 0;
-  }).length;
-  const completedCount = completedChoiceCount + completedWrittenCount;
-
-  return {
-    completedCount,
-    completedChoiceCount,
-    completedWrittenCount,
-    isComplete: completedCount === allQuestions.length
-  };
-}
-
-function getFirstIncompleteQuestion(submission = getSubmission()) {
-  return allQuestions.find((question) => {
-    return question.type === "choice"
-      ? !submission.answers[question.id]
-      : submission.answers[question.id].trim().length === 0;
+    return {
+      id: section.id,
+      title: section.title,
+      target: section.level,
+      score,
+      max: sectionQuestions.length,
+      idkCount,
+      percent,
+      label: getTechnologyLevel(percent)
+    };
   });
 }
 
-function updateLiveProgress() {
-  const submission = getSubmission();
-  const completion = getCompletion(submission);
+function getTechnologyLevel(percent) {
+  if (percent >= 90) return "Strong";
+  if (percent >= 75) return "Aligned";
+  if (percent >= 50) return "Developing";
+  return "Needs Review";
+}
 
-  answeredCount.textContent = `${completion.completedCount} of ${allQuestions.length} scored questions completed`;
-  completionStatus.textContent = completion.isComplete
-    ? "Results unlocked"
-    : "Results locked until finished";
-  scoreAssessmentButton.disabled = !completion.isComplete;
-  progressFill.style.width = `${(completion.completedCount / allQuestions.length) * 100}%`;
+function getBand(score) {
+  return BANDS.find((band) => score >= band.min);
+}
+
+function updateProgress() {
+  const submission = getSubmission();
+  const answered = questions.filter((question) => submission.answers[question.id]).length;
+  const complete = answered === questions.length;
+
+  answeredCount.textContent = `${answered} of ${questions.length} questions answered`;
+  completionStatus.textContent = complete ? "Ready to score" : "Results unlock after every question is answered";
+  progressFill.style.width = `${(answered / questions.length) * 100}%`;
+  scoreButton.disabled = !complete;
 }
 
 function showResults() {
   const submission = getSubmission();
-  const completion = getCompletion(submission);
+  const unanswered = questions.find((question) => !submission.answers[question.id]);
 
-  if (!completion.isComplete) {
-    focusFirstIncompleteQuestion(submission);
+  if (unanswered) {
+    focusQuestion(unanswered.id);
     return;
   }
 
-  latestSubmission = submission;
-  markObjectiveAnswers();
-  renderWrittenReview();
-  renderReflectionOutput();
-  updateResultNumbers();
+  const total = questions.filter((question) => submission.answers[question.id] === question.answer).length;
+  const idkTotal = questions.filter((question) => submission.answers[question.id] === IDK_VALUE).length;
+  const band = getBand(total);
+  const sectionScores = getSectionScores(submission);
+  const strongest = [...sectionScores].sort((a, b) => b.percent - a.percent)[0];
+  const focus = [...sectionScores].sort((a, b) => a.percent - b.percent)[0];
+
+  markAnswers(submission);
+  totalScoreEl.textContent = `${total}/${questions.length}`;
+  scoreBandEl.textContent = band.label;
+  scoreBandCard.textContent = band.label;
+  readinessCopy.textContent = band.copy;
+  strongestTech.textContent = `${strongest.title}: ${strongest.label} (${strongest.score}/${strongest.max})`;
+  focusTech.textContent = `${focus.title}: ${focus.label} (${focus.score}/${focus.max})`;
+  idkCountEl.textContent = `${idkTotal}/${questions.length}`;
+  idkCopy.textContent = idkTotal
+    ? `${idkTotal} answer${idkTotal === 1 ? "" : "s"} were marked "I don't know" and counted as incorrect.`
+    : "No answers were marked \"I don't know\".";
+  scoreMeterFill.style.width = `${(total / questions.length) * 100}%`;
+
+  const name = submission.student.name || "Client";
+  const role = submission.student.role || "Full-stack web developer";
+  const date = submission.student.date || "No date entered";
+  studentSummary.textContent = `${name} | ${role} | ${date}`;
+
+  renderSectionBreakdown(sectionScores);
+  renderAnswerReview(submission);
 
   results.classList.add("is-visible");
   results.scrollIntoView({ behavior: "smooth", block: "start" });
 }
 
-function focusFirstIncompleteQuestion(submission = getSubmission()) {
-  const question = getFirstIncompleteQuestion(submission);
-
-  if (!question) {
-    return;
-  }
-
-  const card = document.getElementById(`${question.id}-card`);
-  const input = question.type === "choice"
-    ? card.querySelector("input")
-    : card.querySelector("textarea");
-
-  card.scrollIntoView({ behavior: "smooth", block: "center" });
-  input?.focus({ preventScroll: true });
+function renderSectionBreakdown(sectionScores) {
+  sectionBreakdown.innerHTML = sectionScores.map((section) => `
+    <div class="breakdown-row">
+      <span>${escapeHtml(section.title)}</span>
+      <div class="mini-meter" aria-hidden="true"><i style="width: ${section.percent}%"></i></div>
+      <strong>${section.score}/${section.max} ${escapeHtml(section.label)}${section.idkCount ? ` | ${section.idkCount} IDK` : ""}</strong>
+    </div>
+  `).join("");
 }
 
-function updateResultNumbers() {
-  const objectiveScore = getObjectiveScore(latestSubmission);
-  const writtenScore = getWrittenScore();
-  const total = objectiveScore + writtenScore;
-  const band = getBand(total);
-  const pendingWritten = Object.values(writtenGrades).filter((grade) => grade === null).length;
-  const percent = (total / allQuestions.length) * 100;
-
-  totalScoreEl.textContent = `${formatScore(total)}/${allQuestions.length}`;
-  scoreBandEl.textContent = band.label;
-  objectiveScoreEl.textContent = `${objectiveScore}/${choiceQuestions.length}`;
-  writtenScoreEl.textContent = `${formatScore(writtenScore)}/${writtenQuestions.length}`;
-  writtenStatusEl.textContent = pendingWritten
-    ? `${pendingWritten} written answer${pendingWritten === 1 ? "" : "s"} still need review.`
-    : "All written answers reviewed.";
-  planTitleEl.textContent = band.title;
-  planCopyEl.textContent = band.copy;
-  scoreMeterFill.style.width = `${percent}%`;
-
-  const name = latestSubmission.student.name || "Student";
-  const school = latestSubmission.student.school || "School not entered";
-  const role = latestSubmission.student.role || "Full-Stack Internship";
-  const date = latestSubmission.student.date || "Date not entered";
-  studentSummary.textContent = `${name} | ${school} | ${role} | ${date}`;
-
-  renderSectionBreakdown();
-}
-
-function renderSectionBreakdown() {
-  sectionBreakdown.innerHTML = SECTIONS.map((section) => {
-    const sectionQuestions = section.questions;
-    const score = sectionQuestions.reduce((sum, question) => {
-      if (question.type === "choice") {
-        return sum + (latestSubmission.answers[question.id] === question.answer ? 1 : 0);
-      }
-
-      return sum + (Number(writtenGrades[question.id]) || 0);
-    }, 0);
-    const max = sectionQuestions.length;
+function renderAnswerReview(submission) {
+  answerReview.innerHTML = questions.map((question) => {
+    const selected = submission.answers[question.id];
+    const isCorrect = selected === question.answer;
+    const isIdk = selected === IDK_VALUE;
 
     return `
-      <div class="breakdown-row">
-        <span>${escapeHtml(section.title)}</span>
-        <div class="mini-meter" aria-hidden="true"><i style="width: ${(score / max) * 100}%"></i></div>
-        <strong>${formatScore(score)}/${max}</strong>
-      </div>
-    `;
-  }).join("");
-}
-
-function renderWrittenReview() {
-  writtenReview.innerHTML = writtenQuestions.map((question) => {
-    const answer = latestSubmission.answers[question.id]?.trim() || "No written answer provided.";
-    const selectedGrade = writtenGrades[question.id];
-
-    return `
-      <article class="review-item" data-question-id="${question.id}">
-        <h4>Q${question.number}. ${escapeHtml(question.prompt)}</h4>
-        ${question.code ? `<pre class="code-block"><code>${escapeHtml(question.code)}</code></pre>` : ""}
-        <div class="review-answer">${escapeHtml(answer)}</div>
-        <div class="review-guide">${escapeHtml(question.guide)}</div>
-        <div class="grade-actions" aria-label="Grade Q${question.number}">
-          ${renderGradeButton(question.id, "1", "Full Credit", selectedGrade)}
-          ${renderGradeButton(question.id, "0.5", "Half Credit", selectedGrade)}
-          ${renderGradeButton(question.id, "0", "No Credit", selectedGrade)}
+      <article class="review-item ${isCorrect ? "is-correct" : "is-incorrect"}">
+        <div class="review-topline">
+          <h4>Q${question.number}. ${escapeHtml(question.sectionTitle)}</h4>
+          <span>${isCorrect ? "Correct" : isIdk ? "I don't know" : "Review"}</span>
         </div>
+        <p>${escapeHtml(question.prompt)}</p>
+        ${question.code ? `<pre class="code-block"><code>${escapeHtml(question.code)}</code></pre>` : ""}
+        <div class="answer-result">
+          <strong>Your answer:</strong> ${escapeHtml(formatAnswer(selected, question))}
+        </div>
+        <div class="answer-result correct-answer">
+          <strong>Correct answer:</strong> ${escapeHtml(formatAnswer(question.answer, question))}
+        </div>
+        <p>${escapeHtml(question.explanation)}</p>
       </article>
     `;
   }).join("");
 }
 
-function renderGradeButton(questionId, value, label, selectedGrade) {
-  const isSelected = Number(selectedGrade) === Number(value);
+function formatAnswer(value, question) {
+  if (value === IDK_VALUE) {
+    return `IDK. ${IDK_LABEL}`;
+  }
 
-  return `
-    <button
-      class="grade-button ${isSelected ? "is-selected" : ""}"
-      type="button"
-      data-question-id="${questionId}"
-      data-grade="${value}"
-    >
-      ${label}
-    </button>
-  `;
+  return `${value}. ${question.options[value]}`;
 }
 
-function renderReflectionOutput() {
-  const reflectionItems = [
-    ["Most familiar / most challenging", latestSubmission.reflections.familiar],
-    ["Next 30 days", latestSubmission.reflections.learn],
-    ["Preferred learning style", latestSubmission.reflections.style],
-    ["Portfolio project idea", latestSubmission.reflections.project]
-  ];
-
-  reflectionOutput.innerHTML = reflectionItems.map(([label, value]) => `
-    <div>
-      <strong>${escapeHtml(label)}</strong>
-      <p>${escapeHtml(value.trim() || "No response provided.")}</p>
-    </div>
-  `).join("");
-}
-
-function markObjectiveAnswers() {
-  choiceQuestions.forEach((question) => {
+function markAnswers(submission) {
+  questions.forEach((question) => {
     const card = document.getElementById(`${question.id}-card`);
-    const isCorrect = latestSubmission.answers[question.id] === question.answer;
+    const isCorrect = submission.answers[question.id] === question.answer;
 
     card.classList.toggle("is-correct", isCorrect);
     card.classList.toggle("is-incorrect", !isCorrect);
   });
 }
 
-function formatScore(score) {
-  return Number.isInteger(score) ? String(score) : score.toFixed(1);
+function focusQuestion(questionId) {
+  const card = document.getElementById(`${questionId}-card`);
+  card.scrollIntoView({ behavior: "smooth", block: "center" });
+  card.querySelector("input")?.focus({ preventScroll: true });
 }
 
 function escapeHtml(value) {
@@ -928,37 +678,18 @@ function escapeHtml(value) {
     .replaceAll("'", "&#039;");
 }
 
-renderSections();
-updateLiveProgress();
+renderQuiz();
+updateProgress();
 
-form.addEventListener("input", updateLiveProgress);
-
+form.addEventListener("input", updateProgress);
 form.addEventListener("submit", (event) => {
   event.preventDefault();
   showResults();
 });
 
-toggleWrittenReview.addEventListener("click", () => {
-  const isHidden = writtenReview.hidden;
-  writtenReview.hidden = !isHidden;
-  toggleWrittenReview.textContent = isHidden ? "Hide Written Answers" : "Show Written Answers";
-});
-
-writtenReview.addEventListener("click", (event) => {
-  const button = event.target.closest("[data-grade]");
-
-  if (!button) {
-    return;
-  }
-
-  writtenGrades[button.dataset.questionId] = Number(button.dataset.grade);
-  renderWrittenReview();
-  updateResultNumbers();
-});
-
 printResults.addEventListener("click", () => {
   if (!results.classList.contains("is-visible")) {
-    focusFirstIncompleteQuestion();
+    updateProgress();
     return;
   }
 

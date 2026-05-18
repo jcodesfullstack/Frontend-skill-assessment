@@ -1,16 +1,17 @@
-# Full-Stack Internship Assessment Quiz
+# Software Engineering Skills Assessment Quiz
 
-A static website version of the Full-Stack Developer Internship aptitude and
-skills assessment.
+A static website version of the 30-question software engineering multiple-choice quiz.
 
 The quiz includes:
 
-- All 45 scored assessment questions
-- Automatic scoring for 30 multiple-choice questions
-- Written-answer capture for 15 short-answer questions
-- Full, half, or no-credit grading controls for written answers
-- A screenshot-ready results panel with student info, total score, scoring band,
-  section breakdown, and learning reflection
+- 30 multiple-choice questions
+- An "I don't know" option on every question to discourage guessing
+- 10 technology categories
+- Automatic scoring after every question is answered
+- Overall market-readiness scoring band
+- Per-technology proficiency labels
+- Uncertainty tracking in the final results
+- Full answer review showing the client's answer, the correct answer, and a short explanation
 - Print/save styling for sharing results
 
 ## Running Locally
@@ -29,6 +30,6 @@ http://127.0.0.1:4180/index.html
 
 ## Files
 
-- `index.html`: page structure, student info, quiz form, and results panel
+- `index.html`: page structure, client info, quiz form, and results panel
 - `styles.css`: responsive visual design, print styles, and score states
-- `src/app.js`: question data, scoring logic, written review, and result rendering
+- `src/app.js`: question data, scoring logic, proficiency breakdown, and answer review

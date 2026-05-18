@@ -3,63 +3,60 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Full-Stack Internship Assessment Quiz</title>
-    <link rel="stylesheet" href="./styles.css?v=20260512-01" />
+    <title>Software Engineering Skills Assessment Quiz</title>
+    <link rel="stylesheet" href="./styles.css?v=20260517-01" />
   </head>
   <body>
     <main class="app-shell">
       <header class="topbar">
         <div>
-          <p class="eyebrow">Aptitude & Skills Assessment</p>
-          <h1>Full-Stack Developer Internship Quiz</h1>
+          <p class="eyebrow">Software Engineering Skills Assessment</p>
+          <h1>Full-Stack Proficiency Quiz</h1>
         </div>
         <button id="print-results" class="icon-button" type="button" title="Print or save results">
-          <span aria-hidden="true">v</span>
+          <span aria-hidden="true">PDF</span>
           <span>Save</span>
         </button>
       </header>
 
       <section class="intro-panel" aria-labelledby="intro-title">
         <div>
-          <h2 id="intro-title">45 questions. Automatic scoring where it's fair.</h2>
+          <h2 id="intro-title">30 questions. Immediate proficiency results.</h2>
           <p>
-            Multiple-choice answers are graded instantly. Written answers are captured
-            for review, then can be marked full, half, or no credit on the results page.
+            Answer every question, use "I don't know" instead of guessing when needed,
+            then get an overall market-readiness band, a technology-by-technology
+            proficiency breakdown, and the correct answer for each item.
           </p>
         </div>
         <div class="quick-stats" aria-label="Assessment summary">
-          <span><strong>45</strong> scored</span>
-          <span><strong>7</strong> sections</span>
-          <span><strong>35-45</strong> minutes</span>
+          <span><strong>30</strong> questions</span>
+          <span><strong>10</strong> technologies</span>
+          <span><strong>10-15</strong> minutes</span>
         </div>
       </section>
 
       <section class="student-card" aria-labelledby="student-title">
-        <h2 id="student-title">Student Info</h2>
+        <h2 id="student-title">Client Info</h2>
         <div class="student-grid">
           <label>
             Name
-            <input id="student-name" autocomplete="name" type="text" placeholder="Student name" />
+            <input id="student-name" autocomplete="name" type="text" placeholder="Client name" />
           </label>
           <label>
             Date
             <input id="student-date" type="date" />
           </label>
           <label>
-            School
-            <input id="student-school" type="text" placeholder="School" />
-          </label>
-          <label>
             Target Role
-            <input id="student-role" type="text" value="Full-Stack Internship" />
+            <input id="student-role" type="text" value="Full-stack web developer" />
           </label>
         </div>
       </section>
 
       <section class="progress-panel" aria-label="Quiz progress">
         <div class="progress-copy">
-          <span id="answered-count">0 of 45 scored questions completed</span>
-          <strong id="completion-status">Results locked until finished</strong>
+          <span id="answered-count">0 of 30 questions answered</span>
+          <strong id="completion-status">Results unlock after every question is answered</strong>
         </div>
         <div class="progress-track" aria-hidden="true">
           <span id="progress-fill"></span>
@@ -69,49 +66,25 @@
       <form id="quiz-form" class="quiz-form">
         <div id="sections"></div>
 
-        <section class="section-card reflection-card">
-          <div class="section-heading">
-            <p class="eyebrow">Not Scored</p>
-            <h2>Learning Reflection</h2>
-            <p>These answers help shape the learning plan after the assessment.</p>
-          </div>
-          <label class="written-question">
-            Which topic felt most familiar? Which felt most challenging?
-            <textarea name="reflection-familiar" rows="4"></textarea>
-          </label>
-          <label class="written-question">
-            What is one thing you want to learn in the next 30 days, and why?
-            <textarea name="reflection-learn" rows="4"></textarea>
-          </label>
-          <label class="written-question">
-            How do you prefer to learn new technical skills?
-            <textarea name="reflection-style" rows="4" placeholder="Videos, docs, projects, pair programming, etc."></textarea>
-          </label>
-          <label class="written-question">
-            What kind of project would excite you most to build for your portfolio?
-            <textarea name="reflection-project" rows="4"></textarea>
-          </label>
-        </section>
-
         <div class="submit-panel">
           <div>
             <strong>Ready to score?</strong>
-            <p>Complete all scored questions to unlock the assessment score. Written questions can be graded after submission.</p>
+            <p>Complete all 30 multiple-choice questions to unlock the proficiency report and answer key.</p>
           </div>
-          <button id="score-assessment" class="primary-button" type="submit" disabled>Score Assessment</button>
+          <button id="score-assessment" class="primary-button" type="submit" disabled>Score Quiz</button>
         </div>
       </form>
 
       <section id="results" class="results-section" aria-live="polite" aria-labelledby="results-title">
         <div class="score-sheet">
           <div class="score-main">
-            <p class="eyebrow">Screenshot Result</p>
-            <h2 id="results-title">Assessment Score</h2>
+            <p class="eyebrow">Proficiency Report</p>
+            <h2 id="results-title">Quiz Score</h2>
             <p id="student-summary"></p>
           </div>
           <div class="score-number">
-            <strong id="total-score">0/45</strong>
-            <span id="score-band">Building</span>
+            <strong id="total-score">0/30</strong>
+            <span id="score-band">Not scored</span>
           </div>
         </div>
 
@@ -121,19 +94,24 @@
 
         <div class="result-grid">
           <article>
-            <span class="panel-label">Objective Score</span>
-            <strong id="objective-score">0/30</strong>
-            <p>Multiple-choice questions graded automatically.</p>
+            <span class="panel-label">Market Readiness</span>
+            <strong id="score-band-card">Score Band</strong>
+            <p id="readiness-copy"></p>
           </article>
           <article>
-            <span class="panel-label">Written Score</span>
-            <strong id="written-score">0/15</strong>
-            <p id="written-status">Review written answers to finalize the score.</p>
+            <span class="panel-label">Strongest Area</span>
+            <strong id="strongest-tech">Not scored</strong>
+            <p>Your highest-scoring technology category.</p>
           </article>
           <article>
-            <span class="panel-label">Learning Plan</span>
-            <strong id="plan-title">Start with fundamentals</strong>
-            <p id="plan-copy"></p>
+            <span class="panel-label">Focus Area</span>
+            <strong id="focus-tech">Not scored</strong>
+            <p>The technology category to review first.</p>
+          </article>
+          <article>
+            <span class="panel-label">Uncertain Answers</span>
+            <strong id="idk-count">0</strong>
+            <p id="idk-copy">Questions marked "I don't know" appear here so the score stays honest.</p>
           </article>
         </div>
 
@@ -145,24 +123,14 @@
           <div id="section-breakdown" class="breakdown-list"></div>
         </div>
 
-        <div class="written-review-card">
-          <div class="review-head">
-            <div>
-              <span class="panel-label">Written Review</span>
-              <h3>Mark free-response credit</h3>
-            </div>
-            <button id="toggle-written-review" class="secondary-button" type="button">Show Written Answers</button>
-          </div>
-          <div id="written-review" class="written-review" hidden></div>
-        </div>
-
-        <div class="reflection-output-card">
-          <span class="panel-label">Learning Reflection</span>
-          <div id="reflection-output" class="reflection-output"></div>
+        <div class="answer-review-card">
+          <span class="panel-label">Answer Key</span>
+          <h3>Your answers and the correct answers</h3>
+          <div id="answer-review" class="answer-review"></div>
         </div>
       </section>
     </main>
 
-    <script type="module" src="./src/app.js?v=20260512-01"></script>
+    <script type="module" src="./src/app.js?v=20260517-01"></script>
   </body>
 </html>
