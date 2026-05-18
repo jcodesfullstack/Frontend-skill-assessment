@@ -3,134 +3,272 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Software Engineering Skills Assessment Quiz</title>
-    <link rel="stylesheet" href="./styles.css?v=20260517-01" />
+    <title>SWE Job Readiness Calculator</title>
+    <link rel="stylesheet" href="./styles.css?v=20260518-02" />
   </head>
   <body>
-    <main class="app-shell">
-      <header class="topbar">
-        <div>
-          <p class="eyebrow">Software Engineering Skills Assessment</p>
-          <h1>Full-Stack Proficiency Quiz</h1>
-        </div>
-        <button id="print-results" class="icon-button" type="button" title="Print or save results">
-          <span aria-hidden="true">PDF</span>
-          <span>Save</span>
-        </button>
-      </header>
-
-      <section class="intro-panel" aria-labelledby="intro-title">
-        <div>
-          <h2 id="intro-title">30 questions. Immediate proficiency results.</h2>
+    <main class="page-shell">
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <p class="eyebrow">SWE Job Readiness Calculator</p>
+          <h1 id="page-title">Calculate whether you are ready to land a software engineering job.</h1>
           <p>
-            Answer every question, use "I don't know" instead of guessing when needed,
-            then get an overall market-readiness band, a technology-by-technology
-            proficiency breakdown, and the correct answer for each item.
+            A fast 20-point readiness check for CS grads. Check your resume,
+            projects, DSA, outreach, and interview prep, then fix the weakest
+            part first.
+          </p>
+          <a class="primary-link" href="#scorecard">Calculate My Score</a>
+        </div>
+
+        <aside class="hero-panel" aria-label="Lead magnet summary">
+          <span class="panel-label">Built for</span>
+          <strong>CS grads trying to land interviews</strong>
+          <p>No essays. No guessing. Just the signals recruiters and interviewers need to trust you.</p>
+          <div class="score-preview">
+            <span>5 areas</span>
+            <span>20 points</span>
+            <span>First fixes</span>
+          </div>
+        </aside>
+      </section>
+
+      <section id="scorecard" class="scorecard-section" aria-labelledby="scorecard-title">
+        <div class="section-heading">
+          <p class="eyebrow">The Scorecard</p>
+          <h2 id="scorecard-title">Score yourself across five hiring signals.</h2>
+          <p>
+            Tap yes or no for each signal. Every yes is 1 point, and your score
+            updates as you answer.
           </p>
         </div>
-        <div class="quick-stats" aria-label="Assessment summary">
-          <span><strong>30</strong> questions</span>
-          <span><strong>10</strong> technologies</span>
-          <span><strong>10-15</strong> minutes</span>
-        </div>
-      </section>
 
-      <section class="student-card" aria-labelledby="student-title">
-        <h2 id="student-title">Client Info</h2>
-        <div class="student-grid">
-          <label>
-            Name
-            <input id="student-name" autocomplete="name" type="text" placeholder="Client name" />
-          </label>
-          <label>
-            Date
-            <input id="student-date" type="date" />
-          </label>
-          <label>
-            Target Role
-            <input id="student-role" type="text" value="Full-stack web developer" />
-          </label>
-        </div>
-      </section>
-
-      <section class="progress-panel" aria-label="Quiz progress">
-        <div class="progress-copy">
-          <span id="answered-count">0 of 30 questions answered</span>
-          <strong id="completion-status">Results unlock after every question is answered</strong>
-        </div>
-        <div class="progress-track" aria-hidden="true">
-          <span id="progress-fill"></span>
-        </div>
-      </section>
-
-      <form id="quiz-form" class="quiz-form">
-        <div id="sections"></div>
-
-        <div class="submit-panel">
+        <div class="live-result" aria-live="polite">
           <div>
-            <strong>Ready to score?</strong>
-            <p>Complete all 30 multiple-choice questions to unlock the proficiency report and answer key.</p>
+            <span class="panel-label">Your readiness score</span>
+            <strong id="score-value">0/20</strong>
+            <p id="score-summary">Answer the questions to see if you are ready to land interviews.</p>
           </div>
-          <button id="score-assessment" class="primary-button" type="submit" disabled>Score Quiz</button>
-        </div>
-      </form>
-
-      <section id="results" class="results-section" aria-live="polite" aria-labelledby="results-title">
-        <div class="score-sheet">
-          <div class="score-main">
-            <p class="eyebrow">Proficiency Report</p>
-            <h2 id="results-title">Quiz Score</h2>
-            <p id="student-summary"></p>
+          <div class="meter" aria-hidden="true">
+            <span id="score-meter"></span>
           </div>
-          <div class="score-number">
-            <strong id="total-score">0/30</strong>
-            <span id="score-band">Not scored</span>
+          <div class="result-meta">
+            <span id="answered-count">0 of 20 answered</span>
+            <span id="weakest-area">Weakest area: waiting</span>
           </div>
         </div>
 
-        <div class="score-meter" aria-hidden="true">
-          <span id="score-meter-fill"></span>
+        <div class="category-grid">
+          <article class="category-card" data-category="resume">
+            <div class="card-topline">
+              <span>01</span>
+              <strong><b data-category-score="resume">0</b>/4</strong>
+            </div>
+            <h3>Resume Readiness</h3>
+            <div class="question-list">
+              <div class="question-row" data-question="resume-1">
+                <p>Does your resume clearly target one SWE role?</p>
+                <div class="answer-buttons"><button type="button" data-answer="yes">Yes</button><button type="button" data-answer="no">No</button></div>
+              </div>
+              <div class="question-row" data-question="resume-2">
+                <p>Do your bullets include tech stack + features + impact?</p>
+                <div class="answer-buttons"><button type="button" data-answer="yes">Yes</button><button type="button" data-answer="no">No</button></div>
+              </div>
+              <div class="question-row" data-question="resume-3">
+                <p>Do you have at least 2 strong projects listed?</p>
+                <div class="answer-buttons"><button type="button" data-answer="yes">Yes</button><button type="button" data-answer="no">No</button></div>
+              </div>
+              <div class="question-row" data-question="resume-4">
+                <p>Can a recruiter understand your value in 10 seconds?</p>
+                <div class="answer-buttons"><button type="button" data-answer="yes">Yes</button><button type="button" data-answer="no">No</button></div>
+              </div>
+            </div>
+            <p>Quick fix: rewrite your top 3 bullets using Built X with Y to achieve Z.</p>
+          </article>
+
+          <article class="category-card" data-category="projects">
+            <div class="card-topline">
+              <span>02</span>
+              <strong><b data-category-score="projects">0</b>/4</strong>
+            </div>
+            <h3>Project Readiness</h3>
+            <div class="question-list">
+              <div class="question-row" data-question="projects-1">
+                <p>Do your projects include authentication, APIs, and a database?</p>
+                <div class="answer-buttons"><button type="button" data-answer="yes">Yes</button><button type="button" data-answer="no">No</button></div>
+              </div>
+              <div class="question-row" data-question="projects-2">
+                <p>Do you have one project that feels like a real product?</p>
+                <div class="answer-buttons"><button type="button" data-answer="yes">Yes</button><button type="button" data-answer="no">No</button></div>
+              </div>
+              <div class="question-row" data-question="projects-3">
+                <p>Is your best project deployed?</p>
+                <div class="answer-buttons"><button type="button" data-answer="yes">Yes</button><button type="button" data-answer="no">No</button></div>
+              </div>
+              <div class="question-row" data-question="projects-4">
+                <p>Does your README explain the problem, features, tech stack, and screenshots?</p>
+                <div class="answer-buttons"><button type="button" data-answer="yes">Yes</button><button type="button" data-answer="no">No</button></div>
+              </div>
+            </div>
+            <p>Quick fix: upgrade one project with auth, database, deployment, and a polished README.</p>
+          </article>
+
+          <article class="category-card" data-category="dsa">
+            <div class="card-topline">
+              <span>03</span>
+              <strong><b data-category-score="dsa">0</b>/4</strong>
+            </div>
+            <h3>DSA / Technical Readiness</h3>
+            <div class="question-list">
+              <div class="question-row" data-question="dsa-1">
+                <p>Can you solve easy LeetCode problems without help?</p>
+                <div class="answer-buttons"><button type="button" data-answer="yes">Yes</button><button type="button" data-answer="no">No</button></div>
+              </div>
+              <div class="question-row" data-question="dsa-2">
+                <p>Can you explain time and space complexity?</p>
+                <div class="answer-buttons"><button type="button" data-answer="yes">Yes</button><button type="button" data-answer="no">No</button></div>
+              </div>
+              <div class="question-row" data-question="dsa-3">
+                <p>Can you solve arrays, strings, hash maps, stacks, queues, and trees?</p>
+                <div class="answer-buttons"><button type="button" data-answer="yes">Yes</button><button type="button" data-answer="no">No</button></div>
+              </div>
+              <div class="question-row" data-question="dsa-4">
+                <p>Can you talk through your solution out loud?</p>
+                <div class="answer-buttons"><button type="button" data-answer="yes">Yes</button><button type="button" data-answer="no">No</button></div>
+              </div>
+            </div>
+            <p>Quick fix: practice 5 problems this week and explain every answer like an interview.</p>
+          </article>
+
+          <article class="category-card" data-category="outreach">
+            <div class="card-topline">
+              <span>04</span>
+              <strong><b data-category-score="outreach">0</b>/4</strong>
+            </div>
+            <h3>Outreach Readiness</h3>
+            <div class="question-list">
+              <div class="question-row" data-question="outreach-1">
+                <p>Are you messaging engineers/recruiters directly?</p>
+                <div class="answer-buttons"><button type="button" data-answer="yes">Yes</button><button type="button" data-answer="no">No</button></div>
+              </div>
+              <div class="question-row" data-question="outreach-2">
+                <p>Are you asking for referrals before applying?</p>
+                <div class="answer-buttons"><button type="button" data-answer="yes">Yes</button><button type="button" data-answer="no">No</button></div>
+              </div>
+              <div class="question-row" data-question="outreach-3">
+                <p>Are you applying to less competitive companies, not just FAANG/LinkedIn Easy Apply?</p>
+                <div class="answer-buttons"><button type="button" data-answer="yes">Yes</button><button type="button" data-answer="no">No</button></div>
+              </div>
+              <div class="question-row" data-question="outreach-4">
+                <p>Are you following up after applying?</p>
+                <div class="answer-buttons"><button type="button" data-answer="yes">Yes</button><button type="button" data-answer="no">No</button></div>
+              </div>
+            </div>
+            <p>Quick fix: send 5 referral DMs this week before applying to another 50 jobs.</p>
+          </article>
+
+          <article class="category-card featured-card" data-category="interviews">
+            <div class="card-topline">
+              <span>05</span>
+              <strong><b data-category-score="interviews">0</b>/4</strong>
+            </div>
+            <h3>Interview Readiness</h3>
+            <div class="question-list">
+              <div class="question-row" data-question="interviews-1">
+                <p>Can you explain your best project in under 90 seconds?</p>
+                <div class="answer-buttons"><button type="button" data-answer="yes">Yes</button><button type="button" data-answer="no">No</button></div>
+              </div>
+              <div class="question-row" data-question="interviews-2">
+                <p>Can you answer Tell me about yourself confidently?</p>
+                <div class="answer-buttons"><button type="button" data-answer="yes">Yes</button><button type="button" data-answer="no">No</button></div>
+              </div>
+              <div class="question-row" data-question="interviews-3">
+                <p>Can you explain why you chose certain technologies?</p>
+                <div class="answer-buttons"><button type="button" data-answer="yes">Yes</button><button type="button" data-answer="no">No</button></div>
+              </div>
+              <div class="question-row" data-question="interviews-4">
+                <p>Have you practiced behavioral answers recently?</p>
+                <div class="answer-buttons"><button type="button" data-answer="yes">Yes</button><button type="button" data-answer="no">No</button></div>
+              </div>
+            </div>
+            <p>Quick fix: use Problem -> System -> Decision -> Outcome for project stories.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="personal-result" class="personal-result-section" aria-live="polite" aria-labelledby="personal-result-title">
+        <p class="eyebrow">Your Result</p>
+        <h2 id="personal-result-title">Answer all 20 signals to unlock your result.</h2>
+        <p id="personal-result-copy">You will see whether you are ready to land interviews, your weakest area, and what to fix first.</p>
+        <ol id="personal-action-list">
+          <li>Answer each yes/no question above.</li>
+          <li>Watch your score update in real time.</li>
+          <li>Fix the weakest section before applying again.</li>
+        </ol>
+      </section>
+
+      <section class="results-section" aria-labelledby="results-title">
+        <div class="section-heading">
+          <p class="eyebrow">What Your Score Means</p>
+          <h2 id="results-title">Use the score range to pick your next move.</h2>
         </div>
 
-        <div class="result-grid">
+        <div class="band-grid">
           <article>
-            <span class="panel-label">Market Readiness</span>
-            <strong id="score-band-card">Score Band</strong>
-            <p id="readiness-copy"></p>
+            <strong>0-7</strong>
+            <h3>Not Interview Ready</h3>
+            <p>You likely have weak projects, weak positioning, or unclear proof.</p>
+            <ol>
+              <li>Fix resume positioning.</li>
+              <li>Upgrade one project.</li>
+              <li>Practice explaining your project clearly.</li>
+            </ol>
           </article>
           <article>
-            <span class="panel-label">Strongest Area</span>
-            <strong id="strongest-tech">Not scored</strong>
-            <p>Your highest-scoring technology category.</p>
+            <strong>8-11</strong>
+            <h3>Close, But Not Competitive</h3>
+            <p>Your profile probably still looks too generic to recruiters.</p>
+            <ol>
+              <li>Add measurable proof.</li>
+              <li>Improve GitHub and LinkedIn.</li>
+              <li>Start referral-based outreach.</li>
+            </ol>
           </article>
           <article>
-            <span class="panel-label">Focus Area</span>
-            <strong id="focus-tech">Not scored</strong>
-            <p>The technology category to review first.</p>
+            <strong>12-15</strong>
+            <h3>Interview-Ready, But Underexposed</h3>
+            <p>You may be good enough for interviews, but your search system is weak.</p>
+            <ol>
+              <li>Apply less, network more.</li>
+              <li>Message engineers before applying.</li>
+              <li>Tailor your resume for each role.</li>
+            </ol>
           </article>
           <article>
-            <span class="panel-label">Uncertain Answers</span>
-            <strong id="idk-count">0</strong>
-            <p id="idk-copy">Questions marked "I don't know" appear here so the score stays honest.</p>
+            <strong>16-20</strong>
+            <h3>Strong Candidate</h3>
+            <p>Your next bottleneck is probably interview performance or offer conversion.</p>
+            <ol>
+              <li>Mock interview weekly.</li>
+              <li>Practice project explanations.</li>
+              <li>Improve behavioral storytelling.</li>
+            </ol>
           </article>
         </div>
+      </section>
 
-        <div class="breakdown-card">
-          <div>
-            <span class="panel-label">Section Breakdown</span>
-            <h3>Scores by topic</h3>
-          </div>
-          <div id="section-breakdown" class="breakdown-list"></div>
-        </div>
-
-        <div class="answer-review-card">
-          <span class="panel-label">Answer Key</span>
-          <h3>Your answers and the correct answers</h3>
-          <div id="answer-review" class="answer-review"></div>
-        </div>
+      <section class="cta-section" aria-labelledby="cta-title">
+        <p class="eyebrow">Root Problem</p>
+        <h2 id="cta-title">If your score is under 14, fix the profile before you send more applications.</h2>
+        <p>
+          Most CS grads do not need another random project or another batch of
+          Easy Apply submissions. They need a clearer target role, stronger
+          proof, and a referral-driven search system.
+        </p>
+        <a class="primary-link" href="https://www.instagram.com/" target="_blank" rel="noreferrer">
+          DM READY
+        </a>
       </section>
     </main>
-
-    <script type="module" src="./src/app.js?v=20260517-01"></script>
+    <script type="module" src="./src/app.js?v=20260518-03"></script>
   </body>
 </html>

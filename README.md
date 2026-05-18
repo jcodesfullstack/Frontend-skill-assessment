@@ -1,18 +1,17 @@
-# Software Engineering Skills Assessment Quiz
+# SWE Job Readiness Calculator
 
-A static website version of the 30-question software engineering multiple-choice quiz.
+A fast interactive lead-magnet page for CS grads and early-career software
+engineers. Users answer yes/no signals, get a 20-point readiness score, and
+see the weakest area to fix first.
 
-The quiz includes:
+The page includes:
 
-- 30 multiple-choice questions
-- An "I don't know" option on every question to discourage guessing
-- 10 technology categories
-- Automatic scoring after every question is answered
-- Overall market-readiness scoring band
-- Per-technology proficiency labels
-- Uncertainty tracking in the final results
-- Full answer review showing the client's answer, the correct answer, and a short explanation
-- Print/save styling for sharing results
+- A clear lead-magnet hero and CTA
+- Five 4-point readiness categories with yes/no buttons
+- Live score, answer progress, and weakest-area detection
+- Quick fixes for resume, projects, DSA, outreach, and interview readiness
+- Score range explanations from 0 to 20
+- A final CTA for candidates scoring under 14
 
 ## Running Locally
 
@@ -30,6 +29,6 @@ http://127.0.0.1:4180/index.html
 
 ## Files
 
-- `index.html`: page structure, client info, quiz form, and results panel
-- `styles.css`: responsive visual design, print styles, and score states
-- `src/app.js`: question data, scoring logic, proficiency breakdown, and answer review
+- `index.html`: lead-magnet page content and interactive scorecard markup
+- `styles.css`: responsive visual design
+- `src/app.js`: yes/no scoring, category totals, and result rendering
