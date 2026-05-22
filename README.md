@@ -1,17 +1,15 @@
-# SWE Job Readiness Calculator
+# Software Engineering Readiness Quiz
 
-A fast interactive lead-magnet page for CS grads and early-career software
-engineers. Users answer yes/no signals, get a 20-point readiness score, and
-see the weakest area to fix first.
+A 30-question multiple-choice quiz for CS grads and early-career software
+engineers. Users answer every question before the score, questions they got
+right, and full answer key are revealed.
 
 The page includes:
 
-- A clear lead-magnet hero and CTA
-- Five 4-point readiness categories with yes/no buttons
-- Live score, answer progress, and weakest-area detection
-- Quick fixes for resume, projects, DSA, outreach, and interview readiness
-- Score range explanations from 0 to 20
-- A final CTA for candidates scoring under 14
+- Eight readiness sections covering JS, TS, React, HTML/CSS, SQL, DSA, web architecture, Git, and backend basics
+- All multiple-choice questions with code snippets and an "I don't know" option where useful
+- A submit gate that hides the answer key until every question is answered
+- Results showing score, level, percentage, questions answered correctly, and the full answer key
 
 ## Running Locally
 
@@ -29,6 +27,6 @@ http://127.0.0.1:4180/index.html
 
 ## Files
 
-- `index.html`: lead-magnet page content and interactive scorecard markup
+- `index.html`: quiz page shell and result containers
 - `styles.css`: responsive visual design
-- `src/app.js`: yes/no scoring, category totals, and result rendering
+- `src/app.js`: question data, progress tracking, scoring, and answer-key rendering
