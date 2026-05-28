@@ -1,15 +1,15 @@
-# Software Engineering Readiness Quiz
+# SWE Roadmap Generator
 
-A 30-question multiple-choice quiz for CS grads and early-career software
-engineers. Users answer every question before the score, questions they got
-right, and full answer key are revealed.
+A personalized SWE progression system for CS grads and early-career developers
+trying to land software engineering interviews.
 
 The page includes:
 
-- Eight readiness sections covering JS, TS, React, HTML/CSS, SQL, DSA, web architecture, Git, and backend basics
-- All multiple-choice questions with code snippets and an "I don't know" option where useful
-- A submit gate that hides the answer key until every question is answered
-- Results showing score, level, percentage, questions answered correctly, and the full answer key
+- Target-role selection for frontend, backend, full stack, AI/ML, and data engineering
+- Emotional skill-level labels that map to beginner, intermediate, and advanced users
+- Role-specific skill assessment questions
+- Biggest-struggle selection to shape the bottleneck and recommendations
+- Generated roadmap output with phases, a resume-level project, priority skills, and a "what not to learn" section
 
 ## Running Locally
 
@@ -27,6 +27,6 @@ http://127.0.0.1:4180/index.html
 
 ## Files
 
-- `index.html`: quiz page shell and result containers
+- `index.html`: page shell and generator containers
 - `styles.css`: responsive visual design
-- `src/app.js`: question data, progress tracking, scoring, and answer-key rendering
+- `src/app.js`: questionnaire state, role data, and roadmap generation logic
