@@ -3,105 +3,65 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SWE Roadmap Generator</title>
-    <link rel="stylesheet" href="./styles.css?v=20260528-01" />
+    <title>Frontend Engineering Skills Assessment</title>
+    <link rel="stylesheet" href="./styles.css?v=20260603-01" />
   </head>
   <body>
     <main class="app-shell">
       <section class="hero" aria-labelledby="page-title">
         <div class="hero-content">
-          <p class="eyebrow">Personalized SWE progression system</p>
-          <h1 id="page-title">SWE Roadmap Generator</h1>
+          <p class="eyebrow">Client skills assessment</p>
+          <h1 id="page-title">Frontend Engineering Skills Assessment</h1>
           <p class="hero-copy">
-            Get a personalized roadmap based on your target role, current skill level,
-            strengths, and weaknesses. Built specifically for CS grads trying to land
-            software engineering interviews.
+            A 30-question quiz across JavaScript, TypeScript, React, HTML/CSS,
+            Git, Node, SQL, testing, AI, cloud, and performance readiness.
           </p>
-          <a class="primary-button" href="#generator">Generate My Roadmap</a>
+          <a class="primary-button" href="#quiz">Start Assessment</a>
         </div>
 
-        <div class="hero-panel" aria-label="Roadmap promise">
-          <span>From scattered learning</span>
-          <strong>to interview-oriented execution</strong>
-          <p>Role-specific phases, project direction, priority skills, and clear tradeoffs.</p>
+        <div class="hero-panel" aria-label="Assessment details">
+          <span>6 sections</span>
+          <strong>30 questions</strong>
+          <p>Answers and explanations stay hidden until the quiz is submitted.</p>
         </div>
       </section>
 
-      <section class="generator" id="generator" aria-labelledby="generator-title">
-        <div class="generator-header">
+      <section class="quiz-section" id="quiz" aria-labelledby="quiz-title">
+        <div class="quiz-header">
           <div>
-            <p class="eyebrow">5 step builder</p>
-            <h2 id="generator-title">Build your roadmap</h2>
+            <p class="eyebrow">Frontend Engineering Quiz</p>
+            <h2 id="quiz-title">Choose the best answer</h2>
           </div>
           <div class="progress-card" aria-live="polite">
-            <span id="progress-label">Step 1 of 5</span>
+            <span id="progress-label">0 of 30 answered</span>
             <div class="meter" aria-hidden="true">
               <span id="progress-meter"></span>
             </div>
           </div>
         </div>
 
-        <form id="roadmap-form" class="roadmap-form">
-          <section class="step is-active" data-step="1" aria-labelledby="step-1-title">
-            <div class="step-heading">
-              <span class="step-kicker">Step 1</span>
-              <h3 id="step-1-title">Pick your target role</h3>
-            </div>
-            <div class="choice-grid" id="role-options"></div>
-          </section>
-
-          <section class="step" data-step="2" aria-labelledby="step-2-title">
-            <div class="step-heading">
-              <span class="step-kicker">Step 2</span>
-              <h3 id="step-2-title">Choose your current skill level</h3>
-            </div>
-            <div class="choice-grid level-grid" id="level-options"></div>
-          </section>
-
-          <section class="step" data-step="3" aria-labelledby="step-3-title">
-            <div class="step-heading">
-              <span class="step-kicker">Step 3</span>
-              <h3 id="step-3-title">Quick skill assessment</h3>
-            </div>
-            <div class="assessment-grid" id="assessment-options"></div>
-          </section>
-
-          <section class="step" data-step="4" aria-labelledby="step-4-title">
-            <div class="step-heading">
-              <span class="step-kicker">Step 4</span>
-              <h3 id="step-4-title">What is your biggest struggle?</h3>
-            </div>
-            <div class="choice-grid struggle-grid" id="struggle-options"></div>
-          </section>
-
-          <section class="step" data-step="5" aria-labelledby="step-5-title">
-            <div class="step-heading">
-              <span class="step-kicker">Step 5</span>
-              <h3 id="step-5-title">Generate your roadmap</h3>
-              <p>Your plan will prioritize what moves you closer to interviews fastest.</p>
-            </div>
-            <button class="primary-button wide-button" type="submit">Generate Roadmap</button>
-          </section>
-
+        <form id="quiz-form" class="quiz-form" novalidate>
+          <div id="quiz-questions"></div>
           <div class="form-actions">
-            <button class="secondary-button" id="back-button" type="button">Back</button>
-            <button class="primary-button" id="next-button" type="button">Next</button>
+            <p id="form-message" class="form-message" role="status"></p>
+            <button class="primary-button" type="submit">Submit Quiz</button>
           </div>
         </form>
       </section>
 
-      <section id="roadmap-results" class="roadmap-results is-hidden" aria-labelledby="results-title" tabindex="-1">
+      <section id="results" class="results is-hidden" aria-labelledby="results-title" tabindex="-1">
         <div class="results-top">
           <div>
-            <p class="eyebrow">Your SWE Roadmap</p>
-            <h2 id="results-title">Personalized plan</h2>
+            <p class="eyebrow">Assessment results</p>
+            <h2 id="results-title">Skill profile</h2>
           </div>
-          <button class="secondary-button" id="start-over-button" type="button">Start Over</button>
+          <button class="secondary-button" id="retake-button" type="button">Retake Quiz</button>
         </div>
-        <div id="roadmap-output"></div>
+
+        <div id="results-output"></div>
       </section>
     </main>
 
-    <script type="module" src="./src/app.js?v=20260528-01"></script>
+    <script type="module" src="./src/app.js?v=20260603-01"></script>
   </body>
 </html>

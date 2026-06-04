@@ -1,147 +1,253 @@
-const roles = [
+const sections = [
   {
-    id: "frontend",
-    title: "Frontend Engineer",
-    summary: "Interfaces, React, state, accessibility, and product polish.",
+    title: "JavaScript",
     questions: [
-      "Can you build responsive UIs without fighting CSS?",
-      "Have you used React beyond tutorials?",
-      "Have you managed frontend state across multiple screens?",
-      "Have you deployed a frontend app?"
-    ],
-    fundamentals: ["responsive UI systems", "React component architecture", "state management", "frontend deployment"],
-    project: "Interview Prep Dashboard",
-    features: ["auth", "saved question sets", "progress charts", "responsive layout", "deployed production build"],
-    priorities: ["React architecture", "state management", "responsive UI", "project polish"],
-    avoid: ["pixel-perfect clones with no product logic", "another static portfolio redesign", "jumping into animation libraries before React depth"]
+      {
+        prompt: "What will the following code output?",
+        code: "console.log(typeof null);",
+        options: ["null", "undefined", "object", "string"],
+        answer: "C"
+      },
+      {
+        prompt: "Which method creates a new array without modifying the original array?",
+        options: ["splice()", "push()", "pop()", "map()"],
+        answer: "D"
+      },
+      {
+        prompt: "What is the difference between == and ===?",
+        options: ["No difference", "=== checks value only", "== checks value and type", "=== checks value and type"],
+        answer: "D"
+      },
+      {
+        prompt: "What will this code return?",
+        code: "const nums = [1, 2, 3];\nconst result = nums.reduce((acc, num) => acc + num, 0);\n\nconsole.log(result);",
+        options: ["3", "5", "6", "0"],
+        answer: "C"
+      },
+      {
+        prompt: "Which JavaScript feature allows functions to remember variables from their outer scope?",
+        options: ["Hoisting", "Closure", "Promise", "Prototype"],
+        answer: "B"
+      }
+    ]
   },
   {
-    id: "backend",
-    title: "Backend Engineer",
-    summary: "APIs, databases, auth, deployments, and service reliability.",
+    title: "TypeScript",
     questions: [
-      "Have you built APIs with clear routes and status codes?",
-      "Have you worked with relational databases?",
-      "Have you implemented authentication?",
-      "Have you deployed a backend server?"
-    ],
-    fundamentals: ["REST APIs", "authentication", "database relationships", "error handling"],
-    project: "Inventory Management System",
-    features: ["JWT auth", "PostgreSQL schema", "role permissions", "dashboard API", "cloud deployment"],
-    priorities: ["API architecture", "database schema design", "deployment", "project explanation"],
-    avoid: ["random backend tutorials", "building endpoints without a real data model", "advanced algorithms before project depth"]
+      {
+        prompt: "What is the main purpose of TypeScript?",
+        options: ["Improve CSS styling", "Add static typing to JavaScript", "Replace React", "Improve browser speed"],
+        answer: "B"
+      },
+      {
+        prompt: "Which type correctly represents a variable that can be either a string or number?",
+        options: ["string && number", "string | number", "string + number", "any"],
+        answer: "B"
+      },
+      {
+        prompt: "What does the following mean?",
+        code: "interface User {\n  name: string;\n  age?: number;\n}",
+        options: ["age is required", "age must be null", "age is optional", "age is a string"],
+        answer: "C"
+      },
+      {
+        prompt: "Which keyword creates a custom reusable type?",
+        options: ["interface", "define", "model", "struct"],
+        answer: "A"
+      },
+      {
+        prompt: "Which TypeScript type should generally be avoided because it removes type safety?",
+        options: ["unknown", "never", "any", "string"],
+        answer: "C"
+      }
+    ]
   },
   {
-    id: "fullstack",
-    title: "Full Stack Engineer",
-    summary: "End-to-end products, frontend flow, backend logic, and deployment.",
+    title: "React & Next.js",
     questions: [
-      "Can you connect a frontend to your own API?",
-      "Have you designed database-backed features?",
-      "Have you handled auth from UI to backend?",
-      "Have you deployed a full stack app?"
-    ],
-    fundamentals: ["frontend-backend contracts", "auth flows", "database-backed UI", "full stack deployment"],
-    project: "SaaS Job Tracker",
-    features: ["user accounts", "application pipeline", "notes and reminders", "analytics page", "deployed frontend and API"],
-    priorities: ["end-to-end feature design", "API integration", "auth flow", "deployment confidence"],
-    avoid: ["separate toy frontend and backend apps", "framework hopping", "features that cannot be explained in interviews"]
+      {
+        prompt: "What causes a React component to re-render?",
+        options: ["CSS updates", "State or prop changes", "Browser refresh only", "Git commits"],
+        answer: "B"
+      },
+      {
+        prompt: "Which hook is used to manage component state?",
+        options: ["useMemo", "useEffect", "useState", "useRef"],
+        answer: "C"
+      },
+      {
+        prompt: "What is the purpose of useEffect?",
+        options: ["Create components", "Handle side effects", "Create routes", "Style components"],
+        answer: "B"
+      },
+      {
+        prompt: "What is one major benefit of Next.js compared to standard React?",
+        options: ["Built-in routing and server-side rendering", "Replaces JavaScript", "Eliminates CSS", "Doesn't require React"],
+        answer: "A"
+      },
+      {
+        prompt: "When rendering a list in React, why are keys important?",
+        options: ["Improve styling", "Prevent compilation errors", "Help React identify changed elements efficiently", "Required for API calls"],
+        answer: "C"
+      }
+    ]
   },
   {
-    id: "ai-ml",
-    title: "AI/ML Engineer",
-    summary: "Python, models, evaluation, data pipelines, and practical ML products.",
+    title: "HTML, CSS & Accessibility",
     questions: [
-      "Can you train and evaluate a baseline model?",
-      "Have you cleaned and transformed real datasets?",
-      "Have you used Python ML libraries?",
-      "Have you deployed or demoed an ML-powered app?"
-    ],
-    fundamentals: ["Python data workflows", "model evaluation", "feature engineering", "ML app deployment"],
-    project: "Candidate Resume Insight Tool",
-    features: ["data ingestion", "model baseline", "evaluation report", "interactive UI", "deployed demo"],
-    priorities: ["Python ML stack", "evaluation metrics", "data cleaning", "portfolio demo storytelling"],
-    avoid: ["only watching model theory videos", "training models without evaluation", "chasing every new AI tool before shipping one demo"]
+      {
+        prompt: "Which HTML element is most semantically appropriate for site navigation?",
+        options: ["div", "section", "nav", "span"],
+        answer: "C"
+      },
+      {
+        prompt: "What does CSS Flexbox primarily help with?",
+        options: ["Database queries", "Layout and alignment", "State management", "Routing"],
+        answer: "B"
+      },
+      {
+        prompt: "Which accessibility practice is most important for images?",
+        options: ["Use PNG files only", "Add alt text when appropriate", "Compress images", "Use SVG"],
+        answer: "B"
+      },
+      {
+        prompt: "What is the CSS specificity order from highest to lowest?",
+        options: ["Element -> Class -> ID", "ID -> Class -> Element", "Class -> ID -> Element", "ID -> Element -> Class"],
+        answer: "B"
+      },
+      {
+        prompt: "What does the following CSS do?",
+        code: "box-sizing: border-box;",
+        options: [
+          "Removes padding",
+          "Includes padding and border in total element width/height",
+          "Creates responsive layouts",
+          "Centers content"
+        ],
+        answer: "B"
+      }
+    ]
   },
   {
-    id: "data",
-    title: "Data Engineer",
-    summary: "SQL, pipelines, warehousing, orchestration, and dependable data flows.",
+    title: "Git, Node.js & SQL",
     questions: [
-      "Are you comfortable writing SQL joins and aggregations?",
-      "Have you built a repeatable data pipeline?",
-      "Have you worked with batch jobs or scheduling?",
-      "Have you created dashboards from cleaned data?"
-    ],
-    fundamentals: ["SQL modeling", "ETL pipelines", "data validation", "dashboard-ready datasets"],
-    project: "Startup Metrics Pipeline",
-    features: ["raw data ingestion", "cleaned warehouse tables", "scheduled transforms", "quality checks", "analytics dashboard"],
-    priorities: ["SQL depth", "pipeline design", "data modeling", "operational debugging"],
-    avoid: ["memorizing tool lists", "dashboards on unclean data", "cloud certifications before pipeline projects"]
+      {
+        prompt: "Which Git command uploads local commits to GitHub?",
+        options: ["git pull", "git push", "git merge", "git clone"],
+        answer: "B"
+      },
+      {
+        prompt: "What does git pull do?",
+        options: ["Deletes commits", "Downloads and merges remote changes", "Creates a repository", "Pushes code"],
+        answer: "B"
+      },
+      {
+        prompt: "What is Node.js primarily used for?",
+        options: ["Database management", "Running JavaScript outside the browser", "Styling applications", "Mobile app development"],
+        answer: "B"
+      },
+      {
+        prompt: "What is Express.js?",
+        options: ["Frontend framework", "CSS framework", "Backend framework for Node.js", "Database"],
+        answer: "C"
+      },
+      {
+        prompt: "Which SQL statement retrieves data?",
+        options: ["INSERT", "UPDATE", "SELECT", "DELETE"],
+        answer: "C"
+      }
+    ]
+  },
+  {
+    title: "Industry Readiness",
+    subtitle: "Testing, AI, Cloud, Performance",
+    questions: [
+      {
+        prompt: "What is the primary goal of frontend testing?",
+        options: ["Improve CSS", "Verify code behaves as expected", "Improve Git workflow", "Deploy applications"],
+        answer: "B"
+      },
+      {
+        prompt: "Which testing library is commonly used with React?",
+        options: ["Jest", "MongoDB", "Prisma", "Docker"],
+        answer: "A"
+      },
+      {
+        prompt: "When integrating an AI API like Anthropic or OpenAI, where should API keys generally be stored?",
+        options: ["React component", "Browser local storage", "Backend environment variables", "GitHub repository"],
+        answer: "C"
+      },
+      {
+        prompt: "What is AWS?",
+        options: ["JavaScript framework", "Cloud computing platform", "SQL database", "React library"],
+        answer: "B"
+      },
+      {
+        prompt: "Which frontend optimization improves page load speed the most?",
+        options: ["Adding more animations", "Larger images", "Code splitting and lazy loading", "More JavaScript files"],
+        answer: "C"
+      }
+    ]
   }
 ];
 
-const levels = [
+const scoreBands = [
   {
-    id: "beginner",
-    title: "Beginner",
-    description: "I understand coding fundamentals but struggle building projects.",
-    pacing: "foundation-first",
-    weekOne: "Turn scattered fundamentals into one working, explainable base."
+    min: 27,
+    max: 30,
+    title: "Job Market Ready Frontend Engineer",
+    strengths: ["Strong React/Next.js fundamentals", "Good JavaScript understanding", "Likely capable of passing many junior-mid frontend interviews"],
+    focus: ["System design", "Testing", "Cloud deployment", "Advanced performance optimization"]
   },
   {
-    id: "intermediate",
-    title: "Intermediate",
-    description: "I can build projects but struggle getting interviews.",
-    pacing: "project-depth",
-    weekOne: "Tighten the weak parts of your stack and make your project sound hireable."
+    min: 22,
+    max: 26,
+    title: "Solid Junior Frontend Engineer",
+    strengths: ["Has enough technical knowledge to contribute professionally"],
+    focus: ["TypeScript depth", "Testing", "Backend fundamentals", "Cloud technologies"],
+    recommended: ["Testing with Jest and React Testing Library", "TypeScript", "AWS basics", "SQL", "Node/Express"]
   },
   {
-    id: "advanced",
-    title: "Advanced",
-    description: "I am interview-ready but struggling with job search execution.",
-    pacing: "execution",
-    weekOne: "Convert existing ability into sharper interview stories and outbound consistency."
+    min: 16,
+    max: 21,
+    title: "Developing Frontend Engineer",
+    strengths: ["Basic competency exists"],
+    focus: ["React fundamentals", "TypeScript", "State management", "Git workflow", "Backend communication"],
+    recommended: ["Advanced JavaScript", "React patterns", "TypeScript", "SQL basics", "Testing fundamentals"]
+  },
+  {
+    min: 10,
+    max: 15,
+    title: "Beginner Frontend Engineer",
+    strengths: [],
+    focus: ["JavaScript fundamentals", "React lifecycle", "Git workflow", "Accessibility", "TypeScript basics"],
+    recommended: ["Foundational project building before applying heavily"]
+  },
+  {
+    min: 0,
+    max: 9,
+    title: "Early Learning Stage",
+    strengths: [],
+    focus: ["HTML/CSS", "JavaScript fundamentals", "React basics", "Git fundamentals", "Building 3-5 small projects"],
+    recommended: ["Focus on foundations before Next.js, AI integration, or cloud technologies"]
   }
 ];
 
-const struggles = [
-  { id: "no-projects", title: "No projects", bottleneck: "missing project proof" },
-  { id: "weak-resume", title: "Weak resume", bottleneck: "weak project depth" },
-  { id: "no-interviews", title: "No interviews", bottleneck: "positioning and application strategy" },
-  { id: "failing-interviews", title: "Failing interviews", bottleneck: "technical interview execution" },
-  { id: "dont-know", title: "Do not know what to learn", bottleneck: "unclear learning priorities" },
-  { id: "no-confidence", title: "No confidence", bottleneck: "lack of repeated proof and practice" }
-];
-
-const generalQuestions = [
-  "Comfortable with Git/GitHub?",
-  "Comfortable debugging without getting stuck for hours?",
-  "Comfortable explaining your projects clearly?"
-];
-
-const state = {
-  step: 1,
-  role: roles[0].id,
-  level: levels[0].id,
-  struggle: struggles[0].id,
-  skills: new Set()
+const idkAnswer = {
+  letter: "E",
+  text: "I don't know"
 };
+const letterLabels = ["A", "B", "C", "D", idkAnswer.letter];
+const totalQuestions = sections.reduce((sum, section) => sum + section.questions.length, 0);
 
-const totalSteps = 5;
-const roleOptions = document.getElementById("role-options");
-const levelOptions = document.getElementById("level-options");
-const assessmentOptions = document.getElementById("assessment-options");
-const struggleOptions = document.getElementById("struggle-options");
-const steps = [...document.querySelectorAll(".step")];
+const form = document.getElementById("quiz-form");
+const questionsContainer = document.getElementById("quiz-questions");
 const progressLabel = document.getElementById("progress-label");
 const progressMeter = document.getElementById("progress-meter");
-const backButton = document.getElementById("back-button");
-const nextButton = document.getElementById("next-button");
-const form = document.getElementById("roadmap-form");
-const results = document.getElementById("roadmap-results");
-const roadmapOutput = document.getElementById("roadmap-output");
-const startOverButton = document.getElementById("start-over-button");
+const formMessage = document.getElementById("form-message");
+const results = document.getElementById("results");
+const resultsOutput = document.getElementById("results-output");
+const retakeButton = document.getElementById("retake-button");
 
 function escapeHtml(value) {
   return String(value)
@@ -151,262 +257,294 @@ function escapeHtml(value) {
     .replaceAll('"', "&quot;");
 }
 
-function selectedRole() {
-  return roles.find((role) => role.id === state.role);
+function questionName(questionNumber) {
+  return `question-${questionNumber}`;
 }
 
-function selectedLevel() {
-  return levels.find((level) => level.id === state.level);
+function optionId(questionNumber, letter) {
+  return `question-${questionNumber}-${letter.toLowerCase()}`;
 }
 
-function selectedStruggle() {
-  return struggles.find((struggle) => struggle.id === state.struggle);
-}
+function renderQuiz() {
+  let questionNumber = 1;
 
-function renderChoiceCards(container, groupName, items, selectedId) {
-  container.innerHTML = items
-    .map(
-      (item) => `
-        <label class="choice-card ${item.id === selectedId ? "is-selected" : ""}">
-          <input type="radio" name="${groupName}" value="${item.id}" ${item.id === selectedId ? "checked" : ""} />
-          <span class="choice-title">${escapeHtml(item.title)}</span>
-          ${item.summary ? `<span class="choice-copy">${escapeHtml(item.summary)}</span>` : ""}
-          ${item.description ? `<span class="choice-copy">${escapeHtml(item.description)}</span>` : ""}
-        </label>
-      `
-    )
-    .join("");
-}
+  questionsContainer.innerHTML = sections
+    .map((section, sectionIndex) => {
+      const questionsHtml = section.questions
+        .map((question) => {
+          const currentNumber = questionNumber++;
+          const optionsHtml = [...question.options, idkAnswer.text]
+            .map((option, optionIndex) => {
+              const letter = letterLabels[optionIndex];
+              const id = optionId(currentNumber, letter);
 
-function renderAssessment() {
-  const role = selectedRole();
-  const questions = [...role.questions, ...generalQuestions];
+              return `
+                <label class="option-card" for="${id}">
+                  <input id="${id}" type="radio" name="${questionName(currentNumber)}" value="${letter}" />
+                  <span class="option-letter">${letter}</span>
+                  <span>${escapeHtml(option)}</span>
+                </label>
+              `;
+            })
+            .join("");
 
-  assessmentOptions.innerHTML = questions
-    .map((question, index) => {
-      const id = `skill-${index}`;
-      const isChecked = state.skills.has(question);
+          return `
+            <article class="question-card" data-question-card="${currentNumber}">
+              <div class="question-heading">
+                <span>Question ${currentNumber}</span>
+                <h3>${escapeHtml(question.prompt)}</h3>
+              </div>
+              ${question.code ? `<pre><code>${escapeHtml(question.code)}</code></pre>` : ""}
+              <div class="option-grid">${optionsHtml}</div>
+            </article>
+          `;
+        })
+        .join("");
 
       return `
-        <label class="check-card ${isChecked ? "is-selected" : ""}">
-          <input type="checkbox" name="skills" value="${escapeHtml(question)}" ${isChecked ? "checked" : ""} />
-          <span class="check-mark" aria-hidden="true"></span>
-          <span>${escapeHtml(question)}</span>
-        </label>
+        <section class="quiz-group" aria-labelledby="section-${sectionIndex + 1}">
+          <div class="section-heading">
+            <p class="eyebrow">Section ${sectionIndex + 1}</p>
+            <h2 id="section-${sectionIndex + 1}">${escapeHtml(section.title)}</h2>
+            ${section.subtitle ? `<p>${escapeHtml(section.subtitle)}</p>` : ""}
+          </div>
+          ${questionsHtml}
+        </section>
       `;
     })
     .join("");
 }
 
-function renderStruggles() {
-  renderChoiceCards(struggleOptions, "struggle", struggles, state.struggle);
+function getSelections() {
+  const formData = new FormData(form);
+  const selections = {};
+
+  for (let questionNumber = 1; questionNumber <= totalQuestions; questionNumber += 1) {
+    selections[questionNumber] = formData.get(questionName(questionNumber));
+  }
+
+  return selections;
 }
 
-function updateStep() {
-  steps.forEach((step) => {
-    step.classList.toggle("is-active", Number(step.dataset.step) === state.step);
+function updateProgress() {
+  const answered = Object.values(getSelections()).filter(Boolean).length;
+  progressLabel.textContent = `${answered} of ${totalQuestions} answered`;
+  progressMeter.style.width = `${(answered / totalQuestions) * 100}%`;
+  formMessage.textContent = answered === totalQuestions ? "Ready to submit." : "";
+}
+
+function getQuestionByNumber(number) {
+  let cursor = 1;
+
+  for (const section of sections) {
+    for (const question of section.questions) {
+      if (cursor === number) {
+        return { section, question };
+      }
+      cursor += 1;
+    }
+  }
+
+  return null;
+}
+
+function gradeQuiz(selections) {
+  let totalCorrect = 0;
+  let totalIdk = 0;
+  let cursor = 1;
+
+  const sectionScores = sections.map((section) => {
+    let correct = 0;
+    let idk = 0;
+
+    section.questions.forEach((question) => {
+      if (selections[cursor] === question.answer) {
+        correct += 1;
+        totalCorrect += 1;
+      }
+
+      if (selections[cursor] === idkAnswer.letter) {
+        idk += 1;
+        totalIdk += 1;
+      }
+
+      cursor += 1;
+    });
+
+    return {
+      title: section.title,
+      score: correct,
+      idk,
+      interpretation: sectionInterpretation(correct)
+    };
   });
-  progressLabel.textContent = `Step ${state.step} of ${totalSteps}`;
-  progressMeter.style.width = `${(state.step / totalSteps) * 100}%`;
-  backButton.disabled = state.step === 1;
-  nextButton.classList.toggle("is-hidden", state.step === totalSteps);
+
+  return { totalCorrect, totalIdk, sectionScores };
 }
 
-function syncCards() {
-  renderChoiceCards(roleOptions, "role", roles, state.role);
-  renderChoiceCards(levelOptions, "level", levels, state.level);
-  renderAssessment();
-  renderStruggles();
+function sectionInterpretation(score) {
+  if (score <= 2) return "Major weakness";
+  if (score === 3) return "Needs improvement";
+  if (score === 4) return "Good";
+  return "Interview ready";
 }
 
-function getWeakSkills() {
-  const role = selectedRole();
-  const allQuestions = [...role.questions, ...generalQuestions];
-  return allQuestions.filter((question) => !state.skills.has(question));
+function scoreBand(score) {
+  return scoreBands.find((band) => score >= band.min && score <= band.max);
 }
 
-function getPhaseOneFocus() {
-  const role = selectedRole();
-  const weakSkills = getWeakSkills();
-  const roleFocus = role.fundamentals.slice(0, 4);
+function listHtml(items) {
+  if (!items || items.length === 0) return "";
+  return `<ul>${items.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>`;
+}
 
-  if (weakSkills.length === 0) {
-    return roleFocus;
+function optionText(question, letter) {
+  if (letter === idkAnswer.letter) {
+    return idkAnswer.text;
   }
 
-  return roleFocus.map((skill, index) => (weakSkills[index] ? skill : roleFocus[index])).slice(0, 4);
+  const index = letterLabels.indexOf(letter);
+  return question.options[index] ?? "";
 }
 
-function phaseTwoCopy() {
-  const struggle = selectedStruggle();
+function renderResults(selections, grade) {
+  const band = scoreBand(grade.totalCorrect);
+  const percentage = Math.round((grade.totalCorrect / totalQuestions) * 100);
 
-  const copy = {
-    "no-projects": "Build one complete project instead of collecting half-finished ideas.",
-    "weak-resume": "Turn your best project into resume evidence with measurable, technical bullets.",
-    "no-interviews": "Package the project so recruiters can understand your signal in under 20 seconds.",
-    "failing-interviews": "Use the project as your anchor for behavioral and technical explanations.",
-    "dont-know": "Let one project decide what you learn next instead of learning everything in theory.",
-    "no-confidence": "Create proof you can point to, demo, and explain without apologizing."
-  };
+  const sectionDiagnosis = grade.sectionScores
+    .map(
+      (section) => `
+        <article class="diagnosis-card">
+          <span>${escapeHtml(section.title)}</span>
+          <strong>${section.score} / 5</strong>
+          <p>${escapeHtml(section.interpretation)}</p>
+          ${section.idk > 0 ? `<small>${section.idk} marked I don't know</small>` : ""}
+        </article>
+      `
+    )
+    .join("");
 
-  return copy[struggle.id];
-}
+  const reviewRows = Array.from({ length: totalQuestions }, (_, index) => {
+    const questionNumber = index + 1;
+    const item = getQuestionByNumber(questionNumber);
+    const selected = selections[questionNumber];
+    const isCorrect = selected === item.question.answer;
+    const isIdk = selected === idkAnswer.letter;
 
-function getPracticeItems() {
-  const struggle = selectedStruggle();
-  const base = ["explain architecture", "explain tradeoffs", "mock technical questions"];
+    return `
+      <tr>
+        <td>${questionNumber}</td>
+        <td>${escapeHtml(item.section.title)}</td>
+        <td>
+          <span class="status-pill ${isCorrect ? "is-correct" : isIdk ? "is-idk" : "is-incorrect"}">
+            ${isCorrect ? "Correct" : isIdk ? "IDK" : "Review"}
+          </span>
+        </td>
+        <td>${escapeHtml(selected)} - ${escapeHtml(optionText(item.question, selected))}</td>
+        <td>${escapeHtml(item.question.answer)} - ${escapeHtml(optionText(item.question, item.question.answer))}</td>
+      </tr>
+    `;
+  }).join("");
 
-  if (struggle.id === "failing-interviews") {
-    return ["timed coding questions", "system walkthroughs", "behavioral stories", "post-mock review notes"];
-  }
-
-  if (struggle.id === "no-confidence") {
-    return ["record project walkthroughs", "repeat mock explanations", "small daily coding wins", "weekly feedback"];
-  }
-
-  return base;
-}
-
-function roadmapHtml() {
-  const role = selectedRole();
-  const level = selectedLevel();
-  const struggle = selectedStruggle();
-  const weakSkills = getWeakSkills();
-  const focus = getPhaseOneFocus();
-  const practice = getPracticeItems();
-  const priorities = [...new Set([...role.priorities, ...weakSkills.slice(0, 2).map((skill) => skill.replace("?", "").toLowerCase())])].slice(0, 5);
-  const avoidItems = [
-    ...role.avoid,
-    struggle.id === "dont-know" ? "switching topics every few days" : "random tutorials that do not improve your target role"
-  ];
-
-  return `
-    <div class="summary-grid">
-      <article>
-        <span>Target Role</span>
-        <strong>${escapeHtml(role.title)}</strong>
-      </article>
-      <article>
-        <span>Current Level</span>
-        <strong>${escapeHtml(level.title)}</strong>
-      </article>
-      <article>
-        <span>Biggest Bottleneck</span>
-        <strong>${escapeHtml(struggle.bottleneck)}</strong>
-      </article>
+  resultsOutput.innerHTML = `
+    <div class="score-panel">
+      <div>
+        <span class="score-kicker">Final Score</span>
+        <strong>${grade.totalCorrect} / ${totalQuestions}</strong>
+        <p>${percentage}% correct | ${grade.totalIdk} marked I don't know</p>
+      </div>
+      <div>
+        <h3>${escapeHtml(band.title)}</h3>
+        <p>This interpretation is based on the submitted answers. IDK selections are counted separately so guessing does not hide knowledge gaps.</p>
+      </div>
     </div>
 
-    <div class="roadmap-grid">
-      <article class="phase-card">
-        <p class="phase-label">Phase 1 - Week 1-2</p>
-        <h3>Strengthen ${escapeHtml(role.title.replace(" Engineer", ""))} Fundamentals</h3>
-        <p>${escapeHtml(level.weekOne)}</p>
-        <h4>Focus</h4>
-        <ul>${focus.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
-        <h4>Build</h4>
-        <ul>
-          <li>${escapeHtml(focus[0])} mini-feature</li>
-          <li>debugging notes for every issue you solve</li>
-        </ul>
+    <div class="results-grid">
+      <article class="insight-panel">
+        <h3>Strengths</h3>
+        ${listHtml(band.strengths.length ? band.strengths : ["Foundational progress has started"])}
       </article>
-
-      <article class="phase-card">
-        <p class="phase-label">Phase 2 - Week 3-4</p>
-        <h3>Build One Resume-Level Project</h3>
-        <p>${escapeHtml(phaseTwoCopy())}</p>
-        <h4>Project</h4>
-        <p class="project-name">${escapeHtml(role.project)}</p>
-        <h4>Required Features</h4>
-        <ul>${role.features.map((feature) => `<li>${escapeHtml(feature)}</li>`).join("")}</ul>
+      <article class="insight-panel">
+        <h3>Focus Areas</h3>
+        ${listHtml(band.focus)}
       </article>
-
-      <article class="phase-card">
-        <p class="phase-label">Phase 3 - Week 5</p>
-        <h3>Interview Readiness</h3>
-        <p>Make your knowledge easy to prove under pressure.</p>
-        <h4>Practice</h4>
-        <ul>${practice.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
-      </article>
-
-      <article class="phase-card">
-        <p class="phase-label">Phase 4 - Week 6</p>
-        <h3>Outreach & Applications</h3>
-        <p>Use targeted volume instead of passive applications.</p>
-        <h4>Goals</h4>
-        <ul>
-          <li>5 tailored applications per week</li>
-          <li>10 referral DMs per week</li>
-          <li>startup outreach with a project demo link</li>
-        </ul>
-      </article>
+      ${band.recommended ? `<article class="insight-panel wide"><h3>Recommended Priority</h3>${listHtml(band.recommended)}</article>` : ""}
     </div>
 
-    <div class="strategy-grid">
-      <article class="priority-panel">
-        <h3>Priority Skills</h3>
-        <ol>${priorities.map((skill) => `<li>${escapeHtml(skill)}</li>`).join("")}</ol>
-      </article>
-      <article class="stop-panel">
-        <h3>What NOT To Learn</h3>
-        <ul>${avoidItems.map((item) => `<li>${escapeHtml(item)}</li>`).join("")}</ul>
-      </article>
+    <div class="section-diagnosis">
+      <div class="section-heading">
+        <p class="eyebrow">Skill Gap Diagnosis</p>
+        <h2>Section scores</h2>
+      </div>
+      <div class="diagnosis-grid">${sectionDiagnosis}</div>
+    </div>
+
+    <div class="answer-review">
+      <div class="section-heading">
+        <p class="eyebrow">Answer Key</p>
+        <h2>Review after submission</h2>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>Question</th>
+              <th>Section</th>
+              <th>Status</th>
+              <th>Submitted</th>
+              <th>Correct Answer</th>
+            </tr>
+          </thead>
+          <tbody>${reviewRows}</tbody>
+        </table>
+      </div>
     </div>
   `;
 }
 
-function generateRoadmap() {
-  roadmapOutput.innerHTML = roadmapHtml();
-  results.classList.remove("is-hidden");
-  results.focus();
-}
+form.addEventListener("change", (event) => {
+  const optionCard = event.target.closest(".option-card");
+  const questionCard = event.target.closest(".question-card");
 
-syncCards();
-updateStep();
+  if (optionCard && questionCard) {
+    questionCard.querySelectorAll(".option-card").forEach((card) => {
+      card.classList.toggle("is-selected", card === optionCard);
+    });
+  }
 
-roleOptions.addEventListener("change", (event) => {
-  state.role = event.target.value;
-  state.skills.clear();
-  syncCards();
-});
-
-levelOptions.addEventListener("change", (event) => {
-  state.level = event.target.value;
-  syncCards();
-});
-
-assessmentOptions.addEventListener("change", () => {
-  state.skills = new Set([...new FormData(form).getAll("skills")]);
-  syncCards();
-});
-
-struggleOptions.addEventListener("change", (event) => {
-  state.struggle = event.target.value;
-  syncCards();
-});
-
-nextButton.addEventListener("click", () => {
-  state.step = Math.min(totalSteps, state.step + 1);
-  updateStep();
-});
-
-backButton.addEventListener("click", () => {
-  state.step = Math.max(1, state.step - 1);
-  updateStep();
+  updateProgress();
 });
 
 form.addEventListener("submit", (event) => {
   event.preventDefault();
-  generateRoadmap();
+
+  const selections = getSelections();
+  const unanswered = Object.entries(selections)
+    .filter(([, value]) => !value)
+    .map(([number]) => Number(number));
+
+  if (unanswered.length > 0) {
+    const firstUnanswered = document.querySelector(`[data-question-card="${unanswered[0]}"]`);
+    formMessage.textContent = `Please answer all questions before submitting. First missing: Question ${unanswered[0]}.`;
+    firstUnanswered?.scrollIntoView({ behavior: "smooth", block: "center" });
+    return;
+  }
+
+  renderResults(selections, gradeQuiz(selections));
+  results.classList.remove("is-hidden");
+  results.focus();
+  results.scrollIntoView({ behavior: "smooth" });
 });
 
-startOverButton.addEventListener("click", () => {
-  state.step = 1;
-  state.role = roles[0].id;
-  state.level = levels[0].id;
-  state.struggle = struggles[0].id;
-  state.skills.clear();
+retakeButton.addEventListener("click", () => {
+  form.reset();
   results.classList.add("is-hidden");
-  syncCards();
-  updateStep();
-  document.getElementById("generator").scrollIntoView({ behavior: "smooth" });
+  resultsOutput.innerHTML = "";
+  formMessage.textContent = "";
+  document.querySelectorAll(".option-card").forEach((card) => card.classList.remove("is-selected"));
+  updateProgress();
+  document.getElementById("quiz").scrollIntoView({ behavior: "smooth" });
 });
+
+renderQuiz();
+updateProgress();
