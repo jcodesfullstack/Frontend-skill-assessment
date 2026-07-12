@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Checkout | Software Engineering Career Coaching</title>
+    <meta
+      name="description"
+      content="Apply or enroll in Software Engineering Career Coaching through a simple checkout form."
+    />
+    <link rel="stylesheet" href="./styles.css?v=20260712-01" />
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="./index.html" aria-label="Software Engineering Career Coaching home">
+        <span aria-hidden="true">SE</span>
+        <strong>Career Coaching</strong>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a href="./index.html">Home</a>
+        <a href="./about.html">About</a>
+        <a href="./program.html">Program</a>
+        <a href="./pricing.html">Pricing</a>
+        <a class="nav-action" aria-current="page" href="./checkout.html">Apply Now</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="checkout-layout">
+        <div class="checkout-copy">
+          <p class="eyebrow">Checkout</p>
+          <h1>Start your software engineering career coaching application.</h1>
+          <p>
+            Share a few details and continue to Stripe Checkout to enroll in the full
+            coaching program.
+          </p>
+          <div class="checkout-summary">
+            <strong>Software Engineering Career Coaching</strong>
+            <span>$3,000 USD total</span>
+          </div>
+        </div>
+
+        <form id="checkout-form" class="checkout-form">
+          <label>
+            Full name
+            <input name="name" autocomplete="name" required placeholder="Your name" />
+          </label>
+          <label>
+            Email
+            <input name="email" type="email" autocomplete="email" required placeholder="you@example.com" />
+          </label>
+          <label>
+            Current stage
+            <select name="stage" required>
+              <option value="">Select one</option>
+              <option>Computer Science graduate</option>
+              <option>Junior software engineer</option>
+              <option>Career changer with programming experience</option>
+            </select>
+          </label>
+          <label>
+            Primary goal
+            <textarea name="goal" rows="4" placeholder="Tell me what you want help with first."></textarea>
+          </label>
+          <button class="button primary full" type="submit">Continue to Stripe</button>
+          <p id="checkout-status" class="form-status" role="status"></p>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>Software Engineering Career Coaching</p>
+      <a href="./pricing.html">View Pricing</a>
+    </footer>
+
+    <script type="module" src="./src/app.js?v=20260712-01"></script>
+  </body>
+</html>

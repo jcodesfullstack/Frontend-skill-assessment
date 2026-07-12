@@ -1,17 +1,24 @@
-# Frontend Engineering Skills Assessment
+# Software Engineering Career Coaching Site
 
-A client-facing static quiz for assessing frontend engineering readiness.
+A static multi-page website for a software engineering career coaching offer.
 
-The page includes:
+## Pages
 
-- 30 multiple-choice questions across 6 sections
-- "I don't know" option on every question to discourage guessing
-- Completion tracking with submit validation
-- Hidden answer key until after submission
-- Final score, readiness band, strengths, focus areas, and recommended priorities
-- Separate IDK count in the post-submit results
-- Section-by-section skill gap diagnosis
-- Post-submit answer review showing submitted answers and correct answers
+- `index.html`: Home page with hero, audience, services, results, and CTA
+- `about.html`: Story, coaching mission, and experience overview
+- `program.html`: Sales page with inclusions and fit criteria
+- `pricing.html`: Simple $3,000 pricing page
+- `checkout.html`: Simple application/checkout form that redirects to Stripe Checkout
+
+## Stripe Checkout
+
+The checkout form redirects to the live Stripe payment link in `src/app.js`:
+
+```js
+const STRIPE_CHECKOUT_URL = "https://buy.stripe.com/3cIdR84aG7Nse9u7wZfYY0g";
+```
+
+The checkout form pre-fills the email and passes a coaching-program reference to Stripe.
 
 ## Running Locally
 
@@ -26,9 +33,3 @@ Then open:
 ```text
 http://127.0.0.1:4180/index.html
 ```
-
-## Files
-
-- `index.html`: page shell and quiz containers
-- `styles.css`: responsive visual design
-- `src/app.js`: quiz data, answer key, scoring, validation, and results rendering

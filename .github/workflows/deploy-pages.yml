@@ -33,7 +33,7 @@ jobs:
       - name: Prepare site
         run: |
           mkdir -p dist
-          cp index.html dist/index.html
+          cp *.html dist/
           cp styles.css dist/styles.css
           cp -R src dist/src
 

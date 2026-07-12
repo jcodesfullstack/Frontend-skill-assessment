@@ -3,65 +3,125 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Frontend Engineering Skills Assessment</title>
-    <link rel="stylesheet" href="./styles.css?v=20260603-01" />
+    <title>Software Engineering Career Coaching</title>
+    <meta
+      name="description"
+      content="Personalized coaching for Computer Science graduates and junior software engineers looking to land higher-paying software engineering roles."
+    />
+    <link rel="stylesheet" href="./styles.css?v=20260712-01" />
   </head>
   <body>
-    <main class="app-shell">
-      <section class="hero" aria-labelledby="page-title">
-        <div class="hero-content">
-          <p class="eyebrow">Client skills assessment</p>
-          <h1 id="page-title">Frontend Engineering Skills Assessment</h1>
-          <p class="hero-copy">
-            A 30-question quiz across JavaScript, TypeScript, React, HTML/CSS,
-            Git, Node, SQL, testing, AI, cloud, and performance readiness.
+    <header class="site-header">
+      <a class="brand" href="./index.html" aria-label="Software Engineering Career Coaching home">
+        <span aria-hidden="true">SE</span>
+        <strong>Career Coaching</strong>
+      </a>
+      <nav class="site-nav" aria-label="Main navigation">
+        <a aria-current="page" href="./index.html">Home</a>
+        <a href="./about.html">About</a>
+        <a href="./program.html">Program</a>
+        <a href="./pricing.html">Pricing</a>
+        <a class="nav-action" href="./checkout.html">Apply Now</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <div class="hero-copy">
+          <p class="eyebrow">Software engineering career coaching</p>
+          <h1>Land Your Next Software Engineering Job</h1>
+          <p>
+            Personalized coaching for Computer Science graduates and junior software engineers
+            looking to land higher-paying software engineering roles.
           </p>
-          <a class="primary-button" href="#quiz">Start Assessment</a>
-        </div>
-
-        <div class="hero-panel" aria-label="Assessment details">
-          <span>6 sections</span>
-          <strong>30 questions</strong>
-          <p>Answers and explanations stay hidden until the quiz is submitted.</p>
+          <div class="button-row">
+            <a class="button primary" href="./checkout.html">Apply Now</a>
+            <a class="button secondary" href="./pricing.html">View Pricing</a>
+          </div>
         </div>
       </section>
 
-      <section class="quiz-section" id="quiz" aria-labelledby="quiz-title">
-        <div class="quiz-header">
-          <div>
-            <p class="eyebrow">Frontend Engineering Quiz</p>
-            <h2 id="quiz-title">Choose the best answer</h2>
-          </div>
-          <div class="progress-card" aria-live="polite">
-            <span id="progress-label">0 of 30 answered</span>
-            <div class="meter" aria-hidden="true">
-              <span id="progress-meter"></span>
-            </div>
-          </div>
+      <section class="split-section" aria-labelledby="who-i-help">
+        <div>
+          <p class="eyebrow">Who I Help</p>
+          <h2 id="who-i-help">For early-career developers ready for a stronger signal.</h2>
         </div>
-
-        <form id="quiz-form" class="quiz-form" novalidate>
-          <div id="quiz-questions"></div>
-          <div class="form-actions">
-            <p id="form-message" class="form-message" role="status"></p>
-            <button class="primary-button" type="submit">Submit Quiz</button>
-          </div>
-        </form>
+        <blockquote>
+          “I help Computer Science graduates and junior software engineers who are struggling
+          to land interviews, build competitive portfolios, or prepare for technical interviews.”
+        </blockquote>
       </section>
 
-      <section id="results" class="results is-hidden" aria-labelledby="results-title" tabindex="-1">
-        <div class="results-top">
-          <div>
-            <p class="eyebrow">Assessment results</p>
-            <h2 id="results-title">Skill profile</h2>
-          </div>
-          <button class="secondary-button" id="retake-button" type="button">Retake Quiz</button>
+      <section class="content-section" aria-labelledby="work-on">
+        <div class="section-heading">
+          <p class="eyebrow">What We Work On</p>
+          <h2 id="work-on">The pieces that turn applications into interviews.</h2>
         </div>
+        <div class="card-grid">
+          <article class="service-card">
+            <span aria-hidden="true">📄</span>
+            <h3>Resume Optimization</h3>
+            <p>Refine your experience, projects, and impact into a clear engineering story.</p>
+          </article>
+          <article class="service-card">
+            <span aria-hidden="true">💻</span>
+            <h3>Portfolio Projects</h3>
+            <p>Choose, scope, and polish projects that show real-world engineering judgment.</p>
+          </article>
+          <article class="service-card">
+            <span aria-hidden="true">🎯</span>
+            <h3>Technical Interview Preparation</h3>
+            <p>Practice coding, system thinking, communication, and interview follow-through.</p>
+          </article>
+          <article class="service-card">
+            <span aria-hidden="true">📈</span>
+            <h3>Job Search Strategy</h3>
+            <p>Build a focused search plan across roles, outreach, referrals, and tracking.</p>
+          </article>
+          <article class="service-card">
+            <span aria-hidden="true">🤝</span>
+            <h3>Weekly Coaching</h3>
+            <p>Stay accountable with direct feedback, next steps, and momentum each week.</p>
+          </article>
+        </div>
+      </section>
 
-        <div id="results-output"></div>
+      <section class="results-band" aria-labelledby="results">
+        <div class="section-heading">
+          <p class="eyebrow">Results</p>
+          <h2 id="results">Real conversations and proof from the work.</h2>
+        </div>
+        <div class="video-grid">
+          <article class="video-card">
+            <iframe
+              src="https://www.youtube.com/embed/XI1r99YEgKM"
+              title="Software engineering coaching result video"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </article>
+          <article class="video-card">
+            <iframe
+              src="https://www.youtube.com/embed/MjR_nqts7mc"
+              title="Software engineering coaching result video"
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen
+            ></iframe>
+          </article>
+        </div>
+      </section>
+
+      <section class="cta-section" aria-labelledby="home-cta">
+        <h2 id="home-cta">Ready to land your next software engineering role?</h2>
+        <a class="button primary" href="./checkout.html">Apply Today</a>
       </section>
     </main>
 
-    <script type="module" src="./src/app.js?v=20260603-01"></script>
+    <footer class="site-footer">
+      <p>Software Engineering Career Coaching</p>
+      <a href="./checkout.html">Apply Now</a>
+    </footer>
   </body>
 </html>
